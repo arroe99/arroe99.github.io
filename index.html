@@ -149,6 +149,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/21/sql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="罗成毅">
+      <meta itemprop="description" content="太6了吧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="罗成毅的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/21/sql/" class="post-title-link" itemprop="url">SQL笔记、</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-10-21 00:38:49 / 修改时间：00:39:01" itemprop="dateCreated datePublished" datetime="2023-10-21T00:38:49+08:00">2023-10-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>DBMS database management system 数据库管理系统<br>有五种类型：<br>层次数据库 hierarchical database HDB<br>关系数据库 relational database RDB   ————SQL structured query language 结构化查询语言  RDBMS关系数据库管理系统<br>面向对象数据库 object oriented database OODB<br>XML数据库 XMLDB<br>键值存储数据库 Key-Value Store KVS</p>
+<p>行是记录 列是字段<br>标准SQL<br>DDL data definition language 数据定义语言 包括有 create drop alter 创建 删除 修改 数据库或者表<br>DML data manipulation language 数据操纵语言 包括有 select insect updata delete 查询 插入 更新 删除表中的数据   最常用！<br>DCL data control language 数据控制语言 commit rollback grant revoke 数据库权限 确认取消什么的?</p>
+<p>common_table_expression公用表表达式</p>
+<p>case用法：<br>case a when cond1 then exp1（else cond2 then exp2） else exp3<br>如果 expr1 是TRUE (expr1 &lt;&gt; 0 and expr1 &lt;&gt; NULL)，则 IF()的返回值为expr2; 否则返回值则为 expr3。<br>IF(expr1,expr2,expr3<br>假如expr1 不为 NULL，则 IFNULL() 的返回值为 expr1; 否则其返回值为 expr2。<br>IFNULL(expr1,expr2) </p>
+<p>去重<br>SELECT DISTINCT 列名称 FROM 表名称</p>
+<p>不等于 &lt;&gt; 或者!&#x3D;</p>
+<p>复杂表达式<br>where ( xxx or xxx) and xxx</p>
+<p>order by 默认升序 字母的话 从a-z<br>order by xxx desc 逆序<br>order by 变量1,变量2</p>
+<p>插入新的行<br>INSERT INTO 表名称 VALUES (值1, 值2,….)<br>INSERT INTO Persons VALUES (‘Gates’, ‘Bill’, ‘Xuanwumen 10’, ‘Beijing’)</p>
+<p>指定插入的列<br>INSERT INTO table_name (列1, 列2,…) VALUES (值1, 值2,….)<br>INSERT INTO Persons (LastName, Address) VALUES (‘Wilson’, ‘Champs-Elysees’)</p>
+<p>修改表中数据<br>UPDATE 表名称 SET 列名称 &#x3D; 新值 WHERE 列名称 &#x3D; 某值<br>UPDATE Person SET FirstName &#x3D; ‘Fred’ WHERE LastName &#x3D; ‘Wilson’<br>修改多列数据，加逗号就行<br>UPDATE Person SET Address &#x3D; ‘Zhongshan 23’, City &#x3D; ‘Nanjing’ WHERE LastName &#x3D; ‘Wilson’</p>
+<p>删除整行<br>DELETE FROM 表名称 WHERE 列名称 &#x3D; 值<br>DELETE FROM Person WHERE LastName &#x3D; ‘Wilson’</p>
+<p>top子句 返回给定数字的记录<br>SELECT *<br>FROM Persons<br>LIMIT 5</p>
+<p>SELECT TOP 2 * FROM Persons<br>SELECT TOP 50 PERCENT * FROM Persons</p>
+<p>where 变量名 (not) like ‘%’<br>通配符<br>% 代表零个或多个字符<br>_ 代表1个</p>
+<p>使用 [charlist] 通配符<br>SELECT * FROM Persons<br>WHERE City LIKE ‘[ALN]%’<br>WHERE City LIKE ‘[!ALN]%’</p>
+<p>引号里面写引号 要转义 用两个引号？<br> ‘EUGENE O’’NEILL’</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/21/%E4%BD%A0%E5%A5%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -239,7 +314,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：1985-10-26 16:15:00" itemprop="dateModified" datetime="1985-10-26T16:15:00+08:00">1985-10-26</time>
+                <time title="修改时间：2023-10-21 00:38:20" itemprop="dateModified" datetime="2023-10-21T00:38:20+08:00">2023-10-21</time>
               </span>
 
           
@@ -253,19 +328,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+          <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -347,7 +410,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
