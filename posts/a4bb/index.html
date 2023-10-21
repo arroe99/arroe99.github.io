@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="SQL笔记、, Luo&#39;s Blog">
+    <meta name="keywords" content="SQL笔记, Luo&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>SQL笔记、 | Luo&#39;s Blog</title>
+    <title>SQL笔记 | Luo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">SQL笔记、</h1>
+                    <h1 class="description center-align post-title">SQL笔记</h1>
                 </div>
             </div>
         </div>
@@ -363,9 +363,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/SQL/">
+                                <span class="chip bg-color">SQL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -401,19 +405,44 @@
                 <p>DBMS database management system 数据库管理系统<br>有五种类型：<br>层次数据库 hierarchical database HDB<br>关系数据库 relational database RDB   ————SQL structured query language 结构化查询语言  RDBMS关系数据库管理系统<br>面向对象数据库 object oriented database OODB<br>XML数据库 XMLDB<br>键值存储数据库 Key-Value Store KVS</p>
 <p>行是记录 列是字段<br>标准SQL<br>DDL data definition language 数据定义语言 包括有 create drop alter 创建 删除 修改 数据库或者表<br>DML data manipulation language 数据操纵语言 包括有 select insect updata delete 查询 插入 更新 删除表中的数据   最常用！<br>DCL data control language 数据控制语言 commit rollback grant revoke 数据库权限 确认取消什么的?</p>
 <p>common_table_expression公用表表达式</p>
-<p>case用法：<br>case a when cond1 then exp1（else cond2 then exp2） else exp3<br>如果 expr1 是TRUE (expr1 &lt;&gt; 0 and expr1 &lt;&gt; NULL)，则 IF()的返回值为expr2; 否则返回值则为 expr3。<br>IF(expr1,expr2,expr3<br>假如expr1 不为 NULL，则 IFNULL() 的返回值为 expr1; 否则其返回值为 expr2。<br>IFNULL(expr1,expr2) </p>
+<p>case用法：<br>case  when cond1 then exp1（else cond2 then exp2） else exp3<br>如果 expr1 是TRUE (expr1 &lt;&gt; 0 and expr1 &lt;&gt; NULL)，则 IF()的返回值为expr2; 否则返回值则为 expr3。<br>IF(expr1,expr2,expr3<br>假如expr1 不为 NULL，则 IFNULL() 的返回值为 expr1; 否则其返回值为 expr2。<br>IFNULL(expr1,expr2) </p>
 <p>去重<br>SELECT DISTINCT 列名称 FROM 表名称</p>
 <p>不等于 &lt;&gt; 或者!&#x3D;</p>
 <p>复杂表达式<br>where ( xxx or xxx) and xxx</p>
 <p>order by 默认升序 字母的话 从a-z<br>order by xxx desc 逆序<br>order by 变量1,变量2</p>
-<p>插入新的行<br>INSERT INTO 表名称 VALUES (值1, 值2,….)<br>INSERT INTO Persons VALUES (‘Gates’, ‘Bill’, ‘Xuanwumen 10’, ‘Beijing’)</p>
-<p>指定插入的列<br>INSERT INTO table_name (列1, 列2,…) VALUES (值1, 值2,….)<br>INSERT INTO Persons (LastName, Address) VALUES (‘Wilson’, ‘Champs-Elysees’)</p>
-<p>修改表中数据<br>UPDATE 表名称 SET 列名称 &#x3D; 新值 WHERE 列名称 &#x3D; 某值<br>UPDATE Person SET FirstName &#x3D; ‘Fred’ WHERE LastName &#x3D; ‘Wilson’<br>修改多列数据，加逗号就行<br>UPDATE Person SET Address &#x3D; ‘Zhongshan 23’, City &#x3D; ‘Nanjing’ WHERE LastName &#x3D; ‘Wilson’</p>
-<p>删除整行<br>DELETE FROM 表名称 WHERE 列名称 &#x3D; 值<br>DELETE FROM Person WHERE LastName &#x3D; ‘Wilson’</p>
-<p>top子句 返回给定数字的记录<br>SELECT *<br>FROM Persons<br>LIMIT 5</p>
-<p>SELECT TOP 2 * FROM Persons<br>SELECT TOP 50 PERCENT * FROM Persons</p>
+<p>插入新的行</p>
+<pre><code>INSERT INTO 表名称 VALUES (值1, 值2,....)
+INSERT INTO Persons VALUES (&#39;Gates&#39;, &#39;Bill&#39;, &#39;Xuanwumen 10&#39;, &#39;Beijing&#39;)
+</code></pre>
+<p>指定插入的列</p>
+<pre class=" language-matlab"><code class="language-matlab">INSERT INTO <span class="token function">table_name</span> <span class="token punctuation">(</span>列<span class="token number">1</span><span class="token punctuation">,</span> 列<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">...</span><span class="token punctuation">)</span> <span class="token function">VALUES</span> <span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">,</span> 值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">...</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+INSERT INTO <span class="token function">Persons</span> <span class="token punctuation">(</span>LastName<span class="token punctuation">,</span> Address<span class="token punctuation">)</span> <span class="token function">VALUES</span> <span class="token punctuation">(</span><span class="token string">'Wilson'</span><span class="token punctuation">,</span> <span class="token string">'Champs-Elysees'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>修改表中数据</p>
+<pre><code>UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值
+UPDATE Person SET FirstName = &#39;Fred&#39; WHERE LastName = &#39;Wilson&#39; 
+</code></pre>
+<p>修改多列数据，加逗号就行</p>
+<pre><code>UPDATE Person SET Address = &#39;Zhongshan 23&#39;, City = &#39;Nanjing&#39; WHERE LastName = &#39;Wilson&#39;
+</code></pre>
+<p>删除整行</p>
+<pre><code>DELETE FROM 表名称 WHERE 列名称 = 值
+DELETE FROM Person WHERE LastName = &#39;Wilson&#39;
+</code></pre>
+<p>top子句 返回给定数字的记录</p>
+<pre><code>SELECT *
+FROM Persons
+LIMIT 5
+</code></pre>
+<pre><code>SELECT TOP 2 * FROM Persons
+SELECT TOP 50 PERCENT * FROM Persons
+</code></pre>
 <p>where 变量名 (not) like ‘%’<br>通配符<br>% 代表零个或多个字符<br>_ 代表1个</p>
-<p>使用 [charlist] 通配符<br>SELECT * FROM Persons<br>WHERE City LIKE ‘[ALN]%’<br>WHERE City LIKE ‘[!ALN]%’</p>
+<p>使用 [charlist] 通配符</p>
+<pre><code>SELECT * FROM Persons
+WHERE City LIKE &#39;[ALN]%&#39;
+WHERE City LIKE &#39;[!ALN]%&#39;
+</code></pre>
 <p>引号里面写引号 要转义 用两个引号？<br> ‘EUGENE O’’NEILL’</p>
 
                 
@@ -478,7 +507,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/SQL/">
+                                    <span class="chip bg-color">SQL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -602,6 +635,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/blog/">
+                        <span class="chip bg-color">blog</span>
+                    </a>
+                    
                 </div>
                 
             </div>
