@@ -374,6 +374,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                学习笔记
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -411,37 +420,37 @@
 <p>复杂表达式<br>where ( xxx or xxx) and xxx</p>
 <p>order by 默认升序 字母的话 从a-z<br>order by xxx desc 逆序<br>order by 变量1,变量2</p>
 <p>插入新的行</p>
-<pre><code>INSERT INTO 表名称 VALUES (值1, 值2,....)
-INSERT INTO Persons VALUES (&#39;Gates&#39;, &#39;Bill&#39;, &#39;Xuanwumen 10&#39;, &#39;Beijing&#39;)
+<pre class=" language-MySQL"><code class="language-MySQL">INSERT INTO 表名称 VALUES (值1, 值2,....)
+INSERT INTO Persons VALUES ('Gates', 'Bill', 'Xuanwumen 10', 'Beijing')
 </code></pre>
 <p>指定插入的列</p>
-<pre class=" language-matlab"><code class="language-matlab">INSERT INTO <span class="token function">table_name</span> <span class="token punctuation">(</span>列<span class="token number">1</span><span class="token punctuation">,</span> 列<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">...</span><span class="token punctuation">)</span> <span class="token function">VALUES</span> <span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">,</span> 值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">...</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
-INSERT INTO <span class="token function">Persons</span> <span class="token punctuation">(</span>LastName<span class="token punctuation">,</span> Address<span class="token punctuation">)</span> <span class="token function">VALUES</span> <span class="token punctuation">(</span><span class="token string">'Wilson'</span><span class="token punctuation">,</span> <span class="token string">'Champs-Elysees'</span><span class="token punctuation">)</span>
+<pre class=" language-MySQL"><code class="language-MySQL">INSERT INTO table_name (列1, 列2,...) VALUES (值1, 值2,....)
+INSERT INTO Persons (LastName, Address) VALUES ('Wilson', 'Champs-Elysees')
 </code></pre>
 <p>修改表中数据</p>
-<pre><code>UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值
-UPDATE Person SET FirstName = &#39;Fred&#39; WHERE LastName = &#39;Wilson&#39; 
+<pre class=" language-MySQL"><code class="language-MySQL">UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值
+UPDATE Person SET FirstName = 'Fred' WHERE LastName = 'Wilson' 
 </code></pre>
 <p>修改多列数据，加逗号就行</p>
-<pre><code>UPDATE Person SET Address = &#39;Zhongshan 23&#39;, City = &#39;Nanjing&#39; WHERE LastName = &#39;Wilson&#39;
+<pre class=" language-MySQL"><code class="language-MySQL">UPDATE Person SET Address = 'Zhongshan 23', City = 'Nanjing' WHERE LastName = 'Wilson'
 </code></pre>
 <p>删除整行</p>
-<pre><code>DELETE FROM 表名称 WHERE 列名称 = 值
-DELETE FROM Person WHERE LastName = &#39;Wilson&#39;
+<pre class=" language-MySQL"><code class="language-MySQL">DELETE FROM 表名称 WHERE 列名称 = 值
+DELETE FROM Person WHERE LastName = 'Wilson'
 </code></pre>
 <p>top子句 返回给定数字的记录</p>
-<pre><code>SELECT *
+<pre class=" language-MySQL"><code class="language-MySQL">SELECT *
 FROM Persons
 LIMIT 5
 </code></pre>
-<pre><code>SELECT TOP 2 * FROM Persons
+<pre class=" language-MySQL"><code class="language-MySQL">SELECT TOP 2 * FROM Persons
 SELECT TOP 50 PERCENT * FROM Persons
 </code></pre>
 <p>where 变量名 (not) like ‘%’<br>通配符<br>% 代表零个或多个字符<br>_ 代表1个</p>
 <p>使用 [charlist] 通配符</p>
-<pre><code>SELECT * FROM Persons
-WHERE City LIKE &#39;[ALN]%&#39;
-WHERE City LIKE &#39;[!ALN]%&#39;
+<pre class=" language-MySQL"><code class="language-MySQL">SELECT * FROM Persons
+WHERE City LIKE '[ALN]%'
+WHERE City LIKE '[!ALN]%'
 </code></pre>
 <p>引号里面写引号 要转义 用两个引号？<br> ‘EUGENE O’’NEILL’</p>
 
@@ -560,15 +569,15 @@ WHERE City LIKE &#39;[!ALN]%&#39;
                 <a href="/posts/77f7/">
                     <div class="card-image">
                         
-                        <img src="/images/640.jpg" class="responsive-img" alt="hexo的个性化配置">
+                        <img src="/images/640.jpg" class="responsive-img" alt="hexo相关">
                         
-                        <span class="card-title">hexo的个性化配置</span>
+                        <span class="card-title">hexo相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            hexo的matery主题的个性化配置
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -590,12 +599,12 @@ WHERE City LIKE &#39;[!ALN]%&#39;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
                     <a href="/tags/blog/">
                         <span class="chip bg-color">blog</span>
+                    </a>
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
