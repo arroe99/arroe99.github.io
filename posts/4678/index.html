@@ -398,7 +398,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2015-07-23
+                    2023-10-23
                 </div>
                 
 
@@ -422,13 +422,13 @@
                 <h1 id="R-Markdown"><a href="#R-Markdown" class="headerlink" title="R Markdown"></a>R Markdown</h1><p>This is an R Markdown document. Please note this page was <strong>not</strong> rendered using the <a target="_blank" rel="noopener" href="http://rmarkdown.rstudio.com/"><strong>rmarkdown</strong></a> package or <a target="_blank" rel="noopener" href="http://pandoc.org/">Pandoc</a>. The R Markdown document is compiled to Markdown through <strong>knitr</strong>, and the Markdown document is rendered to HTML through <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">Hexo’s Markdown renderer</a>.</p>
 <p>You can embed an R code chunk like this:</p>
 <pre class=" language-r"><code class="language-r">summary<span class="token punctuation">(</span>cars<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">##      speed           dist    </span>
-<span class="token comment" spellcheck="true">##  Min.   : 4.0   Min.   :  2  </span>
-<span class="token comment" spellcheck="true">##  1st Qu.:12.0   1st Qu.: 26  </span>
-<span class="token comment" spellcheck="true">##  Median :15.0   Median : 36  </span>
-<span class="token comment" spellcheck="true">##  Mean   :15.4   Mean   : 43  </span>
-<span class="token comment" spellcheck="true">##  3rd Qu.:19.0   3rd Qu.: 56  </span>
-<span class="token comment" spellcheck="true">##  Max.   :25.0   Max.   :120</span>
+<span class="token comment" spellcheck="true">##      speed           dist       </span>
+<span class="token comment" spellcheck="true">##  Min.   : 4.0   Min.   :  2.00  </span>
+<span class="token comment" spellcheck="true">##  1st Qu.:12.0   1st Qu.: 26.00  </span>
+<span class="token comment" spellcheck="true">##  Median :15.0   Median : 36.00  </span>
+<span class="token comment" spellcheck="true">##  Mean   :15.4   Mean   : 42.98  </span>
+<span class="token comment" spellcheck="true">##  3rd Qu.:19.0   3rd Qu.: 56.00  </span>
+<span class="token comment" spellcheck="true">##  Max.   :25.0   Max.   :120.00</span>
 fit <span class="token operator">&lt;-</span> lm<span class="token punctuation">(</span>dist <span class="token operator">~</span> speed<span class="token punctuation">,</span> data <span class="token operator">=</span> cars<span class="token punctuation">)</span>
 fit
 <span class="token comment" spellcheck="true">## </span>
@@ -437,7 +437,7 @@ fit
 <span class="token comment" spellcheck="true">## </span>
 <span class="token comment" spellcheck="true">## Coefficients:</span>
 <span class="token comment" spellcheck="true">## (Intercept)        speed  </span>
-<span class="token comment" spellcheck="true">##      -17.58         3.93</span>
+<span class="token comment" spellcheck="true">##     -17.579        3.932</span>
 </code></pre>
 <h1 id="Including-Plots"><a href="#Including-Plots" class="headerlink" title="Including Plots"></a>Including Plots</h1><p>You can also embed R plots:</p>
 <pre class=" language-r"><code class="language-r">par<span class="token punctuation">(</span>mar <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -448,7 +448,7 @@ pie<span class="token punctuation">(</span>
   init.angle <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">,</span> border <span class="token operator">=</span> <span class="token keyword">NA</span>
 <span class="token punctuation">)</span>
 </code></pre>
-<p><img src="/figure/posts/2015-07-23-r-rmarkdown/pie-1.png"></p>
+<p><img src="/figure/pie-1.png"></p>
 
                 
             </div>
@@ -566,65 +566,9 @@ pie<span class="token punctuation">(</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/posts/4678/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Hello R Markdown">
-                        
-                        <span class="card-title">Hello R Markdown</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2015-07-23
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/R/" class="post-category">
-                                    R
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/R-Markdown/">
-                        <span class="chip bg-color">R Markdown</span>
-                    </a>
-                    
-                    <a href="/tags/plot/">
-                        <span class="chip bg-color">plot</span>
-                    </a>
-                    
-                    <a href="/tags/regression/">
-                        <span class="chip bg-color">regression</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
                 <a href="/posts/4678/">
@@ -644,7 +588,7 @@ pie<span class="token punctuation">(</span>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2015-07-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-23
                             </span>
                         <span class="publish-author">
                             
@@ -672,6 +616,58 @@ pie<span class="token punctuation">(</span>
                     
                     <a href="/tags/regression/">
                         <span class="chip bg-color">regression</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/77f7/">
+                    <div class="card-image">
+                        
+                        <img src="/images/640.jpg" class="responsive-img" alt="hexo相关">
+                        
+                        <span class="card-title">hexo相关</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/hexo/" class="post-category">
+                                    hexo
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/blog/">
+                        <span class="chip bg-color">blog</span>
+                    </a>
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
