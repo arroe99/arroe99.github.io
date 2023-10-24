@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo相关, Luo&#39;s Blog">
+    <meta name="keywords" content="Hello R Markdown, Luo&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo相关 | Luo&#39;s Blog</title>
+    <title>Hello R Markdown | Luo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/640.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo相关</h1>
+                    <h1 class="description center-align post-title">Hello R Markdown</h1>
                 </div>
             </div>
         </div>
@@ -259,10 +259,104 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -271,12 +365,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/blog/">
-                                <span class="chip bg-color">blog</span>
+                            <a href="/tags/R-Markdown/">
+                                <span class="chip bg-color">R Markdown</span>
                             </a>
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/plot/">
+                                <span class="chip bg-color">plot</span>
+                            </a>
+                        
+                            <a href="/tags/regression/">
+                                <span class="chip bg-color">regression</span>
                             </a>
                         
                     </div>
@@ -287,8 +385,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/hexo/" class="post-category">
-                                hexo
+                            <a href="/categories/R/" class="post-category">
+                                R
                             </a>
                         
                     </div>
@@ -300,7 +398,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-10-21
+                    2023-10-23
                 </div>
                 
 
@@ -321,30 +419,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>这是头文件的结构</p>
-<pre><code>title: hexo的个性化配置
-author: 罗成毅
-date:
-img: /images/640.jpg
-top: true
-cover: true
-coverImg: /images/666.jpg
-toc: false
-mathjax: false
-summary: hexo的matery主题的个性化配置
-categories: hexo
-tags:
-  - hexo
-  - blog
-abbrlink: 77f7
-password:
+                <p>因为R语言相关的资料用Rmarkdown写比较方便，所以先研究了一下怎么把Rmarkdown结合hexo进行上传，网上的资料甚少。最后搜到了<a target="_blank" rel="noopener" href="https://bookdown.org/yihui/blogdown/hexo.html">谢益辉大大</a>在章节5.2中提到了怎么用hexo上传Rmarkdown。<br>从<a target="_blank" rel="noopener" href="https://github.com/yihui/blogdown-hexo">这里</a>下载相关的文件，把.Rprofile, R&#x2F;build.R, 和 R&#x2F;build_one.R放到博客的根目录，然后就跟其他文章一样可以用rmd写日志了。</p>
+<p>以下是原来的例子：</p>
+<h1 id="R-Markdown"><a href="#R-Markdown" class="headerlink" title="R Markdown"></a>R Markdown</h1><p>This is an R Markdown document. Please note this page was <strong>not</strong> rendered using the <a target="_blank" rel="noopener" href="http://rmarkdown.rstudio.com/"><strong>rmarkdown</strong></a> package or <a target="_blank" rel="noopener" href="http://pandoc.org/">Pandoc</a>. The R Markdown document is compiled to Markdown through <strong>knitr</strong>, and the Markdown document is rendered to HTML through <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">Hexo’s Markdown renderer</a>.</p>
+<p>You can embed an R code chunk like this:</p>
+<pre class=" language-r"><code class="language-r">summary<span class="token punctuation">(</span>cars<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">##      speed           dist       </span>
+<span class="token comment" spellcheck="true">##  Min.   : 4.0   Min.   :  2.00  </span>
+<span class="token comment" spellcheck="true">##  1st Qu.:12.0   1st Qu.: 26.00  </span>
+<span class="token comment" spellcheck="true">##  Median :15.0   Median : 36.00  </span>
+<span class="token comment" spellcheck="true">##  Mean   :15.4   Mean   : 42.98  </span>
+<span class="token comment" spellcheck="true">##  3rd Qu.:19.0   3rd Qu.: 56.00  </span>
+<span class="token comment" spellcheck="true">##  Max.   :25.0   Max.   :120.00</span>
+fit <span class="token operator">&lt;-</span> lm<span class="token punctuation">(</span>dist <span class="token operator">~</span> speed<span class="token punctuation">,</span> data <span class="token operator">=</span> cars<span class="token punctuation">)</span>
+fit
+<span class="token comment" spellcheck="true">## </span>
+<span class="token comment" spellcheck="true">## Call:</span>
+<span class="token comment" spellcheck="true">## lm(formula = dist ~ speed, data = cars)</span>
+<span class="token comment" spellcheck="true">## </span>
+<span class="token comment" spellcheck="true">## Coefficients:</span>
+<span class="token comment" spellcheck="true">## (Intercept)        speed  </span>
+<span class="token comment" spellcheck="true">##     -17.579        3.932</span>
 </code></pre>
-<p>修改导航栏、页脚及文章卡片标签的颜色</p>
-<pre><code>.bg-color &#123;
-    background-image: 
-    linear-gradient(to right, #3f1b07 0%, #3f1b07 100%);/*咖啡色*/
-&#125;
+<h1 id="Including-Plots"><a href="#Including-Plots" class="headerlink" title="Including Plots"></a>Including Plots</h1><p>You can also embed R plots:</p>
+<pre class=" language-r"><code class="language-r">par<span class="token punctuation">(</span>mar <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+pie<span class="token punctuation">(</span>
+  c<span class="token punctuation">(</span><span class="token number">280</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  c<span class="token punctuation">(</span><span class="token string">'Sky'</span><span class="token punctuation">,</span> <span class="token string">'Sunny side of pyramid'</span><span class="token punctuation">,</span> <span class="token string">'Shady side of pyramid'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  col <span class="token operator">=</span> c<span class="token punctuation">(</span>'<span class="token comment" spellcheck="true">#0292D8', '#F7EA39', '#C4B632'),</span>
+  init.angle <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">,</span> border <span class="token operator">=</span> <span class="token keyword">NA</span>
+<span class="token punctuation">)</span>
 </code></pre>
+<p><img src="/figure/pie-1.png"></p>
 
                 
             </div>
@@ -371,7 +477,7 @@ password:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://arroe99.github.io/posts/77f7/">http://arroe99.github.io/posts/77f7/</a>
+                    <a href="http://arroe99.github.io/posts/4678/">http://arroe99.github.io/posts/4678/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -409,12 +515,16 @@ password:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/blog/">
-                                    <span class="chip bg-color">blog</span>
+                                <a href="/tags/R-Markdown/">
+                                    <span class="chip bg-color">R Markdown</span>
                                 </a>
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/plot/">
+                                    <span class="chip bg-color">plot</span>
+                                </a>
+                            
+                                <a href="/tags/regression/">
+                                    <span class="chip bg-color">regression</span>
                                 </a>
                             
                         </div>
@@ -458,17 +568,18 @@ password:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/a4bb/">
+                <a href="/posts/4678/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="vercel部署是否成功">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Hello R Markdown">
                         
-                        <span class="card-title">vercel部署是否成功</span>
+                        <span class="card-title">Hello R Markdown</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -478,26 +589,35 @@ password:
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/R/" class="post-category">
+                                    R
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
+                    <a href="/tags/R-Markdown/">
+                        <span class="chip bg-color">R Markdown</span>
+                    </a>
+                    
+                    <a href="/tags/plot/">
+                        <span class="chip bg-color">plot</span>
+                    </a>
+                    
+                    <a href="/tags/regression/">
+                        <span class="chip bg-color">regression</span>
                     </a>
                     
                 </div>
@@ -515,9 +635,9 @@ password:
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="SQL笔记">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="vercel部署是否成功">
                         
-                        <span class="card-title">SQL笔记</span>
+                        <span class="card-title">vercel部署是否成功</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -528,7 +648,7 @@ password:
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-22
                             </span>
                         <span class="publish-author">
                             
@@ -578,6 +698,100 @@ password:
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
