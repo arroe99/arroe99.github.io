@@ -88,7 +88,7 @@
     
     <a href="/archives" class="waves-effect waves-light">
       
-      <i class="fas fa-calendar-days" style="zoom: 0.6;"></i>
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
     </a>
@@ -169,7 +169,7 @@
 	  
 		<a href="/archives" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-calendar-days"></i>
+			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
 		</a>
@@ -355,7 +355,7 @@
                 <p>DBMS database management system 数据库管理系统<br>有五种类型：<br>层次数据库 hierarchical database HDB<br>关系数据库 relational database RDB   ————SQL structured query language 结构化查询语言  RDBMS关系数据库管理系统<br>面向对象数据库 object oriented database OODB<br>XML数据库 XMLDB<br>键值存储数据库 Key-Value Store KVS</p>
 <p>行是记录 列是字段<br>标准SQL<br>DDL data definition language 数据定义语言 包括有 create drop alter 创建 删除 修改 数据库或者表<br>DML data manipulation language 数据操纵语言 包括有 select insect updata delete 查询 插入 更新 删除表中的数据   最常用！<br>DCL data control language 数据控制语言 commit rollback grant revoke 数据库权限 确认取消什么的?</p>
 <p>common_table_expression公用表表达式</p>
-<p>case用法：<br>case  when cond1 then exp1（else cond2 then exp2） else exp3<br>如果 expr1 是TRUE (expr1 &lt;&gt; 0 and expr1 &lt;&gt; NULL)，则 IF()的返回值为expr2; 否则返回值则为 expr3。<br>IF(expr1,expr2,expr3<br>假如expr1 不为 NULL，则 IFNULL() 的返回值为 expr1; 否则其返回值为 expr2。<br>IFNULL(expr1,expr2) </p>
+<p>case用法：<br>case  when cond1 then exp1（else cond2 then exp2） else exp3<br>如果 expr1 是TRUE (expr1 &lt;&gt; 0 and expr1 &lt;&gt; NULL)，则 IF()的返回值为expr2; 否则返回值则为 expr3。<br>IF(expr1,expr2,expr3)<br>假如expr1 不为 NULL，则 IFNULL() 的返回值为 expr1; 否则其返回值为 expr2。<br>IFNULL(expr1,expr2) </p>
 <p>去重<br>SELECT DISTINCT 列名称 FROM 表名称</p>
 <p>不等于 &lt;&gt; 或者!&#x3D;</p>
 <p>复杂表达式<br>where ( xxx or xxx) and xxx</p>
@@ -378,6 +378,12 @@ UPDATE Person SET FirstName = 'Fred' WHERE LastName = 'Wilson'
 <p>删除整行</p>
 <pre class=" language-MySQL"><code class="language-MySQL">DELETE FROM 表名称 WHERE 列名称 = 值
 DELETE FROM Person WHERE LastName = 'Wilson'
+</code></pre>
+<p>如果用上连接，语法有所变化，需要指定删除的表名</p>
+<pre class=" language-MySQL"><code class="language-MySQL">delete table2
+from table1 join table2
+on condition 
+where condition2
 </code></pre>
 <p>top子句 返回给定数字的记录</p>
 <pre class=" language-MySQL"><code class="language-MySQL">SELECT *
