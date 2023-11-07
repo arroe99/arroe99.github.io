@@ -434,28 +434,28 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="181-超过经理收入的员工"><a href="#181-超过经理收入的员工" class="headerlink" title="181.超过经理收入的员工"></a>181.超过经理收入的员工</h2><p>自连接就能解决</p>
-<pre><code>select e1.name as Employee
+<pre class=" language-MySQL"><code class="language-MySQL">select e1.name as Employee
 from employee e1, employee e2
 where e1.managerid = e2.id 
-and e1.salary &gt; e2.salary;
+and e1.salary > e2.salary;
 </code></pre>
 <h2 id="182-查找重复的电子邮箱"><a href="#182-查找重复的电子邮箱" class="headerlink" title="182. 查找重复的电子邮箱"></a>182. 查找重复的电子邮箱</h2><p>两种方法 第二种更简单直接</p>
-<pre><code> 自连接
+<pre class=" language-MySQL"><code class="language-MySQL"> 自连接
 # select distinct p1.email as email
 # from
 #   person p1,
 #   person p2
 # where
 #   p1.email = p2.email
-#   and p1.id &lt;&gt; p2.id
+#   and p1.id <> p2.id
 
 # group by + having
 select email 
 from person
 group by email
-having count(email) &gt; 1
+having count(email) > 1
 </code></pre>
-<h2 id="183-从不订购的客户"><a href="#183-从不订购的客户" class="headerlink" title="183. 从不订购的客户"></a>183. 从不订购的客户</h2><pre><code># 子查询
+<h2 id="183-从不订购的客户"><a href="#183-从不订购的客户" class="headerlink" title="183. 从不订购的客户"></a>183. 从不订购的客户</h2><pre class=" language-MySQL"><code class="language-MySQL"># 子查询
 select c.name as Customers
 from customers c
 where c.id not in (
@@ -469,18 +469,18 @@ from customers c left join orders o
 on c.id = o.customerID
 where o.customerID is null
 </code></pre>
-<h2 id="196-删除重复的电子邮箱"><a href="#196-删除重复的电子邮箱" class="headerlink" title="196. 删除重复的电子邮箱"></a><strong>196. 删除重复的电子邮箱</strong></h2><pre><code>delete p1 from person p1 join person p2
+<h2 id="196-删除重复的电子邮箱"><a href="#196-删除重复的电子邮箱" class="headerlink" title="196. 删除重复的电子邮箱"></a><strong>196. 删除重复的电子邮箱</strong></h2><pre class=" language-MySQL"><code class="language-MySQL">delete p1 from person p1 join person p2
 on p1.email = p2.email
-where p1.id &gt; p2.id 
+where p1.id > p2.id 
 </code></pre>
 <h2 id="197-上升的温度"><a href="#197-上升的温度" class="headerlink" title="197. 上升的温度"></a>197. 上升的温度</h2><p>考点是时间的差分函数 datediff()</p>
-<pre><code>select w1.id 
+<pre class=" language-MySQL"><code class="language-MySQL">select w1.id 
 from weather w1 cross join weather w2
 where datediff(w1.recorddate, w2.recorddate) = 1
-  and w1.temperature &gt; w2.temperature
+  and w1.temperature > w2.temperature
 </code></pre>
 <h2 id="586-订单最多的客户"><a href="#586-订单最多的客户" class="headerlink" title="586. 订单最多的客户"></a><strong>586. 订单最多的客户</strong></h2><p>临时表，但是没必要</p>
-<pre><code>select customer_number
+<pre class=" language-MySQL"><code class="language-MySQL">select customer_number
 from (
   select customer_number, count(*) as counting
   from orders
@@ -498,7 +498,7 @@ order by count(customer_number) desc
 limit 1
 </code></pre>
 <h2 id="607-销售员"><a href="#607-销售员" class="headerlink" title="607. 销售员"></a>607. 销售员</h2><p>两层子查询</p>
-<pre><code>select name 
+<pre class=" language-MySQL"><code class="language-MySQL">select name 
 from salesperson
 where sales_id not in (
     select sales_id 
@@ -506,28 +506,28 @@ where sales_id not in (
     where com_id in (
         select com_id
         from company
-        where name = &#39;RED&#39;
+        where name = 'RED'
     )
 )
 </code></pre>
 <h2 id="610-判断三角形"><a href="#610-判断三角形" class="headerlink" title="610. 判断三角形"></a>610. 判断三角形</h2><p>解法1 if函数</p>
-<pre><code>select
+<pre class=" language-MySQL"><code class="language-MySQL">select
     x,
     y,
     z,
-    if(x+y&gt;z and x+z&gt;y and y+z&gt;x , &#39;Yes&#39;, &#39;No&#39;) as triangle
+    if(x+y>z and x+z>y and y+z>x , 'Yes', 'No') as triangle
 from triangle;
 </code></pre>
 <p>解法2 case when函数</p>
-<pre><code>select x, y, z , 
-  case when x+y&gt;z and x+z&gt;y and y+z&gt;x then &#39;Yes&#39;
-  else &#39;No&#39;
+<pre class=" language-MySQL"><code class="language-MySQL">select x, y, z , 
+  case when x+y>z and x+z>y and y+z>x then 'Yes'
+  else 'No'
   end as triangle
 from triangle
 </code></pre>
 <h2 id="619-只出现一次的最大数字"><a href="#619-只出现一次的最大数字" class="headerlink" title="619. 只出现一次的最大数字"></a><strong>619. 只出现一次的最大数字</strong></h2><p>临时表先查出来 计数为1的，然后选最大的  </p>
 <p>但没有必要临时表  </p>
-<pre><code>select max(num) as num
+<pre class=" language-MySQL"><code class="language-MySQL">select max(num) as num
 from (  
     select num
     from mynumbers
@@ -536,7 +536,7 @@ from (
 ) as temp
 </code></pre>
 <p>直接降序排序 只显示第一个  跟<strong>586.订单最多的客户</strong>一样</p>
-<pre><code>select num
+<pre class=" language-MySQL"><code class="language-MySQL">select num
 from mynumbers
 group by num
 having count(num) = 1
@@ -549,6 +549,43 @@ from mynumbers
 group by num
 order by count(num), num desc
 limit 1
+</code></pre>
+<h2 id="627-变更性别"><a href="#627-变更性别" class="headerlink" title="627. 变更性别"></a>627. 变更性别</h2><p>要求用update语法：<br>update tablename<br>set …<br>where …  </p>
+<pre class=" language-MySQL"><code class="language-MySQL"># 解法1 if函数  一般就两种分类就用if  如果多种分类用case when 
+update salary
+set sex = if(sex = 'm', 'f', 'm')
+
+update salary
+set sex = case when sex = 'm' then 'f'
+                when sex = 'f' then 'm'
+                else sex
+                end;         
+
+update salary
+set sex = (case when sex = 'f' then 'm'
+          else 'f'
+          end)
+</code></pre>
+<h2 id="1050-合作过至少三次的演员和导演"><a href="#1050-合作过至少三次的演员和导演" class="headerlink" title="1050. 合作过至少三次的演员和导演"></a>1050. 合作过至少三次的演员和导演</h2><p>group by 两个字段，不需要加括号</p>
+<pre class=" language-mysql"><code class="language-mysql">select actor_id, director_id
+from actordirector
+group by actor_id, director_id
+having count(actor_id)>=3;
+</code></pre>
+<h2 id="1075-项目员工-I"><a href="#1075-项目员工-I" class="headerlink" title="1075. 项目员工 I"></a>1075. 项目员工 I</h2><p>冗长，可优化</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+    <span class="token keyword">distinct</span> project_id<span class="token punctuation">,</span>
+    <span class="token function">round</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">e</span><span class="token punctuation">.</span>experience_years<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span>project_id<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">as</span> average_years
+<span class="token keyword">from</span>
+    project <span class="token keyword">as</span> p <span class="token keyword">join</span> employee <span class="token keyword">as</span> <span class="token number">e</span>
+<span class="token keyword">on</span> p<span class="token punctuation">.</span>employee_id <span class="token operator">=</span> <span class="token number">e</span><span class="token punctuation">.</span>employee_id
+<span class="token keyword">group</span> <span class="token keyword">by</span> project_id
+
+<span class="token comment" spellcheck="true"># 直接用average就行了</span>
+<span class="token keyword">select</span> project_id<span class="token punctuation">,</span> <span class="token function">round</span><span class="token punctuation">(</span><span class="token function">avg</span><span class="token punctuation">(</span>experience_years<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">as</span> average_years 
+<span class="token keyword">from</span> project <span class="token keyword">join</span> employee
+<span class="token keyword">on</span> project<span class="token punctuation">.</span>employee_id <span class="token operator">=</span> employee<span class="token punctuation">.</span>employee_id
+<span class="token keyword">group</span> <span class="token keyword">by</span> project_id 
 </code></pre>
 
                 
