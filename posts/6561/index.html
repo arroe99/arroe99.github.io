@@ -434,12 +434,32 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-11-07
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.8k
+                </div>
+                
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    9 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -630,7 +650,7 @@
 <ol start="1211">
 <li>查询结果的质量和占比 立马就用到了这个知识点 count(age &gt; 20 or null) 等价于 sum(age &gt; 20) 等价于 count(if(age &gt; 20, 1, 0))</li>
 </ol>
-<h2 id="查询近30天活跃用户数"><a href="#查询近30天活跃用户数" class="headerlink" title="查询近30天活跃用户数"></a>查询近30天活跃用户数</h2><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 关键在于题目里说近30天</span>
+<h2 id="1141-查询近30天活跃用户数"><a href="#1141-查询近30天活跃用户数" class="headerlink" title="1141.查询近30天活跃用户数"></a>1141.查询近30天活跃用户数</h2><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 关键在于题目里说近30天</span>
 <span class="token keyword">select</span> 
     activity_date <span class="token keyword">as</span> day<span class="token punctuation">,</span>
     <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> user_id<span class="token punctuation">)</span> <span class="token keyword">as</span> active_users
