@@ -398,12 +398,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/SQL/">
+                                <span class="chip bg-color">SQL</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">学习笔记</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/SQL/" class="post-category">
+                                SQL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -434,146 +451,146 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="181-超过经理收入的员工"><a href="#181-超过经理收入的员工" class="headerlink" title="181.超过经理收入的员工"></a>181.超过经理收入的员工</h2><p>自连接就能解决</p>
-<pre class=" language-MySQL"><code class="language-MySQL">select e1.name as Employee
-from employee e1, employee e2
-where e1.managerid = e2.id 
-and e1.salary > e2.salary;
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token number">e1</span><span class="token punctuation">.</span>name <span class="token keyword">as</span> Employee
+<span class="token keyword">from</span> employee <span class="token number">e1</span><span class="token punctuation">,</span> employee <span class="token number">e2</span>
+<span class="token keyword">where</span> <span class="token number">e1</span><span class="token punctuation">.</span>managerid <span class="token operator">=</span> <span class="token number">e2</span><span class="token punctuation">.</span>id 
+<span class="token operator">and</span> <span class="token number">e1</span><span class="token punctuation">.</span>salary <span class="token operator">></span> <span class="token number">e2</span><span class="token punctuation">.</span>salary<span class="token punctuation">;</span>
 </code></pre>
 <h2 id="182-查找重复的电子邮箱"><a href="#182-查找重复的电子邮箱" class="headerlink" title="182. 查找重复的电子邮箱"></a>182. 查找重复的电子邮箱</h2><p>两种方法 第二种更简单直接</p>
-<pre class=" language-MySQL"><code class="language-MySQL"> 自连接
-# select distinct p1.email as email
-# from
-#   person p1,
-#   person p2
-# where
-#   p1.email = p2.email
-#   and p1.id <> p2.id
+<pre class=" language-sql"><code class="language-sql"> 自连接
+<span class="token comment" spellcheck="true"># select distinct p1.email as email</span>
+<span class="token comment" spellcheck="true"># from</span>
+<span class="token comment" spellcheck="true">#   person p1,</span>
+<span class="token comment" spellcheck="true">#   person p2</span>
+<span class="token comment" spellcheck="true"># where</span>
+<span class="token comment" spellcheck="true">#   p1.email = p2.email</span>
+<span class="token comment" spellcheck="true">#   and p1.id &lt;> p2.id</span>
 
-# group by + having
-select email 
-from person
-group by email
-having count(email) > 1
+<span class="token comment" spellcheck="true"># group by + having</span>
+<span class="token keyword">select</span> email 
+<span class="token keyword">from</span> person
+<span class="token keyword">group</span> <span class="token keyword">by</span> email
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>email<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span>
 </code></pre>
-<h2 id="183-从不订购的客户"><a href="#183-从不订购的客户" class="headerlink" title="183. 从不订购的客户"></a>183. 从不订购的客户</h2><pre class=" language-MySQL"><code class="language-MySQL"># 子查询
-select c.name as Customers
-from customers c
-where c.id not in (
-  select customerID
-  from orders 
-)
+<h2 id="183-从不订购的客户"><a href="#183-从不订购的客户" class="headerlink" title="183. 从不订购的客户"></a>183. 从不订购的客户</h2><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 子查询</span>
+<span class="token keyword">select</span> <span class="token number">c</span><span class="token punctuation">.</span>name <span class="token keyword">as</span> Customers
+<span class="token keyword">from</span> customers <span class="token number">c</span>
+<span class="token keyword">where</span> <span class="token number">c</span><span class="token punctuation">.</span>id <span class="token operator">not</span> <span class="token operator">in</span> <span class="token punctuation">(</span>
+  <span class="token keyword">select</span> customerID
+  <span class="token keyword">from</span> orders 
+<span class="token punctuation">)</span>
 
-# 左连接
-select c.name as Customers
-from customers c left join orders o
-on c.id = o.customerID
-where o.customerID is null
+<span class="token comment" spellcheck="true"># 左连接</span>
+<span class="token keyword">select</span> <span class="token number">c</span><span class="token punctuation">.</span>name <span class="token keyword">as</span> Customers
+<span class="token keyword">from</span> customers <span class="token number">c</span> <span class="token keyword">left</span> <span class="token keyword">join</span> orders o
+<span class="token keyword">on</span> <span class="token number">c</span><span class="token punctuation">.</span>id <span class="token operator">=</span> o<span class="token punctuation">.</span>customerID
+<span class="token keyword">where</span> o<span class="token punctuation">.</span>customerID <span class="token operator">is</span> <span class="token boolean">null</span>
 </code></pre>
-<h2 id="196-删除重复的电子邮箱"><a href="#196-删除重复的电子邮箱" class="headerlink" title="196. 删除重复的电子邮箱"></a><strong>196. 删除重复的电子邮箱</strong></h2><pre class=" language-MySQL"><code class="language-MySQL">delete p1 from person p1 join person p2
-on p1.email = p2.email
-where p1.id > p2.id 
+<h2 id="196-删除重复的电子邮箱"><a href="#196-删除重复的电子邮箱" class="headerlink" title="196. 删除重复的电子邮箱"></a><strong>196. 删除重复的电子邮箱</strong></h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">delete</span> p1 <span class="token keyword">from</span> person p1 <span class="token keyword">join</span> person p2
+<span class="token keyword">on</span> p1<span class="token punctuation">.</span>email <span class="token operator">=</span> p2<span class="token punctuation">.</span>email
+<span class="token keyword">where</span> p1<span class="token punctuation">.</span>id <span class="token operator">></span> p2<span class="token punctuation">.</span>id 
 </code></pre>
 <h2 id="197-上升的温度"><a href="#197-上升的温度" class="headerlink" title="197. 上升的温度"></a>197. 上升的温度</h2><p>考点是时间的差分函数 datediff()</p>
-<pre class=" language-MySQL"><code class="language-MySQL">select w1.id 
-from weather w1 cross join weather w2
-where datediff(w1.recorddate, w2.recorddate) = 1
-  and w1.temperature > w2.temperature
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> w1<span class="token punctuation">.</span>id 
+<span class="token keyword">from</span> weather w1 <span class="token keyword">cross</span> <span class="token keyword">join</span> weather w2
+<span class="token keyword">where</span> datediff<span class="token punctuation">(</span>w1<span class="token punctuation">.</span>recorddate<span class="token punctuation">,</span> w2<span class="token punctuation">.</span>recorddate<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">1</span>
+  <span class="token operator">and</span> w1<span class="token punctuation">.</span>temperature <span class="token operator">></span> w2<span class="token punctuation">.</span>temperature
 </code></pre>
 <h2 id="586-订单最多的客户"><a href="#586-订单最多的客户" class="headerlink" title="586. 订单最多的客户"></a><strong>586. 订单最多的客户</strong></h2><p>临时表，但是没必要</p>
-<pre class=" language-MySQL"><code class="language-MySQL">select customer_number
-from (
-  select customer_number, count(*) as counting
-  from orders
-  group by customer_number
-) as temp
-order by temp.counting desc
-limit 1
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> customer_number
+<span class="token keyword">from</span> <span class="token punctuation">(</span>
+  <span class="token keyword">select</span> customer_number<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> counting
+  <span class="token keyword">from</span> orders
+  <span class="token keyword">group</span> <span class="token keyword">by</span> customer_number
+<span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token keyword">temp</span>
+<span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token keyword">temp</span><span class="token punctuation">.</span>counting <span class="token keyword">desc</span>
+<span class="token keyword">limit</span> <span class="token number">1</span>
 
 
-# 直接gourp by 然后按照根据count的结果降序排序 选第一个
-select customer_number
-from orders
-group by customer_number
-order by count(customer_number) desc
-limit 1
+<span class="token comment" spellcheck="true"># 直接gourp by 然后按照根据count的结果降序排序 选第一个</span>
+<span class="token keyword">select</span> customer_number
+<span class="token keyword">from</span> orders
+<span class="token keyword">group</span> <span class="token keyword">by</span> customer_number
+<span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token function">count</span><span class="token punctuation">(</span>customer_number<span class="token punctuation">)</span> <span class="token keyword">desc</span>
+<span class="token keyword">limit</span> <span class="token number">1</span>
 </code></pre>
 <h2 id="607-销售员"><a href="#607-销售员" class="headerlink" title="607. 销售员"></a>607. 销售员</h2><p>两层子查询</p>
-<pre class=" language-MySQL"><code class="language-MySQL">select name 
-from salesperson
-where sales_id not in (
-    select sales_id 
-    from orders 
-    where com_id in (
-        select com_id
-        from company
-        where name = 'RED'
-    )
-)
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name 
+<span class="token keyword">from</span> salesperson
+<span class="token keyword">where</span> sales_id <span class="token operator">not</span> <span class="token operator">in</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span> sales_id 
+    <span class="token keyword">from</span> orders 
+    <span class="token keyword">where</span> com_id <span class="token operator">in</span> <span class="token punctuation">(</span>
+        <span class="token keyword">select</span> com_id
+        <span class="token keyword">from</span> company
+        <span class="token keyword">where</span> name <span class="token operator">=</span> <span class="token string">'RED'</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
 </code></pre>
 <h2 id="610-判断三角形"><a href="#610-判断三角形" class="headerlink" title="610. 判断三角形"></a>610. 判断三角形</h2><p>解法1 if函数</p>
-<pre class=" language-MySQL"><code class="language-MySQL">select
-    x,
-    y,
-    z,
-    if(x+y>z and x+z>y and y+z>x , 'Yes', 'No') as triangle
-from triangle;
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span>
+    x<span class="token punctuation">,</span>
+    y<span class="token punctuation">,</span>
+    z<span class="token punctuation">,</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">+</span>y<span class="token operator">></span>z <span class="token operator">and</span> x<span class="token operator">+</span>z<span class="token operator">></span>y <span class="token operator">and</span> y<span class="token operator">+</span>z<span class="token operator">></span>x <span class="token punctuation">,</span> <span class="token string">'Yes'</span><span class="token punctuation">,</span> <span class="token string">'No'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> triangle
+<span class="token keyword">from</span> triangle<span class="token punctuation">;</span>
 </code></pre>
 <p>解法2 case when函数</p>
-<pre class=" language-MySQL"><code class="language-MySQL">select x, y, z , 
-  case when x+y>z and x+z>y and y+z>x then 'Yes'
-  else 'No'
-  end as triangle
-from triangle
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z <span class="token punctuation">,</span> 
+  <span class="token keyword">case</span> <span class="token keyword">when</span> x<span class="token operator">+</span>y<span class="token operator">></span>z <span class="token operator">and</span> x<span class="token operator">+</span>z<span class="token operator">></span>y <span class="token operator">and</span> y<span class="token operator">+</span>z<span class="token operator">></span>x <span class="token keyword">then</span> <span class="token string">'Yes'</span>
+  <span class="token keyword">else</span> <span class="token string">'No'</span>
+  <span class="token keyword">end</span> <span class="token keyword">as</span> triangle
+<span class="token keyword">from</span> triangle
 </code></pre>
 <h2 id="619-只出现一次的最大数字"><a href="#619-只出现一次的最大数字" class="headerlink" title="619. 只出现一次的最大数字"></a><strong>619. 只出现一次的最大数字</strong></h2><p>临时表先查出来 计数为1的，然后选最大的  </p>
 <p>但没有必要临时表  </p>
-<pre class=" language-MySQL"><code class="language-MySQL">select max(num) as num
-from (  
-    select num
-    from mynumbers
-    group by num 
-    having count(num) = 1
-) as temp
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">max</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token keyword">as</span> num
+<span class="token keyword">from</span> <span class="token punctuation">(</span>  
+    <span class="token keyword">select</span> num
+    <span class="token keyword">from</span> mynumbers
+    <span class="token keyword">group</span> <span class="token keyword">by</span> num 
+    <span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token keyword">temp</span>
 </code></pre>
 <p>直接降序排序 只显示第一个  跟<strong>586.订单最多的客户</strong>一样</p>
-<pre class=" language-MySQL"><code class="language-MySQL">select num
-from mynumbers
-group by num
-having count(num) = 1
-order by num desc
-limit 1
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> num
+<span class="token keyword">from</span> mynumbers
+<span class="token keyword">group</span> <span class="token keyword">by</span> num
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">order</span> <span class="token keyword">by</span> num <span class="token keyword">desc</span>
+<span class="token keyword">limit</span> <span class="token number">1</span>
 
-# 如果根本不存在 count等于1的数 会啥都不返回，所以一开始就加个判断
-select if(count(num)=1,num,NULL) as num
-from mynumbers
-group by num
-order by count(num), num desc
-limit 1
+<span class="token comment" spellcheck="true"># 如果根本不存在 count等于1的数 会啥都不返回，所以一开始就加个判断</span>
+<span class="token keyword">select</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>num<span class="token punctuation">,</span><span class="token boolean">NULL</span><span class="token punctuation">)</span> <span class="token keyword">as</span> num
+<span class="token keyword">from</span> mynumbers
+<span class="token keyword">group</span> <span class="token keyword">by</span> num
+<span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token function">count</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">,</span> num <span class="token keyword">desc</span>
+<span class="token keyword">limit</span> <span class="token number">1</span>
 </code></pre>
 <h2 id="627-变更性别"><a href="#627-变更性别" class="headerlink" title="627. 变更性别"></a>627. 变更性别</h2><p>要求用update语法：<br>update tablename<br>set …<br>where …  </p>
-<pre class=" language-MySQL"><code class="language-MySQL"># 解法1 if函数  一般就两种分类就用if  如果多种分类用case when 
-update salary
-set sex = if(sex = 'm', 'f', 'm')
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 解法1 if函数  一般就两种分类就用if  如果多种分类用case when </span>
+<span class="token keyword">update</span> salary
+<span class="token keyword">set</span> sex <span class="token operator">=</span> <span class="token keyword">if</span><span class="token punctuation">(</span>sex <span class="token operator">=</span> <span class="token string">'m'</span><span class="token punctuation">,</span> <span class="token string">'f'</span><span class="token punctuation">,</span> <span class="token string">'m'</span><span class="token punctuation">)</span>
 
-update salary
-set sex = case when sex = 'm' then 'f'
-                when sex = 'f' then 'm'
-                else sex
-                end;         
+<span class="token keyword">update</span> salary
+<span class="token keyword">set</span> sex <span class="token operator">=</span> <span class="token keyword">case</span> <span class="token keyword">when</span> sex <span class="token operator">=</span> <span class="token string">'m'</span> <span class="token keyword">then</span> <span class="token string">'f'</span>
+                <span class="token keyword">when</span> sex <span class="token operator">=</span> <span class="token string">'f'</span> <span class="token keyword">then</span> <span class="token string">'m'</span>
+                <span class="token keyword">else</span> sex
+                <span class="token keyword">end</span><span class="token punctuation">;</span>         
 
-update salary
-set sex = (case when sex = 'f' then 'm'
-          else 'f'
-          end)
+<span class="token keyword">update</span> salary
+<span class="token keyword">set</span> sex <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> sex <span class="token operator">=</span> <span class="token string">'f'</span> <span class="token keyword">then</span> <span class="token string">'m'</span>
+          <span class="token keyword">else</span> <span class="token string">'f'</span>
+          <span class="token keyword">end</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="1050-合作过至少三次的演员和导演"><a href="#1050-合作过至少三次的演员和导演" class="headerlink" title="1050. 合作过至少三次的演员和导演"></a>1050. 合作过至少三次的演员和导演</h2><p>group by 两个字段，不需要加括号</p>
-<pre class=" language-mysql"><code class="language-mysql">select actor_id, director_id
-from actordirector
-group by actor_id, director_id
-having count(actor_id)>=3;
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> actor_id<span class="token punctuation">,</span> director_id
+<span class="token keyword">from</span> actordirector
+<span class="token keyword">group</span> <span class="token keyword">by</span> actor_id<span class="token punctuation">,</span> director_id
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>actor_id<span class="token punctuation">)</span><span class="token operator">>=</span><span class="token number">3</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="1075-项目员工-I"><a href="#1075-项目员工-I" class="headerlink" title="1075. 项目员工 I"></a>1075. 项目员工 I</h2><p>冗长，可优化</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+<h2 id="1075-项目员工-I"><a href="#1075-项目员工-I" class="headerlink" title="1075. 项目员工 I"></a>1075. 项目员工 I</h2><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 冗长，可优化</span>
+<span class="token keyword">select</span> 
     <span class="token keyword">distinct</span> project_id<span class="token punctuation">,</span>
     <span class="token function">round</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">e</span><span class="token punctuation">.</span>experience_years<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span>project_id<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">as</span> average_years
 <span class="token keyword">from</span>
@@ -586,6 +603,148 @@ having count(actor_id)>=3;
 <span class="token keyword">from</span> project <span class="token keyword">join</span> employee
 <span class="token keyword">on</span> project<span class="token punctuation">.</span>employee_id <span class="token operator">=</span> employee<span class="token punctuation">.</span>employee_id
 <span class="token keyword">group</span> <span class="token keyword">by</span> project_id 
+</code></pre>
+<h2 id="1084-销售分析III-好题！"><a href="#1084-销售分析III-好题！" class="headerlink" title="1084. 销售分析III  好题！"></a><strong>1084. 销售分析III</strong>  好题！</h2><p>编写解决方案，报告2019年春季才售出的产品。即仅在2019-01-01至2019-03-31（含）之间出售的商品。<br>只在1月到3月销售，在其他月份没有销售。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 不用连接 直接子查询</span>
+<span class="token keyword">select</span> product_id<span class="token punctuation">,</span> product_name
+<span class="token keyword">from</span> product
+<span class="token keyword">where</span> product_id <span class="token operator">in</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span> product_id
+    <span class="token keyword">from</span> sales 
+    <span class="token comment" spellcheck="true">-- where sale_date between '2019-01-01' and '2019-03-31'  -- 这句可有可无</span>
+<span class="token punctuation">)</span>
+<span class="token operator">and</span> product_id <span class="token operator">not</span> <span class="token operator">in</span> <span class="token punctuation">(</span>
+    <span class="token keyword">select</span> product_id
+    <span class="token keyword">from</span> sales 
+    <span class="token keyword">where</span> sale_date <span class="token operator">&lt;</span> <span class="token string">'2019-01-01'</span> <span class="token operator">or</span> sale_date <span class="token operator">></span> <span class="token string">'2019-03-31'</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<p>另一个NB的解法：<br>其实题目要求“仅在2019-01-01至2019-03-31之间出售的商品”翻译过来就是“所有售出日期都在这个时间内”，也就是“在这个时间内售出的商品数量等于总商品数量”</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> sales<span class="token punctuation">.</span>product_id <span class="token keyword">as</span> product_id<span class="token punctuation">,</span> product<span class="token punctuation">.</span>product_name <span class="token keyword">as</span> product_name
+<span class="token keyword">from</span> sales <span class="token keyword">left</span> <span class="token keyword">join</span> product <span class="token keyword">on</span> sales<span class="token punctuation">.</span>product_id <span class="token operator">=</span> product<span class="token punctuation">.</span>product_id
+<span class="token keyword">group</span> <span class="token keyword">by</span> product_id
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span>sale_date <span class="token operator">between</span> <span class="token string">'2019-01-01'</span> <span class="token operator">and</span> <span class="token string">'2019-03-31'</span> <span class="token operator">or</span> <span class="token boolean">null</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>这里值得注意的是count的条件用法。举个例子count(age &gt; 20 or null)这个语句，里面or null必须加，否则就等价于count(*)了，要么就是写作sum(age &gt; 20)也可以。</strong>    </p>
+<p><strong>我猜测是因为age &gt; 20返回的是0或者1，而count对于不管是0还是1，都是会计数一次的，只有Null不会被计数。所以这个age &gt; 20 or null表达的是不大于20就转换为null，这样就不会被count计数</strong></p>
+<ol start="1211">
+<li>查询结果的质量和占比 立马就用到了这个知识点 count(age &gt; 20 or null) 等价于 sum(age &gt; 20) 等价于 count(if(age &gt; 20, 1, 0))</li>
+</ol>
+<h2 id="查询近30天活跃用户数"><a href="#查询近30天活跃用户数" class="headerlink" title="查询近30天活跃用户数"></a>查询近30天活跃用户数</h2><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 关键在于题目里说近30天</span>
+<span class="token keyword">select</span> 
+    activity_date <span class="token keyword">as</span> day<span class="token punctuation">,</span>
+    <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> user_id<span class="token punctuation">)</span> <span class="token keyword">as</span> active_users
+<span class="token keyword">from</span> activity
+<span class="token comment" spellcheck="true">-- where activity_date between '2019-06-28' and '2019-07-27'  --30天不能手算，要用datediff()</span>
+<span class="token keyword">where</span> datediff<span class="token punctuation">(</span><span class="token string">'2019-07-27'</span><span class="token punctuation">,</span> activity_date<span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token number">30</span>
+    <span class="token operator">and</span> activity_date <span class="token operator">&lt;=</span> <span class="token string">'2019-07-27'</span>
+    <span class="token comment" spellcheck="true">-- 或者其实等价于</span>
+    <span class="token comment" spellcheck="true">-- and datediff('2019-07-27',activity_date)>=0</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> activity_date
+</code></pre>
+<h2 id="1211-查询结果的质量和占比"><a href="#1211-查询结果的质量和占比" class="headerlink" title="1211. 查询结果的质量和占比"></a>1211. 查询结果的质量和占比</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span>
+    query_name<span class="token punctuation">,</span>
+    <span class="token function">round</span><span class="token punctuation">(</span><span class="token function">avg</span><span class="token punctuation">(</span>rating<span class="token operator">/</span>position<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">as</span> quality<span class="token punctuation">,</span>
+    <span class="token function">round</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span>rating <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">count</span><span class="token punctuation">(</span>rating<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">as</span> poor_query_percentage
+    <span class="token comment" spellcheck="true">-- round(count(rating&lt;3 or null)/count(rating)*100, 2) as poor_query_percentage</span>
+    <span class="token comment" spellcheck="true">-- ROUND(SUM(IF(rating &lt; 3, 1, 0)) * 100 / COUNT(*), 2) poor_query_percentage</span>
+<span class="token keyword">from</span> queries
+<span class="token keyword">group</span> <span class="token keyword">by</span> query_name
+</code></pre>
+<p>注意 三种写法都是等价的， 用sum(rating &lt; 3) 最简单</p>
+<h2 id="1251-平均售价"><a href="#1251-平均售价" class="headerlink" title="1251.平均售价"></a>1251.平均售价</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+    p<span class="token punctuation">.</span>product_id<span class="token punctuation">,</span>
+    <span class="token keyword">coalesce</span><span class="token punctuation">(</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>price <span class="token operator">*</span> u<span class="token punctuation">.</span>units<span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">sum</span><span class="token punctuation">(</span>u<span class="token punctuation">.</span>units<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">as</span> average_price  <span class="token comment" spellcheck="true">-- coalesce（）和ifnull（）作用几乎一样</span>
+<span class="token keyword">from</span> prices <span class="token keyword">as</span> p <span class="token keyword">left</span> <span class="token keyword">join</span> unitssold <span class="token keyword">as</span> u
+<span class="token keyword">on</span> p<span class="token punctuation">.</span>product_id <span class="token operator">=</span> u<span class="token punctuation">.</span>product_id
+<span class="token operator">and</span> purchase_date <span class="token operator">between</span> start_date <span class="token operator">and</span> end_date  <span class="token comment" spellcheck="true">-- 注意这里必须用and  </span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> product_id
+</code></pre>
+<h2 id="1327-列出指定时间段内所有的下单产品"><a href="#1327-列出指定时间段内所有的下单产品" class="headerlink" title="1327. 列出指定时间段内所有的下单产品"></a>1327. 列出指定时间段内所有的下单产品</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+    p<span class="token punctuation">.</span>product_name<span class="token punctuation">,</span>
+    <span class="token function">sum</span><span class="token punctuation">(</span>unit<span class="token punctuation">)</span> <span class="token keyword">as</span> unit
+<span class="token keyword">from</span> products <span class="token keyword">as</span> p <span class="token keyword">left</span> <span class="token keyword">join</span> orders <span class="token keyword">as</span> o
+<span class="token keyword">on</span> p<span class="token punctuation">.</span>product_id <span class="token operator">=</span> o<span class="token punctuation">.</span>product_id
+<span class="token comment" spellcheck="true">-- where o.order_date between '2020-02-01' and '2020-02-29'  --2020年是闰年 有29天</span>
+<span class="token keyword">where</span> o<span class="token punctuation">.</span>order_date <span class="token operator">like</span> <span class="token string">'2020-02%'</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> product_name
+<span class="token keyword">having</span> <span class="token function">sum</span><span class="token punctuation">(</span>unit<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">100</span>
+</code></pre>
+<h1 id="不会的题目"><a href="#不会的题目" class="headerlink" title="不会的题目"></a>不会的题目</h1><h2 id="1179-重新格式化部门表"><a href="#1179-重新格式化部门表" class="headerlink" title="1179. 重新格式化部门表!!!"></a><strong>1179. 重新格式化部门表!!!</strong></h2><p>长变宽，不会且懒得做，先mark一下答案</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span> 
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Jan'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Jan_Revenue<span class="token punctuation">,</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Feb'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Feb_Revenue<span class="token punctuation">,</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Mar'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Mar_Revenue<span class="token punctuation">,</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Apr'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Apr_Revenue<span class="token punctuation">,</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'May'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> May_Revenue<span class="token punctuation">,</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Jun'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Jun_Revenue<span class="token punctuation">,</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Jul'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Jul_Revenue<span class="token punctuation">,</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Aug'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Aug_Revenue<span class="token punctuation">,</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Sep'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Sep_Revenue<span class="token punctuation">,</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Oct'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Oct_Revenue<span class="token punctuation">,</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Nov'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Nov_Revenue<span class="token punctuation">,</span>
+<span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Dec'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Dec_Revenue
+<span class="token keyword">FROM</span> department
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> id
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id<span class="token punctuation">;</span>
+</code></pre>
+<h2 id="1280-学生们参加各科测试的次数"><a href="#1280-学生们参加各科测试的次数" class="headerlink" title="1280. 学生们参加各科测试的次数"></a>1280. 学生们参加各科测试的次数</h2><p>考察多表连接</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+    s<span class="token punctuation">.</span>student_id<span class="token punctuation">,</span> 
+    s<span class="token punctuation">.</span>student_name<span class="token punctuation">,</span> 
+    sub<span class="token punctuation">.</span>subject_name<span class="token punctuation">,</span>
+    <span class="token keyword">coalesce</span><span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token number">e</span><span class="token punctuation">.</span>subject_name<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">as</span> attended_exams 
+<span class="token keyword">from</span> Students s <span class="token keyword">cross</span> <span class="token keyword">join</span> Subjects sub <span class="token keyword">left</span> <span class="token keyword">join</span> Examinations <span class="token number">e</span>
+<span class="token keyword">on</span> s<span class="token punctuation">.</span>student_id <span class="token operator">=</span> <span class="token number">e</span><span class="token punctuation">.</span>student_id
+<span class="token operator">and</span> sub<span class="token punctuation">.</span>subject_name <span class="token operator">=</span> <span class="token number">e</span><span class="token punctuation">.</span>subject_name
+<span class="token keyword">group</span> <span class="token keyword">by</span> s<span class="token punctuation">.</span>student_id<span class="token punctuation">,</span>sub<span class="token punctuation">.</span>subject_name
+<span class="token keyword">order</span> <span class="token keyword">by</span> s<span class="token punctuation">.</span>student_id<span class="token punctuation">,</span>sub<span class="token punctuation">.</span>subject_name<span class="token punctuation">;</span>
+</code></pre>
+<h2 id="1484-按日期分组销售产品"><a href="#1484-按日期分组销售产品" class="headerlink" title="1484. 按日期分组销售产品"></a>1484. 按日期分组销售产品</h2><p>考察group_concat函数</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+    sell_date<span class="token punctuation">,</span>
+    <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">distinct</span> product<span class="token punctuation">)</span> <span class="token keyword">as</span> num_sold<span class="token punctuation">,</span>
+    group_concat<span class="token punctuation">(</span><span class="token keyword">distinct</span> product separator <span class="token string">','</span><span class="token punctuation">)</span> products
+<span class="token keyword">from</span> activities
+<span class="token keyword">group</span> <span class="token keyword">by</span> sell_date
+</code></pre>
+<p>例子：</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Alice</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Carol</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David</td>
+</tr>
+</tbody></table>
+<p>SELECT GROUP_CONCAT(name ORDER BY id ASC SEPARATOR ‘; ‘)<br>AS ordered_names<br>FROM students;</p>
+<p>返回一个按 id 升序排列的名字，以分号和空格分隔，如 “Alice; Bob; Carol; David”。</p>
+<h2 id="1517-查找拥有有效邮箱的用户"><a href="#1517-查找拥有有效邮箱的用户" class="headerlink" title="1517. 查找拥有有效邮箱的用户"></a>1517. 查找拥有有效邮箱的用户</h2><p>考察正则表达式  </p>
+<p>1、前缀 名称是一个字符串，可以包含字母（大写或小写），数字，下划线 ‘_’ ，点 ‘.’ 和&#x2F;或破折号 ‘-‘ 。前缀名称 必须 以字母开头。<br>2、域为 ‘@leetcode.com’ </p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> Users
+<span class="token keyword">WHERE</span> mail <span class="token operator">REGEXP</span> <span class="token string">'^[a-zA-Z][a-zA-Z0-9_.-]*\\@leetcode\\.com$'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">-- 很奇怪 _.- 换个顺序会报错 也需要转义才行</span>
+<span class="token keyword">select</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> users
+<span class="token keyword">where</span> mail <span class="token operator">regexp</span> <span class="token string">'^[a-zA-Z][a-zA-Z0-9\\.\\-\\_]*@leetcode\\.com$'</span>
 </code></pre>
 
                 
@@ -650,7 +809,15 @@ having count(actor_id)>=3;
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/SQL/">
+                                    <span class="chip bg-color">SQL</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">学习笔记</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -718,13 +885,29 @@ having count(actor_id)>=3;
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            罗成毅
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/SQL/" class="post-category">
+                                    SQL
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SQL/">
+                        <span class="chip bg-color">SQL</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
