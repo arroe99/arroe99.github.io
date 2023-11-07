@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="sql力扣刷题记录, Luo&#39;s Blog">
+    <meta name="keywords" content="SQL力扣刷题记录, Luo&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>sql力扣刷题记录 | Luo&#39;s Blog</title>
+    <title>SQL力扣刷题记录 | Luo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -279,12 +279,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">sql力扣刷题记录</h1>
+                    <h1 class="description center-align post-title">SQL力扣刷题记录</h1>
                 </div>
             </div>
         </div>
@@ -469,14 +469,86 @@ from customers c left join orders o
 on c.id = o.customerID
 where o.customerID is null
 </code></pre>
-<h2 id="196-删除重复的电子邮箱"><a href="#196-删除重复的电子邮箱" class="headerlink" title="196. 删除重复的电子邮箱"></a>196. 删除重复的电子邮箱</h2><pre><code>delete p1 from person p1 join person p2
+<h2 id="196-删除重复的电子邮箱"><a href="#196-删除重复的电子邮箱" class="headerlink" title="196. 删除重复的电子邮箱"></a><strong>196. 删除重复的电子邮箱</strong></h2><pre><code>delete p1 from person p1 join person p2
 on p1.email = p2.email
 where p1.id &gt; p2.id 
 </code></pre>
-<h2 id="197-上升的温度"><a href="#197-上升的温度" class="headerlink" title="197. 上升的温度"></a>197. 上升的温度</h2><pre><code>select w1.id 
+<h2 id="197-上升的温度"><a href="#197-上升的温度" class="headerlink" title="197. 上升的温度"></a>197. 上升的温度</h2><p>考点是时间的差分函数 datediff()</p>
+<pre><code>select w1.id 
 from weather w1 cross join weather w2
 where datediff(w1.recorddate, w2.recorddate) = 1
   and w1.temperature &gt; w2.temperature
+</code></pre>
+<h2 id="586-订单最多的客户"><a href="#586-订单最多的客户" class="headerlink" title="586. 订单最多的客户"></a><strong>586. 订单最多的客户</strong></h2><p>临时表，但是没必要</p>
+<pre><code>select customer_number
+from (
+  select customer_number, count(*) as counting
+  from orders
+  group by customer_number
+) as temp
+order by temp.counting desc
+limit 1
+
+
+# 直接gourp by 然后按照根据count的结果降序排序 选第一个
+select customer_number
+from orders
+group by customer_number
+order by count(customer_number) desc
+limit 1
+</code></pre>
+<h2 id="607-销售员"><a href="#607-销售员" class="headerlink" title="607. 销售员"></a>607. 销售员</h2><p>两层子查询</p>
+<pre><code>select name 
+from salesperson
+where sales_id not in (
+    select sales_id 
+    from orders 
+    where com_id in (
+        select com_id
+        from company
+        where name = &#39;RED&#39;
+    )
+)
+</code></pre>
+<h2 id="610-判断三角形"><a href="#610-判断三角形" class="headerlink" title="610. 判断三角形"></a>610. 判断三角形</h2><p>解法1 if函数</p>
+<pre><code>select
+    x,
+    y,
+    z,
+    if(x+y&gt;z and x+z&gt;y and y+z&gt;x , &#39;Yes&#39;, &#39;No&#39;) as triangle
+from triangle;
+</code></pre>
+<p>解法2 case when函数</p>
+<pre><code>select x, y, z , 
+  case when x+y&gt;z and x+z&gt;y and y+z&gt;x then &#39;Yes&#39;
+  else &#39;No&#39;
+  end as triangle
+from triangle
+</code></pre>
+<h2 id="619-只出现一次的最大数字"><a href="#619-只出现一次的最大数字" class="headerlink" title="619. 只出现一次的最大数字"></a><strong>619. 只出现一次的最大数字</strong></h2><p>临时表先查出来 计数为1的，然后选最大的  </p>
+<p>但没有必要临时表  </p>
+<pre><code>select max(num) as num
+from (  
+    select num
+    from mynumbers
+    group by num 
+    having count(num) = 1
+) as temp
+</code></pre>
+<p>直接降序排序 只显示第一个  跟<strong>586.订单最多的客户</strong>一样</p>
+<pre><code>select num
+from mynumbers
+group by num
+having count(num) = 1
+order by num desc
+limit 1
+
+# 如果根本不存在 count等于1的数 会啥都不返回，所以一开始就加个判断
+select if(count(num)=1,num,NULL) as num
+from mynumbers
+group by num
+order by count(num), num desc
+limit 1
 </code></pre>
 
                 
@@ -592,9 +664,9 @@ where datediff(w1.recorddate, w2.recorddate) = 1
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="sql力扣刷题记录">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="SQL力扣刷题记录">
                         
-                        <span class="card-title">sql力扣刷题记录</span>
+                        <span class="card-title">SQL力扣刷题记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
