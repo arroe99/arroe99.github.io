@@ -490,7 +490,7 @@
 <p>B+树是在B树的基础上又一次的改进，其主要对两个方面进行了提升，一方面是查询的稳定性，另外一方面是在数据排序方面更友好。</p>
 <p>关键的一点是：B+树的非叶子节点不保存具体的数据，而只保存关键字的索引</p>
 <h2 id="explain"><a href="#explain" class="headerlink" title="explain"></a>explain</h2><p>explain ： 可以对 SQL 语句进行分析, 并输出 SQL 执行的详细信息, 以供开发人员针对性优化。</p>
-<p>具体讲解参考[这里]](<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39408664/article/details/118858503">https://blog.csdn.net/qq_39408664/article/details/118858503</a>)</p>
+<p>具体讲解参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39408664/article/details/118858503">这里</a></p>
 <p>explain的输出有一个很关键的列，它就是type属性，type表示的是扫描方式，代表 MySQL 使用了哪种索引类型，不同的索引类型的查询效率是不一样的。</p>
 <p>在type这一列，有如下一些可能的选项：</p>
 <p>system：系统表，少量数据，往往不需要进行磁盘IO<br>const：常量连接<br>eq_ref：主键索引(primary key)或者非空唯一索引(unique not null)等值扫描<br>ref：非主键非唯一索引等值扫描<br>range：范围扫描<br>index：索引树扫描<br>ALL：全表扫描(full table scan)</p>
@@ -802,8 +802,8 @@
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            collapseDepth: Number('1'),
+            headingSelector: 'h1, h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -815,7 +815,7 @@
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
