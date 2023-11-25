@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello R Markdown, Luo&#39;s Blog">
+    <meta name="keywords" content="Python笔记, Luo&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello R Markdown | Luo&#39;s Blog</title>
+    <title>Python笔记 | Luo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -279,12 +279,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello R Markdown</h1>
+                    <h1 class="description center-align post-title">Python笔记</h1>
                 </div>
             </div>
         </div>
@@ -400,16 +400,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/R-Markdown/">
-                                <span class="chip bg-color">R Markdown</span>
-                            </a>
-                        
-                            <a href="/tags/plot/">
-                                <span class="chip bg-color">plot</span>
-                            </a>
-                        
-                            <a href="/tags/regression/">
-                                <span class="chip bg-color">regression</span>
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
                             </a>
                         
                     </div>
@@ -420,8 +412,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/R/" class="post-category">
-                                R
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                学习笔记
                             </a>
                         
                     </div>
@@ -433,28 +425,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-10-23
+                    2023-10-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-10-24
+                    2023-11-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    287
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    13 分
                 </div>
                 
 
@@ -474,39 +466,146 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>因为R语言相关的资料用Rmarkdown写比较方便，所以先研究了一下怎么把Rmarkdown结合hexo进行上传，网上的资料甚少。最后搜到了<a target="_blank" rel="noopener" href="https://bookdown.org/yihui/blogdown/hexo.html">谢益辉大大</a>在章节5.2中提到了怎么用hexo上传Rmarkdown。<br>从<a target="_blank" rel="noopener" href="https://github.com/yihui/blogdown-hexo">这里</a>下载相关的文件，把.Rprofile, R&#x2F;build.R, 和 R&#x2F;build_one.R放到博客的根目录，然后就跟其他文章一样可以用rmd写日志了。</p>
-<p>以上完全错误。。有空再改。</p>
-<p>以下是原来的例子：</p>
-<h1 id="R-Markdown"><a href="#R-Markdown" class="headerlink" title="R Markdown"></a>R Markdown</h1><p>This is an R Markdown document. Please note this page was <strong>not</strong> rendered using the <a target="_blank" rel="noopener" href="http://rmarkdown.rstudio.com/"><strong>rmarkdown</strong></a> package or <a target="_blank" rel="noopener" href="http://pandoc.org/">Pandoc</a>. The R Markdown document is compiled to Markdown through <strong>knitr</strong>, and the Markdown document is rendered to HTML through <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">Hexo’s Markdown renderer</a>.</p>
-<p>You can embed an R code chunk like this:</p>
-<pre class=" language-r"><code class="language-r">summary<span class="token punctuation">(</span>cars<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">##      speed           dist       </span>
-<span class="token comment" spellcheck="true">##  Min.   : 4.0   Min.   :  2.00  </span>
-<span class="token comment" spellcheck="true">##  1st Qu.:12.0   1st Qu.: 26.00  </span>
-<span class="token comment" spellcheck="true">##  Median :15.0   Median : 36.00  </span>
-<span class="token comment" spellcheck="true">##  Mean   :15.4   Mean   : 42.98  </span>
-<span class="token comment" spellcheck="true">##  3rd Qu.:19.0   3rd Qu.: 56.00  </span>
-<span class="token comment" spellcheck="true">##  Max.   :25.0   Max.   :120.00</span>
-fit <span class="token operator">&lt;-</span> lm<span class="token punctuation">(</span>dist <span class="token operator">~</span> speed<span class="token punctuation">,</span> data <span class="token operator">=</span> cars<span class="token punctuation">)</span>
-fit
-<span class="token comment" spellcheck="true">## </span>
-<span class="token comment" spellcheck="true">## Call:</span>
-<span class="token comment" spellcheck="true">## lm(formula = dist ~ speed, data = cars)</span>
-<span class="token comment" spellcheck="true">## </span>
-<span class="token comment" spellcheck="true">## Coefficients:</span>
-<span class="token comment" spellcheck="true">## (Intercept)        speed  </span>
-<span class="token comment" spellcheck="true">##     -17.579        3.932</span>
+                <h1 id="一些快捷键"><a href="#一些快捷键" class="headerlink" title="一些快捷键"></a>一些快捷键</h1><p><strong>pycharm</strong>:<br>  Ctrl+&#x2F;  多行注释	</p>
+<p><strong>spyder</strong>: 	<br>control+1 注释	<br>control+4 块注释	<br>Ctrl+Enter  运行所在cell	<br>Alt+Enter   运行选中语句或运行所在行<br>Ctrl+Alt+I  美化代码<br>#%% 变成cell	<br>Ctrl I  是help	<br>批量缩进：Tab	<br>批量取消缩进：Shift + Tab 	</p>
+<p><strong>Jupyter Notebook</strong>:<br>单&#x2F;多行注释，选中代码，按Ctrl + &#x2F;  	<br>自定义的代码块移动 control up and down<br>shift+tab (+tab)显示函数帮助<br>Shift-Enter : 运行本单元，选中下个单元<br>Ctrl-Enter : 运行本单元<br>Alt-Enter : 运行本单元，在其下插入新单元	<br>运行全部的话跟Rstuidio一样就行</p>
+<h1 id="装包相关"><a href="#装包相关" class="headerlink" title="装包相关"></a>装包相关</h1><p>conda install 安装位置<br>C:\Users\lenovo\anaconda3\pkgs</p>
+<p>cmd命令激活anoconda<br>conda activate</p>
+<p>pip install -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a> pmdarima(包的名字)<br>pip install -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a> missingpy </p>
+<p># pip install plotly	<br>pip list #查看已安装的包 及其版本	<br>pip show plotly  #查看pip安装的软件包所有信息（全！用这个）	<br>conda list numpy	<br>conda list	<br>pip debug –verbose #查看wheel适配版本	</p>
+<p>C:\Users\lenovo\AppData\Roaming\jupyter\nbextensions\highlight_selected_word</p>
+<p>更新pip自己的命令：<br>python -m pip install –upgrade pip</p>
+<p>whl文件下载地址：<br><a target="_blank" rel="noopener" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/">https://www.lfd.uci.edu/~gohlke/pythonlibs/</a><br><a target="_blank" rel="noopener" href="https://pypi.org/">https://pypi.org/</a><br>pip install whl文件存放路径\whl文件名<br>例如：pip install D:\Python依赖包\xgboost-0.90-py2.py3-none-win_amd64.whl </p>
+<p>用setup.py安装库<br>d:<br>cd D:\pdf2docx-master<br>python setup.py install</p>
+<p>conda命令注释好像无效，记得删掉<br>conda config –get channels          #查看channel优先级<br>conda config –show                  #显示出所有conda的config信息<br>conda config –show channels         #只显示channels的信息</p>
+<h1 id="虚拟环境"><a href="#虚拟环境" class="headerlink" title="虚拟环境"></a>虚拟环境</h1><p>conda info -e （查看所有的虚拟环境）<br>conda create -n py37 python&#x3D;3.7<br>conda activate py37</p>
+<h1 id="解决图例显示为方块的问题"><a href="#解决图例显示为方块的问题" class="headerlink" title="解决图例显示为方块的问题"></a>解决图例显示为方块的问题</h1><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> matplotlib<span class="token punctuation">.</span>font_manager <span class="token keyword">import</span> FontProperties
+<span class="token keyword">import</span> matplotlib  
+matplotlib<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.sans-serif'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'SimHei'</span><span class="token punctuation">]</span> 
+matplotlib<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.family'</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token string">'sans-serif'</span>
+matplotlib<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'axes.unicode_minus'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">False</span>
+font<span class="token operator">=</span>FontProperties<span class="token punctuation">(</span>fname<span class="token operator">=</span>r<span class="token string">"C:\Windows\Fonts\msyh.ttc"</span><span class="token punctuation">,</span>size<span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#设置中文字体</span>
 </code></pre>
-<h1 id="Including-Plots"><a href="#Including-Plots" class="headerlink" title="Including Plots"></a>Including Plots</h1><p>You can also embed R plots:</p>
-<pre class=" language-r"><code class="language-r">par<span class="token punctuation">(</span>mar <span class="token operator">=</span> c<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-pie<span class="token punctuation">(</span>
-  c<span class="token punctuation">(</span><span class="token number">280</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  c<span class="token punctuation">(</span><span class="token string">'Sky'</span><span class="token punctuation">,</span> <span class="token string">'Sunny side of pyramid'</span><span class="token punctuation">,</span> <span class="token string">'Shady side of pyramid'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  col <span class="token operator">=</span> c<span class="token punctuation">(</span>'<span class="token comment" spellcheck="true">#0292D8', '#F7EA39', '#C4B632'),</span>
-  init.angle <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">,</span> border <span class="token operator">=</span> <span class="token keyword">NA</span>
-<span class="token punctuation">)</span>
+<h1 id="jupyter命令"><a href="#jupyter命令" class="headerlink" title="jupyter命令"></a>jupyter命令</h1><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> IPython<span class="token punctuation">.</span>core<span class="token punctuation">.</span>interactiveshell <span class="token keyword">import</span> InteractiveShell  <span class="token comment" spellcheck="true">#设置显示多行结果	</span>
+InteractiveShell<span class="token punctuation">.</span>ast_node_interactivity <span class="token operator">=</span> <span class="token string">'all'</span>	
+<span class="token operator">%</span>load <span class="token number">2.2</span>变量<span class="token punctuation">.</span>py     <span class="token comment" spellcheck="true">#载入代码	</span>
+<span class="token operator">%</span>run name<span class="token punctuation">.</span>py 	<span class="token comment" spellcheck="true">#运行代码	</span>
+
+<span class="token keyword">from</span> IPython<span class="token punctuation">.</span>core<span class="token punctuation">.</span>interactiveshell <span class="token keyword">import</span> InteractiveShell
+InteractiveShell<span class="token punctuation">.</span>ast_node_interactivity <span class="token operator">=</span> <span class="token string">"all"</span> <span class="token comment" spellcheck="true">#同时显示多行结果</span>
 </code></pre>
-<p><img src="/images/pie-1.png"></p>
+<h1 id="ipynb文件转py文件"><a href="#ipynb文件转py文件" class="headerlink" title="ipynb文件转py文件"></a>ipynb文件转py文件</h1><pre class=" language-python"><code class="language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>	
+    !jupyter nbconvert <span class="token operator">-</span><span class="token operator">-</span>to python 要转换的Jupyter文件名<span class="token punctuation">.</span>ipynb	
+<span class="token keyword">except</span><span class="token punctuation">:</span>	
+    <span class="token keyword">pass</span>
+</code></pre>
+<h1 id="路径相关"><a href="#路径相关" class="headerlink" title="路径相关"></a>路径相关</h1><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os 	
+os<span class="token punctuation">.</span>getcwd<span class="token punctuation">(</span><span class="token punctuation">)</span>  		    <span class="token comment" spellcheck="true"># get current working directory 	</span>
+os<span class="token punctuation">.</span>chdir<span class="token punctuation">(</span>r<span class="token string">'C:\Users\lenovo\Desktop'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># change working directory 	</span>
+os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span><span class="token string">'./'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 列出当前目录下所有的文件，返回的是列表	</span>
+
+<span class="token keyword">import</span> os	
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"abs path is %s"</span> <span class="token operator">%</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>	
+
+<span class="token keyword">import</span> sys
+a<span class="token operator">=</span>sys<span class="token punctuation">.</span>path  <span class="token comment" spellcheck="true">#经常使用sys.path来查看python及系统的依赖库包安装路径。</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+
+<span class="token keyword">import</span> matplotlib	
+<span class="token keyword">print</span><span class="token punctuation">(</span>matplotlib<span class="token punctuation">.</span>__path__<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#查看指定库的安装路径	</span>
+matplotlib<span class="token punctuation">.</span>__version__       <span class="token comment" spellcheck="true">#查看指定库的安装版本	</span>
+np<span class="token punctuation">.</span>show_config<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#不知道干啥用	</span>
+</code></pre>
+<p>————————————————————————-</p>
+<h1 id="python-基础-刚学的时候乱七八糟的笔记"><a href="#python-基础-刚学的时候乱七八糟的笔记" class="headerlink" title="python 基础 刚学的时候乱七八糟的笔记"></a>python 基础 刚学的时候乱七八糟的笔记</h1><p>input输入两个数,并变成int	<br>a,b&#x3D;input().split()	<br>a,b&#x3D;int(a),int(b)	<br>或者	<br>a,b &#x3D; map(int, input(“请输入两个数：”).split())	<br>num &#x3D; list(map(int, input().strip().split(“ “)))  # 存储为列表</p>
+<p><strong>函数</strong>	<br>*可变参数，自动封装成tuple	<br>**关键字参数，封装成dict	<br>以上都可以输入0个或多个参数	<br>命名关键字参数：限制关键字参数的名字				</p>
+<p>优先级 not and  or 与或非 	<br>1 or 2 and 0 &#x3D;&#x3D;&#x3D;&#x3D;&gt;&gt;&gt;&gt;输出1， and的优先级高于or	<br>not 0 and 3 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&gt;&gt;&gt;&gt;输出3 ，not优先级高于and	<br>print(0 and 1)      # &#x3D;&gt;0,0等同于False	<br>print(False and 1)  # &#x3D;&gt;False	<br>print(-1 and 1)     # &#x3D;&gt;1,非零就是1，所以-1是1	<br>print(1 or False)   # &#x3D;&gt;1,非零等同于True	<br>print(True or False)# &#x3D;&gt;True	<br>print(‘a’ or 0)     # &#x3D;&gt;a	<br>print(0 or 0)       # &#x3D;&gt;0	</p>
+<p>python的关键字and和or在布尔型数组中无效？？？<br>需要使用&amp;(和),|(或)之类的布尔算数运算符:<br>mask&#x3D;(names&#x3D;&#x3D;”Joe”)|(names&#x3D;&#x3D;”Bob”)</p>
+<p>位运算符：将数据转成二进制进行计算 	<br>&amp; 位与 对应数位都是1 结果才1 ；有0为0<br>|  位或 对应数位都是0 结果才0  ； 有1 为1<br>&lt;&lt;  左移位运算符 高位溢出舍弃低位补0<br>&gt;&gt; 低位溢出舍弃 高位补0</p>
+<p>优先级：算数运算（幂乘除加减） 位运算（位与位或） 比较运算（大小等不等） 布尔运算（and not） 赋值（&#x3D;）</p>
+<p>要注意 乘幂是 **  不是^</p>
+<p>print(123)<br>print(1,2,3)<br>print(‘123’)<br>print(‘1’,’2’,’3’)<br>逗号会空一格</p>
+<p>x&#x3D;str(5);print(‘输出的数字是’+x)  #加连接的是字符</p>
+<p>x&#x3D;5;print(‘输出的数字是’,x) #中间会有空格</p>
+<p>print(test_chars, end&#x3D;’’)<br>print里加个end&#x3D;’’  在循环里用 可以不换行<br>或者end&#x3D;’\t’  占位符</p>
+<p>print(f”{user.title()}, you can post a response if you wish.”)</p>
+<p>f字符串 里面是变量的时候用<br>a&#x3D;’apple’<br>b&#x3D;’banana’<br>print(f’{a} {b.upper()} cat’)</p>
+<h5 id><a href="#" class="headerlink" title></a></h5><p>print(‘\tpython’)  #\t 制表符  英文空四格 中文空两格<br>print(‘\t你好’)<br>print(‘a\nb\nc\nd’)  #\n 换行符</p>
+<p>如何判断一个对象是可迭代对象呢？方法是通过collections.abc模块的Iterable类型判断：</p>
+<p>&gt;&gt;&gt; from collections.abc import Iterable<br>&gt;&gt;&gt; isinstance(‘abc’, Iterable) # str是否可迭代<br>True<br>&gt;&gt;&gt; isinstance([1,2,3], Iterable) # list是否可迭代<br>True<br>&gt;&gt;&gt; isinstance(123, Iterable) # 整数是否可迭代<br>False</p>
+<p>for循环中同时迭代索引和元素本身：<br>&gt;&gt;&gt; for i, value in enumerate([‘A’, ‘B’, ‘C’]):<br>…     print(i, value)<br>…<br>0 A<br>1 B<br>2 C</p>
+<p>fp&#x3D;open(‘D:&#x2F;text.txt’,’a+’)<br>print(‘helloworld’,fp)<br>fp.close()</p>
+<p>if  条件表达式1:  #有冒号<br>    条件执行体1<br>elif 条件表达式2:  #是elif<br>      条件执行体2<br>else:   		#可以不要  注意elif else 都有冒号</p>
+<p>运行的句子1 if 判断条件 else 运行的句子2</p>
+<p>range 	左闭右开 默认0开始 1步长<br>range	对象占用的内存空间相同<br>    只有用到的时候才会计算到每个元素<br>range(start,stop,step)     #range(0,3,1)   结果：[0,1,2]</p>
+<p>元组只有一个元素时 要加个逗号<br>turple&#x3D;(20,)</p>
+<p>列表的添加<br>a.append(6)      只在最后一个位置加，加的只是一个对象<br>a.extend([7,8])  在最后添加列表的每一个元素<br>a.insert(8,9)       在指定位置添加（在第9个位置添加9）<br>还有一种切片添加</p>
+<p>列表的删除<br>a.remove()  按值删除，一次只删一个 有好几个只删第一个<br>a.pop（）    根据索引移除元素 括号里是位置 不写的话删最后一个<br>a.clear()       删除所有元素<br>del a 	   删除列表</p>
+<p>！！！列表直接赋值等价于两者指向同一个列表<br>列表的复制用lst.copy()</p>
+<p>a&#x3D;[1,2,3,4,5]<br>print(a[0:4:1])  左闭右开 不输出最后一个 切片 [start:stop:step]</p>
+<p>a&#x3D;[1, 2, 3, 4, 5]<br>a[-3:-1]      ##[3, 4] 左开又闭，所以不会输出5<br>a[-1:-3]      ##[]  运行不了，只能从左往右<br>a[-1:-3:-1]  ##[5,4]  修改步长为-1后可以运行<br>a[4:2]	  #[]  步长默认为1所以，运行不了<br>a[4:2:-1]     #[5,4]  修改步长为-1后可以运行</p>
+<h1 id="从入门到实践-note"><a href="#从入门到实践-note" class="headerlink" title="从入门到实践 note"></a>从入门到实践 note</h1><p>if语句中将变量作为条件表达式时<br>如果变量非空，则返回true 执行if之后的语句<br>变量为空，返回false 执行else</p>
+<p>注释和文档字符串（docstrings）的区别主要在于文档字符串是可以调用的，而注释不行。</p>
+<p>print（函数名.<strong>doc</strong>)   两个下划线</p>
+<p>help(str)<br>使用了内置函数help来获取str函数（同样是内置函数，用来将非字符串数值转化为字符串数值）的说明。照上面来看，help实际上就是起到获取内置函数的文档字符串的作用。</p>
+<p>传递任意数量的实参，可以在函数定义时给形参加个星号<br>比如<br>def make_pizza(size, *toppings):<br>一个* 收集任意数量的位置实参<br>两个** 接受任意数量的关键字实参</p>
+<p>概念：模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py</p>
+<p>Python中\是转义符，\u表示其后是UNICODE编码，因此\User在这里会报错，在字符串前面加个r表示就可以了<br>data &#x3D; sp.genfromtxt(r”C:\Users\Administrator\Desktoptraffic.tsv”,delimiter&#x3D;”\t”)<br>或者<br>time&#x3D;ph.getatime(‘C:\Users\Desktopd\went.py’) # 返回指定文件最近的访问时间<br>time&#x3D;ph.getatime(‘C:&#x2F;Users&#x2F;Desktop&#x2F;went.py’) # 返回指定文件最近的访问时间</p>
+<p>r : 读取文件，若文件不存在则会报错<br>w: 写入文件，若文件不存在则会先创建再写入，会覆盖原文件<br>a : 写入文件，若文件不存在则会先创建再写入，但不会覆盖原文件，而是追加在文件末尾<br>r+ : 可读、可写，文件不存在会报错，写操作时会覆盖<br>w+ : 可读，可写，文件不存在先创建，会覆盖<br>a+ ：可读、可写，文件不存在先创建，不会覆盖，追加在末尾</p>
+<p>查看关键字<br>import keyword<br>keyword.kwlist</p>
+<p>五个一行输出的代码例子</p>
+<pre class=" language-python"><code class="language-python">results <span class="token operator">=</span> list<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>results<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">' '</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">5</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># \n为转义符 换行的意思</span>
+</code></pre>
+<p>str的处理不改变原值 ！！！原理是因为str是不可变对象</p>
+<pre class=" language-python"><code class="language-python">string <span class="token operator">=</span> <span class="token string">'abcd'</span>
+string<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 'ABCD' </span>
+string  <span class="token comment" spellcheck="true">#'abcd'</span>
+
+string <span class="token operator">=</span> <span class="token string">'a bc d'</span>
+string<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 'abcd' </span>
+string  <span class="token comment" spellcheck="true">#'a bc d'</span>
+</code></pre>
+<p>python中列表的内置函数sort（）可以对列表中的元素进行排序，而全局性的sorted（）函数则对所有可迭代的序列都是适用的；并且sort（）函数是内置函数，会改变当前对象，而sorted（）函数只会返回一个排序后的当前对象的副本，而不会改变当前对象。</p>
+<pre class=" language-python"><code class="language-python">lst<span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+lst<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#不返回值,但是改变lst</span>
+lst
+
+lst2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">]</span>
+lst2<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#不返回值</span>
+lst2
+
+sorted
+lst3<span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+sorted<span class="token punctuation">(</span>lst3<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#返回值，但不改变原值</span>
+lst3	
+
+lst4<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">]</span>
+sorted<span class="token punctuation">(</span>lst4<span class="token punctuation">)</span>
+lst4
+</code></pre>
+<h2 id="深复制-浅复制"><a href="#深复制-浅复制" class="headerlink" title="深复制 浅复制"></a>深复制 浅复制</h2><p>直接赋值 变-变 引用地址差不多？<br>浅复制 copy 浅层不变 深层变<br>深复制 deepcopy 全不变<br>理解:深复制直接复制了一份新的，所以原来的跟新的完全没关系。<br>浅复制只拷贝了浅层的东西，所以浅层变，新不变，因为拷贝成功，<br>深层的（子对象）没有拷贝，只是引用，所以深层的跟着原来的变</p>
+<p>浅复制只复制引用到新的列表中(引用可以理解为地址或者指针？)，不会创建新对象。<br>而深复制创建新的对象，并把对象保存在新的地址中。</p>
+<p>列表的复制<br>直接赋值等价于两者指向同一个列表<br>list.copy()方法：复制一个新的列表，lst，lst2指向两个列表，但是是浅复制</p>
+<p>深拷贝和浅拷贝的区别是什么？<br>浅拷贝是将对象的引用复制给另一个对象。因此，如果我们在副本中进行更改，则会影响原对象。使用 copy（）函数进行浅拷贝，使用方法如下：<br>&gt;&gt;&gt; b&#x3D;copy.copy(a)</p>
+<p>深拷贝是将对象本身复制给另一个对象。这意味着如果对对象的副本进行更改时不会影响原对象。在 Python 中，我们使用 deepcopy（）函数进行深拷贝，使用方法如下：<br>&gt;&gt;&gt; import copy<br>&gt;&gt;&gt; b&#x3D;copy.deepcopy(a)</p>
+<p>1.&#x3D;&#x3D; 是比较两个对象的内容是否相等，即两个对象的“值“是否相等，不管两者在内存中的引用地址是否一样。<br>2.is 比较的是两个实例对象是不是完全相同，它们是不是同一个对象，占用的内存地址是否相同。即is比较两个条件：1.内容相同。2.内存中地址相同</p>
+<p>pandas<br>indA &amp; indB   # intersection<br>indA | indB   # union<br>indA ^ indB   # symmetric difference</p>
+<p>注意区别<br>listname.sort()  方法 在原列表上排序，不打印<br>sorted(listname) 函数 原列表不变，打印排序后的列表</p>
+<p>列表.extend（）的参数只能是列表或者str<br>x.append(‘abc’)和x.extend(‘abc’)的区别、</p>
+<p>2-50间素数</p>
+<pre class=" language-python"><code class="language-python">nums <span class="token operator">=</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+    nums <span class="token operator">=</span> list<span class="token punctuation">(</span>filter<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token operator">==</span>i <span class="token operator">or</span> x <span class="token operator">%</span> i<span class="token punctuation">,</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+</code></pre>
+<p>a &#x3D; [1,2,3,4]<br>b &#x3D; [5,6,7,8]<br>print(list(map(lambda x,y:x+y, a,b)))</p>
+<p>numpy中<br>值得注意的是花式索引给出的是一个 副本 而切片给出的是一个 视图</p>
+<p>变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。<br>静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。<br>例如Java是静态语言，赋值语句如下（&#x2F;&#x2F; 表示注释）：<br>int a &#x3D; 123; &#x2F;&#x2F; a是整数类型变量<br>a &#x3D; “ABC”;   &#x2F;&#x2F; 错误：不能把字符串赋给整型变量<br>和静态语言相比，动态语言更灵活，就是这个原因。</p>
+<p>s1 &#x3D; 72<br>s2 &#x3D; 85<br>r &#x3D; (s2-s1)&#x2F;s1*100<br>print(‘成绩提高的百分比为%.1f%%’ % r)  # %f浮点数 %的转义用%%</p>
 
                 
             </div>
@@ -533,7 +632,7 @@ pie<span class="token punctuation">(</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://arroe99.github.io/posts/4678/">http://arroe99.github.io/posts/4678/</a>
+                    <a href="http://arroe99.github.io/posts/a3cc/">http://arroe99.github.io/posts/a3cc/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -571,16 +670,8 @@ pie<span class="token punctuation">(</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/R-Markdown/">
-                                    <span class="chip bg-color">R Markdown</span>
-                                </a>
-                            
-                                <a href="/tags/plot/">
-                                    <span class="chip bg-color">plot</span>
-                                </a>
-                            
-                                <a href="/tags/regression/">
-                                    <span class="chip bg-color">regression</span>
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
                                 </a>
                             
                         </div>
@@ -628,13 +719,13 @@ pie<span class="token punctuation">(</span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/6561/">
+                <a href="/posts/4678/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="SQL力扣刷题记录">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Hello R Markdown">
                         
-                        <span class="card-title">SQL力扣刷题记录</span>
+                        <span class="card-title">Hello R Markdown</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -645,14 +736,14 @@ pie<span class="token punctuation">(</span>
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-23
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/SQL/" class="post-category">
-                                    SQL
+                            <a href="/categories/R/" class="post-category">
+                                    R
                                 </a>
                             
                             
@@ -662,12 +753,16 @@ pie<span class="token punctuation">(</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
+                    <a href="/tags/R-Markdown/">
+                        <span class="chip bg-color">R Markdown</span>
                     </a>
                     
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">学习笔记</span>
+                    <a href="/tags/plot/">
+                        <span class="chip bg-color">plot</span>
+                    </a>
+                    
+                    <a href="/tags/regression/">
+                        <span class="chip bg-color">regression</span>
                     </a>
                     
                 </div>
@@ -681,13 +776,12 @@ pie<span class="token punctuation">(</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/a3cc/">
+                <a href="/posts/77f7/">
                     <div class="card-image">
                         
+                        <img src="/images/640.jpg" class="responsive-img" alt="hexo相关">
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Python笔记">
-                        
-                        <span class="card-title">Python笔记</span>
+                        <span class="card-title">hexo相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -704,8 +798,8 @@ pie<span class="token punctuation">(</span>
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/blog/" class="post-category">
+                                    blog
                                 </a>
                             
                             
@@ -715,8 +809,12 @@ pie<span class="token punctuation">(</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/blog/">
+                        <span class="chip bg-color">blog</span>
+                    </a>
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>

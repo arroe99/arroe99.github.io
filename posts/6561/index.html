@@ -436,21 +436,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-11-07
+                    2023-11-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
 
@@ -690,6 +690,56 @@
 <span class="token keyword">group</span> <span class="token keyword">by</span> product_name
 <span class="token keyword">having</span> <span class="token function">sum</span><span class="token punctuation">(</span>unit<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">100</span>
 </code></pre>
+<h2 id="1527-患某种疾病的患者"><a href="#1527-患某种疾病的患者" class="headerlink" title="1527. 患某种疾病的患者"></a>1527. 患某种疾病的患者</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> patients
+<span class="token keyword">where</span> conditions <span class="token operator">like</span> <span class="token string">'% DIAB1%'</span> <span class="token operator">or</span> conditions <span class="token operator">like</span> <span class="token string">'DIAB1%'</span>
+
+<span class="token keyword">select</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> patients
+<span class="token keyword">where</span> conditions <span class="token operator">regexp</span> <span class="token string">"^DIAB1|\\sDIAB1"</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">--第一个\转义  \s whitespace 空格</span>
+</code></pre>
+<h2 id="1581-进店却未进行过交易的顾客"><a href="#1581-进店却未进行过交易的顾客" class="headerlink" title="1581. 进店却未进行过交易的顾客"></a>1581. 进店却未进行过交易的顾客</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+  v<span class="token punctuation">.</span>customer_id<span class="token punctuation">,</span>
+  <span class="token function">count</span><span class="token punctuation">(</span>ifnull<span class="token punctuation">(</span>t<span class="token punctuation">.</span>transaction_id<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span> count_no_trans
+<span class="token keyword">from</span> visits <span class="token keyword">as</span> v <span class="token keyword">left</span> <span class="token keyword">join</span> <span class="token keyword">transactions</span> <span class="token keyword">as</span> t
+<span class="token keyword">on</span> v<span class="token punctuation">.</span>visit_id <span class="token operator">=</span> t<span class="token punctuation">.</span>visit_id
+<span class="token keyword">where</span> t<span class="token punctuation">.</span>transaction_id <span class="token operator">is</span> <span class="token boolean">null</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> v<span class="token punctuation">.</span>customer_id
+
+<span class="token comment" spellcheck="true">--改进 不需要count transaction，直接count(customer_id)就行</span>
+</code></pre>
+<p>左连接，筛选没有交易记录的(null)，group by cus_id, 统计null的个数</p>
+<h2 id="1633-各赛事的用户注册率"><a href="#1633-各赛事的用户注册率" class="headerlink" title="1633. 各赛事的用户注册率"></a>1633. 各赛事的用户注册率</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> 
+  r<span class="token punctuation">.</span>contest_id<span class="token punctuation">,</span>
+  <span class="token function">round</span><span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>user_id<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> users<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">100</span> <span class="token keyword">as</span> percentage
+<span class="token keyword">from</span> users <span class="token keyword">as</span> u <span class="token keyword">join</span> register <span class="token keyword">as</span> r
+<span class="token keyword">on</span> u<span class="token punctuation">.</span>user_id <span class="token operator">=</span> r<span class="token punctuation">.</span>user_id
+<span class="token keyword">group</span> <span class="token keyword">by</span> contest_id
+<span class="token keyword">order</span> <span class="token keyword">by</span> percentage <span class="token keyword">desc</span><span class="token punctuation">,</span> r<span class="token punctuation">.</span>contest_id<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">-- 根本不需要连接</span>
+<span class="token keyword">select</span> 
+  contest_id<span class="token punctuation">,</span>
+  <span class="token function">round</span><span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span>user_id<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">100</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> users<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">as</span> percentage
+<span class="token keyword">from</span> register
+<span class="token keyword">group</span> <span class="token keyword">by</span> contest_id
+<span class="token keyword">order</span> <span class="token keyword">by</span> percentage <span class="token keyword">desc</span><span class="token punctuation">,</span> contest_id<span class="token punctuation">;</span>
+</code></pre>
+<h2 id="1661-每台机器的进程平均运行时间"><a href="#1661-每台机器的进程平均运行时间" class="headerlink" title="1661. 每台机器的进程平均运行时间"></a>1661. 每台机器的进程平均运行时间</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span>
+  machine_id<span class="token punctuation">,</span>
+  <span class="token function">round</span><span class="token punctuation">(</span><span class="token function">avg</span><span class="token punctuation">(</span><span class="token keyword">if</span><span class="token punctuation">(</span>activity_type<span class="token operator">=</span><span class="token string">'start'</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token keyword">timestamp</span><span class="token punctuation">,</span><span class="token keyword">timestamp</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">as</span> processing_time
+<span class="token keyword">from</span> activity
+<span class="token keyword">group</span> <span class="token keyword">by</span> machine_id
+</code></pre>
+<h2 id="1667-修复表中的名字"><a href="#1667-修复表中的名字" class="headerlink" title="1667. 修复表中的名字"></a>1667. 修复表中的名字</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span>
+  user_id<span class="token punctuation">,</span>
+  concat<span class="token punctuation">(</span>upper<span class="token punctuation">(</span>substring<span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>lower<span class="token punctuation">(</span>substring<span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">as</span> name
+<span class="token keyword">from</span>
+  users
+<span class="token keyword">order</span> <span class="token keyword">by</span> 
+  user_id<span class="token punctuation">;</span>
+</code></pre>
+<p>考察字符串操作函数</p>
 <h1 id="不会的题目"><a href="#不会的题目" class="headerlink" title="不会的题目"></a>不会的题目</h1><h2 id="1179-重新格式化部门表"><a href="#1179-重新格式化部门表" class="headerlink" title="1179. 重新格式化部门表!!!"></a><strong>1179. 重新格式化部门表!!!</strong></h2><p>长变宽，不会且懒得做，先mark一下答案</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> id<span class="token punctuation">,</span> 
 <span class="token function">SUM</span><span class="token punctuation">(</span><span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> month<span class="token operator">=</span><span class="token string">'Jan'</span> <span class="token keyword">THEN</span> revenue <span class="token keyword">END</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Jan_Revenue<span class="token punctuation">,</span>
