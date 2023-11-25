@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="DolphinDB笔记_1120, Luo&#39;s Blog">
+    <meta name="keywords" content="DolphinDB笔记_1124, Luo&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DolphinDB笔记_1120 | Luo&#39;s Blog</title>
+    <title>DolphinDB笔记_1124 | Luo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -279,12 +279,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DolphinDB笔记_1120</h1>
+                    <h1 class="description center-align post-title">DolphinDB笔记_1124</h1>
                 </div>
             </div>
         </div>
@@ -429,7 +429,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-11-20
+                    2023-11-24
                 </div>
                 
 
@@ -443,14 +443,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    836
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    7 分
                 </div>
                 
 
@@ -470,39 +470,198 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>FICC</strong></p>
-<p>FICC 缩写来自于 Fixed Income Currencies and Commodities<br>• FICC 业务 , 即固定收益 (Fixed Income) 、外汇 (Currencies) 和大宗商品 (Commodities) 业务<br>• FICC 是一个统称，实际上金融机构开展的 FICC 业务会由不同的部门或者不同的交易台（ TD Trading Desk ）来展业</p>
-<br>
+                <h1 id="分区数据库"><a href="#分区数据库" class="headerlink" title="分区数据库"></a><a target="_blank" rel="noopener" href="https://gitee.com/dolphindb/Tutorials_CN/blob/master/database.md">分区数据库</a></h1><p>分区好处<br>1、大型表易于管理<br>2、充分利用资源。分布式计算可以充分利用所有节点来完成通常要在一个节点上完成的任务。</p>
+<p>MPP(Massive Parallel Processing)  分片技术<br>通过哈希规则，将数据分布到各个节点上（水平分割），在各个节点内部再进行分区（垂直分割）<br>容易出现各个节点数据分布不均匀的问题</p>
+<p>DolphinDB将各个节点的存储空间交给内置的<strong>分布式文件系统（DFS）</strong>统一进行管理。<br>数据分割不再按水平和垂直两个步骤进行，而是进行全局优化，分区的粒度更细更均匀。</p>
+<p>DolphinDB分区类型</p>
+<ul>
+<li><p>顺序分区 分区基于输入数据文件中行的顺序。只能在本地文件系统中使用，不能在分布式文件系统中使用。</p>
+</li>
+<li><p>范围分区对每个分区区间创建一个分区。</p>
+</li>
+<li><p>哈希分区利用哈希函数对分区列操作，方便建立指定数量的分区。</p>
+</li>
+<li><p><strong>值分区</strong>每个值创建一个分区，例如股票交易日期、股票交易月等。</p>
+</li>
+<li><p>列表分区是根据用户枚举的列表来进行分区，比值分区更加灵活。</p>
+</li>
+<li><p>复合分区适用于数据量特别大而且SQL where或group by语句经常涉及多列。可使用2个或3个分区列，每个分区选择都可以采用区间、值、哈希或列表分区。例如按股票交易日期进行值分区， 同时-按股票代码进行范围分区。</p>
+</li>
+</ul>
+<p>相关代码如下：</p>
+<pre class=" language-DolphinDB"><code class="language-DolphinDB">login(`admin, `123456)
 
-<p><strong>linux上基础知识、程序常见问题分析基础：</strong></p>
-<p>文件编辑、查找：vim，tail，head，less，more，grep，sed，awk<br>权限、压缩：chmod，tar，gzip，zip<br>磁盘、文件管理：df，du，stat，ls<br>不同主机间通信：ssh，scp，rsync，ftp<br>启动关闭进程：前台&#x2F;后台执行程序，nohup，kill，pkill，killall<br>查看进程状态：ps，top，htop，pidstat<br>查看进程资源占用状态：<br>cpu（进程cpu以及各个线程cpu）：top，pidstat，mpstat，vmstat<br>内存占用：top，free，dstat<br>磁盘IO：iostat，dstat<br>网络IO&#x2F;连接数：ss，netstat，tcpdumpm, dstat</p>
-<p>crash问题：gdb cordump调试程序 -&gt;  thread apply all bt，gdb application运行<br>性能问题：perf top -p pid，strace，pstack<br>死锁问题：pstack，valgrind， gcc -fsanitize<br>动态库静态库链接原理：链接顺序，符号决议，动态库版本控制，符号冲突</p>
-<br>
+//  database 创建数据库  
+// database(directory, [partitionType], [partitionScheme], [locations], [engine=’OLAP’], [atomic=’TRANS’])
+// windows系统下 数据存储在D:\DolphinDB_Win64_V2.00.7\server\local8848\storage\CHUNKS
+// 对于分区的理解，1是数据分布存储 2是分节点存储数据
 
-<p>一个vagrant报错</p>
-<p>C:\WINDOWS\system32&gt;cd &#x2F;d D:\ProgramFiles\vagrant\boxData</p>
-<p>D:\ProgramFiles\vagrant\boxData&gt;vagrant up<br>Bringing machine ‘vagrant1’ up with ‘virtualbox’ provider…<br>Bringing machine ‘vagrant2’ up with ‘virtualbox’ provider…<br>Bringing machine ‘vagrant3’ up with ‘virtualbox’ provider…<br>&#x3D;&#x3D;&gt; vagrant1: Clearing any previously set network interfaces…<br>There was an error while executing <code>VBoxManage</code>, a CLI used by Vagrant<br>for controlling VirtualBox. The command and stderr is shown below.</p>
-<p>Command: [“hostonlyif”, “create”]</p>
-<p>Stderr: 0%…<br>Progress state: E_FAIL<br>VBoxManage.exe: error: Failed to create the host-only adapter<br>VBoxManage.exe: error: Querying NetCfgInstanceId failed (0x00000002)<br>VBoxManage.exe: error: Details: code E_FAIL (0x80004005), component HostNetworkInterfaceWrap, interface IHostNetworkInterface<br>VBoxManage.exe: error: Context: “enum RTEXITCODE __cdecl handleCreate(struct HandlerArg *)” at line 95 of file VBoxManageHostonly.cpp</p>
-<p><strong>vagrant命令</strong></p>
-<p>vagrant status [name|id]   # 查看虚拟机状态<br>vagrant halt [name|id]     # 关闭虚拟机<br>vagrant up [name|id]       # 启动虚拟机</p>
-<p>.&#x2F;dolphindb -localSite localhost:8900:local8900<br>version();  查看dolphindb版本，要有分号</p>
-<p>linux dolphin 一整套流程</p>
-<pre class=" language-linux"><code class="language-linux">su root    ## 输密码vagrant后回车
+// 创建没有分区的磁盘数据库
+db=database(directory="C:/DolphinDB/Data/db1/");
+t=table(take(1..10,10000000) as id, rand(10,10000000) as x, rand(10.0,10000000) as y);
+saveTable(db, t, `t1);
 
-yum -y install wget && yum install -y unzip zip && yum -y install vim*
+// 1、顺序分区(SEQ)：分区是基于输入数据文件中行的顺序。它只能在本地文件系统中使用，不能在分布式文件系统中使用。
+n=1000000
+ID=rand(100, n)
+dates=2017.08.07..2017.08.11
+date=rand(dates, n)
+x=rand(10.0, n)
+t=table(ID, date, x);
+saveText(t, "C:/DolphinDB/Data/t.txt");
 
-wget https://www.dolphindb.cn/downLinux64-Current.php -O dolphindb.zip
+db = database(directory="C:/DolphinDB/Data/seqdb", partitionType=SEQ, partitionScheme=8)  //分区的数量数8
+pt = loadTextEx(db, `pt, ,"C:/DolphinDB/Data/t.txt");
 
-mkdir dolphin && unzip dolphindb.zip -d dolphin
 
-cd dolphin/ && chmod 777 server  # 手动上传license文件
+// 2、范围分区 RANGE
+n=1000000
+ID=rand(10, n)
+x=rand(1.0, n)
+t=table(ID, x);
+db=database(directory="dfs://rangedb", partitionType=RANGE, partitionScheme=0 5 10)
+pt = db.createPartitionedTable(t, `pt, `ID);
+pt.append!(t);
+pt=loadTable(db,`pt)
+x=select * from pt           // IN-MEMORY TABLE
+select count(x) from pt;   // 为什么要这样写？
+
+saveText(t, "C:/DolphinDB/Data/t.txt");
+db=database(directory="dfs://rangedb", partitionType=RANGE, partitionScheme=0 5 10)
+pt = loadTextEx(db, `pt, `ID, "C:/DolphinDB/Data/t.txt");   // 将本地数据输入到range分区表
+
+
+///3、哈希分区(HASH)：需要指定分区列的数据类型和分区数量。
+n=1000000
+ID=rand(10, n)
+x=rand(1.0, n)
+t=table(ID, x)
+db=database(directory="dfs://hashdb", partitionType=HASH, partitionScheme=[INT, 2])
+
+pt = db.createPartitionedTable(t, `pt, `ID)
+pt.append!(t);
+
+select count(x) from pt;
+
+
+// 4、数值分区(VALUE)：分区方案中的每个元素决定一个分区。
+
+n=1000000
+month=take(2000.01M..2016.12M, n);
+x=rand(1.0, n);
+t=table(month, x);
+
+db=database(directory="dfs://valuedb", partitionType=VALUE, partitionScheme=2000.01M..2016.12M)
+pt = db.createPartitionedTable(t, `pt, `month);
+pt.append!(t);
+
+pt=loadTable(db,`pt)
+select count(x) from pt;
+
+// 5、列表分区(LIST)：分区方案的每个元素决定分区。
+n=1000000
+ticker = rand(`MSFT`GOOG`FB`ORCL`IBM,n);
+x=rand(1.0, n);
+t=table(ticker, x);
+
+db=database(directory="dfs://listdb", partitionType=LIST, partitionScheme=[`IBM`ORCL`MSFT, `GOOG`FB])
+pt = db.createPartitionedTable(t, `pt, `ticker)
+pt.append!(t);
+
+//pt=loadTable(db,`pt) 
+select count(x) from pt;
+
+// 6、IN-MEMORY TABLE组合分组(COMPO) 略
+
+
+
+
+//  dropDatabase   参数只有一个路径
+//  删除分布式数据库：
+n=1000000
+ID=rand(10, n)
+dates=2017.08.07..2017.08.11
+date=rand(dates, n)
+x=rand(10.0, n)
+t=table(ID, date, x);
+saveText(t, "C:/DolphinDB/Data/t.txt");   // 创建本地的一个txt的表
+db = database("dfs://valueDB", VALUE, 2017.08.07..2017.08.11)  // 创建分布式数据库
+pt = loadTextEx(db, `pt1, `date, "C:/DolphinDB/Data/t.txt");      // 从本地数据文件导入表格到数据库
+dropDatabase("dfs://valueDB")  //删除数据库
+
+//删除本地磁盘数据库：
+db = database("C:/DolphinDB/Data/rangedb", RANGE, 0 5 10)
+pt = loadTextEx(db, `pt, `ID, "C:/DolphinDB/Data/t.txt");
+
+dropDatabase("C:/DolphinDB/Data/rangedb");
+
+
+
+// 导入数据 三个函数 loadText，ploadText和loadTextEx
+
+// 建表建库
+n = 1000000
+syms = `IBM`MSFT`GM`C`FB`GOOG`V`F`XOM`AMZN`TSLA`PG`S
+time = 09:30:00 + rand(21600000, n)
+bid = rand(10.0, n)
+bidSize = 1 + rand(100, n)
+ask = rand(10.0, n)
+askSize = 1 + rand(100, n)
+quotes = table(rand(syms, n) as sym, take(2018.05.04..2018.05.11,n) as date, time, bid, bidSize, ask, askSize)
+
+stockDB = database("dfs://stockDB", VALUE,2018.05.04..2018.05.11);
+stockDB.createPartitionedTable(quotes, `quotes, `date);
+
+//dropDatabase('dfs://stockDB')
+
+// 保存表到本地
+workDir = "C:/DolphinDB/Data"
+if(!exists(workDir)) mkdir(workDir)
+quotes.saveText(workDir + "/quotes.csv")
+quotes.saveText(workDir + "/quotes_new.csv")
+
+// 从内存中导入
+loadTable("dfs://stockDB", "quotes").append!(quotes);
+
+// 导入维度表
+t=loadText(workDir + "/quotes_new.csv")
+loadTable("dfs://stockDB", "quotes").append!(t)
+
+// 导入分区表
+db = database("dfs://stockDB")
+loadTextEx(db, "quotes", `date`sym, workDir + "/quotes.csv")
+
+tmp = loadTable("dfs://stockDB", `quotes)
+select count(*) from tmp;
+
+
+// loadTable 函数  加载数据到内存
+// loadTable(database, tableName, [partitions], [memoryMode=false])
+n=1000000
+ID=rand(100, n)
+dates=2017.08.07..2017.08.11
+date=rand(dates, n)
+x=rand(10.0, n)
+t1=table(ID, date, x);   // 存储数据的表
+
+dbDate = database(, VALUE, 2017.08.07..2017.08.11)
+dbID=database(, RANGE, 0 50 100);
+db = database("dfs://compoDB", COMPO, [dbDate, dbID]);    // 分区数据库
+pt = db.createPartitionedTable(t1, `pt, `date`ID).append!(t1)   // 分区表
+
+t2=table(0..100 as ID,take(2017.08.07..2017.08.11,101) as date)
+dt = db.createTable(t2, `dt).append!(t2)   // 维度表  所以分区数据库里也可以维度表（？
+
+// 加载维度表和分区表，函数相同，区别在于表对象
+tmp = loadTable("dfs://compoDB", `dt)
+tmp = loadTable("dfs://compoDB", `pt)
+
+
+// loadTextEx 
+// loadTextEx(dbHandle, tableName, partitionColumns, filename, [delimiter], [schema], [skipRows=0], [transform], [sortColumns], [atomic=false], [arrayDelimiter], [containHeader])
 </code></pre>
-<p><strong>关于kill -15</strong></p>
-<p>当使用kill -15时，系统会发送一个SIGTERM的信号给对应的程序。当程序接收到该信号后，具体要如何处理是自己可以决定的。</p>
-<p>这时候，应用程序可以选择：</p>
-<p>1、立即停止程序<br>2、释放响应资源后停止程序<br>3、忽略该信号，继续执行程序</p>
-<p>kill命令用于终止Linux进程，默认情况下，如果不指定信号，kill 等价于kill -15。kill -15执行时，系统向对应的程序发送SIGTERM（15）信号，该信号是可以被执行、阻塞和忽略的，所以应用程序接收到信号后，可以做一些准备工作，再进行程序终止。有的时候，kill -15无法终止程序，因为他可能被忽略，这时候可以使用kill -9，系统会发出SIGKILL（9）信号，该信号不允许忽略和阻塞，所以应用程序会立即终止。这也会带来很多副作用，如数据丢失等，所以，在非必要时，不要使用kill -9命令，尤其是那些web应用、提供RPC服务、执行定时任务、包含长事务等应用中，因为kill -9 没给spring容器、tomcat服务器、dubbo服务、流程引擎、状态机等足够的时间进行收尾。</p>
+<p>只有当实际数据写入数据库时，数据库才会真正创建需要的分区。</p>
+<p>数据库定义的分区字段类型和数据表实际采用的时间类型可以不一致，只要保证定义的分区字段数据类型精度小于等于实际数据类型即可。<br>比如说，如果数据库是按月（month）分区，数据表的字段可以是month, date, datetime, timestamp和 nanotimestamp。系统自动会作数据类型的转换。</p>
 
                 
             </div>
@@ -529,7 +688,7 @@ cd dolphin/ && chmod 777 server  # 手动上传license文件
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://arroe99.github.io/posts/3dcd/">http://arroe99.github.io/posts/3dcd/</a>
+                    <a href="http://arroe99.github.io/posts/82ae/">http://arroe99.github.io/posts/82ae/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -616,17 +775,18 @@ cd dolphin/ && chmod 777 server  # 手动上传license文件
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/1d08/">
+                <a href="/posts/82ae/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="DolphinDB笔记_1122">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="DolphinDB笔记_1124">
                         
-                        <span class="card-title">DolphinDB笔记_1122</span>
+                        <span class="card-title">DolphinDB笔记_1124</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -636,9 +796,9 @@ cd dolphin/ && chmod 777 server  # 手动上传license文件
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -651,6 +811,7 @@ cd dolphin/ && chmod 777 server  # 手动上传license文件
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -673,13 +834,13 @@ cd dolphin/ && chmod 777 server  # 手动上传license文件
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/88a6/">
+                <a href="/posts/1dc3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="linux基础">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="DolphinDB笔记_1123">
                         
-                        <span class="card-title">linux基础</span>
+                        <span class="card-title">DolphinDB笔记_1123</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -690,14 +851,14 @@ cd dolphin/ && chmod 777 server  # 手动上传license文件
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/linux/" class="post-category">
-                                    linux
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
                                 </a>
                             
                             
@@ -707,8 +868,12 @@ cd dolphin/ && chmod 777 server  # 手动上传license文件
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">linux 学习笔记</span>
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
+                    </a>
+                    
+                    <a href="/tags/DolphinDB/">
+                        <span class="chip bg-color">DolphinDB</span>
                     </a>
                     
                 </div>

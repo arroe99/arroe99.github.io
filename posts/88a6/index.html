@@ -432,14 +432,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-11-13
+                    2023-11-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    276
+                    341
                 </div>
                 
 
@@ -466,7 +466,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>vim 命令</p>
+                <p>** 安装vim</p>
+<pre class=" language-linux"><code class="language-linux">rpm -qa | grep vim  # 看有没有安装vim，应该会出来四个
+
+yum -y install vim*
+</code></pre>
+<p>vim 命令</p>
 <p>1 vi的基本概念<br>　　基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：<br>    1) 命令行模式（command mode）<br>　　控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者到 last line mode。<br>    2) 插入模式（Insert mode）<br>　　只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。<br>    3) 底行模式（last line mode）<br>　　将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。 </p>
 <p>进入编辑模式： i （在当前位置插入，开始编辑）；</p>
 <p>保存编辑文本： :w (英文冒号，保存当前编辑的文件）；</p>
@@ -475,6 +480,9 @@
 <p>强制退出：    :q! （英文冒号，强制退出不保存）。</p>
 <p>运行python代码</p>
 <p>nohup python codename.py &gt; res&amp;</p>
+<p>mkdir filename<br>rmdir<br>cd ~<br>su root<br>su vagrant</p>
+<p>vim删除所有行<br>按一下ESC键，确保退出编辑模式<br>输入    ：%d<br>%表示文件中的所有行。</p>
+<p>文件readonly<br>sudo vim filename</p>
 
                 
             </div>
