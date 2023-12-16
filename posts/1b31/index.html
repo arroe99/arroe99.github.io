@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo相关, Luo&#39;s Blog">
+    <meta name="keywords" content="R语言常用代码, Luo&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo相关 | Luo&#39;s Blog</title>
+    <title>R语言常用代码 | Luo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -279,12 +279,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/640.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo相关</h1>
+                    <h1 class="description center-align post-title">R语言常用代码</h1>
                 </div>
             </div>
         </div>
@@ -400,12 +400,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/blog/">
-                                <span class="chip bg-color">blog</span>
-                            </a>
-                        
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/R/">
+                                <span class="chip bg-color">R</span>
                             </a>
                         
                     </div>
@@ -416,8 +412,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/blog/" class="post-category">
-                                blog
+                            <a href="/categories/R/" class="post-category">
+                                R
                             </a>
                         
                     </div>
@@ -429,7 +425,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-10-21
+                    2023-12-17
                 </div>
                 
 
@@ -443,14 +439,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    851
+                    7
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -470,59 +466,239 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="头文件的结构"><a href="#头文件的结构" class="headerlink" title="头文件的结构"></a>头文件的结构</h2><pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> hexo的个性化配置
-<span class="token key atrule">author</span><span class="token punctuation">:</span> name
-<span class="token key atrule">date</span><span class="token punctuation">:</span>
-<span class="token key atrule">img</span><span class="token punctuation">:</span> /images/640.jpg
-<span class="token key atrule">cover</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-<span class="token key atrule">coverImg</span><span class="token punctuation">:</span> /images/666.jpg
-<span class="token key atrule">toc</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-<span class="token key atrule">mathjax</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-<span class="token key atrule">summary</span><span class="token punctuation">:</span> hexo的matery主题的个性化配置
-<span class="token key atrule">categories</span><span class="token punctuation">:</span> hexo
-<span class="token key atrule">tags</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> hexo
-  <span class="token punctuation">-</span> blog
-<span class="token key atrule">abbrlink</span><span class="token punctuation">:</span> 77f7
-<span class="token key atrule">password</span><span class="token punctuation">:</span>
-</code></pre>
-<h1 id="修改导航栏、页脚及文章卡片标签的颜色"><a href="#修改导航栏、页脚及文章卡片标签的颜色" class="headerlink" title="修改导航栏、页脚及文章卡片标签的颜色"></a>修改导航栏、页脚及文章卡片标签的颜色</h1><pre class=" language-csswenjian"><code class="language-csswenjian">.bg-color &#123;
-    background-image: 
-    linear-gradient(to right, #3f1b07 0%, #3f1b07 100%);/*咖啡色*/
+                <pre class=" language-R"><code class="language-R"># Install and load the requires packages
+install_if_not <- function( list.of.packages ) &#123;
+  new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+  if(length(new.packages)) &#123; install.packages(new.packages) &#125; 
+  else &#123; print(paste0("the package '", list.of.packages , "' is already installed")) &#125;
 &#125;
+install_if_not(c("rstudioapi","ggplot2", "ggpubr", "tidyverse", "broom"))
+
+# Install and load the requires packages
+packages = c('tidyverse', 'knitr', 'gridExtra', 'leaflet', 'OpenStreetMap')
+for (p in packages)&#123;
+  if(!require(p, character.only = T))&#123;
+    install.packages(p)
+  &#125;
+  library(p,character.only = T)
+&#125;
+
+library(tidyverse)
+library(openxlsx)
+
+# 设置工作路径
+rm(list = ls())  #删除所有变量
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))  #设置路径为当前R脚本所在路径
+getwd()          #查看R语言文件的保存和读取的路径
+
+#用openxlsx读写.xlsx文件(缺点是只能读xlsx):
+library(openxlsx)
+data = read.xlsx("highschool.xlsx", "Sheet1", colNames = T)
+
+write.xlsx(as.data.frame(news_content), file = "news.xlsx")
+
+# 用readxl读取.xlsx和.xls文件(这个包可以的，不管xls，xlsx直接用read_excel()):
+library(readxl)
+data = read_excel("文件名.xls", sheet = 1, na = "NA")
+data = read_excel("文件名.xlsx", sheet = 1)
+writexl::write_xlsx(df, "文件夹名/filename.xlsx")
+
+# 读取csv文件
+data = read.csv("文件名.csv", header = T)  #header=T选项用来指定第一行是标题行
+write.csv(data, file = "C:/Users/lenovo/Desktop/try.csv",fileEncoding = "UTF-8")
+
+formatR::tidy_app()
+
+options(warn=-1)    #不显示warnings
+options(digits = 2) # 有效数字为2位
+options(scipen = 10)
+
+
+# 读取spss数据
+library(haven)
+data <- read_sav("小学生数学学习经验.sav")
+data <- as.data.frame(data)
+
+# 读取.txt文件、.dat、.data文件
+read.table("文件名.txt")
+data = c(read.table("文件名.txt"))
+toy <- read.table("a8Toy.dat",header = TRUE)
+
+# 剪切板导入数据
+data = read.table("clipboard",header=F)
+
+# 画图
+opar <- par(no.readonly=TRUE)
+par(opar)
+par(mfrow=c(2,2))
+
+par(opar)
+
+#或者
+par(mfcol=c(1,2))         #two graphs per page
+hist(s, prob=TRUE)
+hist(x, prob=TRUE)
+par(mfcol=c(1,1))         #restore display
+
+#变成因子
+data[,i] <- as.factor(data[,i])
+
+Affairs$ynaffair <- factor(Affairs$ynaffair,
+                           levels = c(0,1),
+                           labels = c("No", "Yes"))
+
+for (i in 3:ncol(mydata)-1) &#123;
+  mydata[,i] <- as.factor(mydata[,i])
+&#125;
+
+# dplyr批量将分类变量转化为因子型
+data <- dplyr::mutate_if(data, is.character, as.factor) 
+
+
+#把第一列变成行名
+msa.X<-function(df)&#123; 
+  X=df[,-1];　　　　　　#去除第1列以外的所有数据 
+  rownames(X)=df[,1];　#将数据框第1列设置为行名 
+  X 
+&#125; 
+X=msa.X(X)
+X
+
+
+version  #查看R语言版本
+data()   #查看自带的数据集
+data(mtcars)
+(.packages()) #查看已加载的包
+remove.packages("包的名字")
+installed.packages() #查看已安装的包
+
+# 一些文件操作
+list.dirs()  #查看文件夹
+list.files() #查看所有文件
+list.files("./附件")
+list.files('./附件',pattern = ".csv")
+data <- read.csv("../input/insurance.csv")
+
+# 批量导入Excel数据 -------------------------------------------------------------
+list_name = dir("./",pattern = ".xlsx")
+list_name
+
+alldata = purrr:map(list_name, ~ read.xlsx(.,sheet=1, detectDates = TRUE))
+names(alldata) = str_remove(list_name,'.xlsx')
+alldata
+
+# 批量读取一个Excel中的所有sheet
+library(readxl)
+
+excel_file <- "filename.xlsx"
+
+# 获取Excel文件中所有的sheet名称
+sheet_names <- excel_sheets("热力图.xlsx")
+
+# 使用lapply函数来读取每个sheet，并将结果存储在一个列表中
+sheet_data <- lapply(sheet_names, function(sheet) &#123;
+  read_excel(excel_file, sheet = sheet)
+&#125;)
+
+# 对列表命名
+names(sheet_data) <- sheet_names
+
+
+# 字符串向量合并
+stringr::str_c(names(df),collapse=" + ")
+
+psych::describe(mtcars) #类似于summary
+
+# 按8:2的比例划分训练集和测试集
+set.seed(22)
+train.index <- sample(x=1:nrow(data), size=ceiling(0.8*nrow(data) ))
+train <- data[train.index, ]
+test <- data[-train.index, ]
+
+# 缺失值相关 ------------------------------------------------------------------
+# 查看 mydata 中每列的缺失值数量
+colSums(is.na(df4))
+
+library(tidyverse)
+data %>%
+  summarise_all(
+    ~ sum(is.na(.))
+  )
+
+data %>% map_df(~ sum(is.na(.)))  # 在Console会隐藏后面的
+Amelia::missmap(data,main = "Missing values vs observed") #缺失值可视化
+visdat::vis_dat(df4)
+visdat::vis_miss(data)
+
+# 缺失值的行索引
+na_indices <- which(is.na(data$发电量))
+
+
+library(magrittr)
+data4 %<>% drop_na(age, rich) #删除指定列名含缺失值的所有行
+# 删除缺失值
+newdata <- sleep[complete.cases(sleep),]
+data <- na.omit(data)
+
+for(i in 1:ncol(mydata)) &#123;  #均值插补
+  mydata[is.na(mydata[, i]), i] <- mean(mydata[[i]], na.rm = TRUE)
+&#125;
+
+
+
+# RMD笔记 -------------------------------------------------------------------
+
+#图表展示
+DT::datatable(top250) # 交互式表格输出
+knitr::kable(head(data))
+# 在word里用不了
+library(tidyverse)
+library(kableExtra)
+kbl(head(data), booktabs = T) %>% # print first few records
+  kable_styling(latex_options = c("HOLD_position", "scale_down"))
+
+
+# Rmd中可以空行
+&nbsp;
+
+#换页
+\newpage 
+
+|  可以空格，好像不好用
+&emsp;&emsp;  也是空格。优先
+
+---
+title: "**title**"
+date: '`r Sys.Date()`'
+output: 
+  pdf_document: 
+    latex_engine: xelatex
+    toc: yes
+    toc_depth: '3'
+editor_options: 
+  chunk_output_type: console
+---
+
+
+---
+title: "**判别分析**"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: cerulean
+    highlight: tango
+    toc: yes
+    toc_depth: 3
+---
+  
+```&#123;r setup, include=FALSE&#125;
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
 </code></pre>
-<h1 id="引用网络图片"><a href="#引用网络图片" class="headerlink" title="引用网络图片"></a>引用网络图片</h1><p><a target="_blank" rel="noopener" href="https://csdnimg.cn/cdn/content-toolbar/csdn-logo_.png?v=20190924.1">网络图片地址</a><br><img src="https://csdnimg.cn/cdn/content-toolbar/csdn-logo_.png?v=20190924.1" alt="CSDN图标"></p>
-<p>网络图片导入失败 待解决</p>
-<h1 id="引用本地图片"><a href="#引用本地图片" class="headerlink" title="引用本地图片"></a>引用本地图片</h1><h2 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h2><p>可以直接把图片放在source&#x2F;images下</p>
-<p>然后用  <code>![云](/images/640.jpg)</code> 引用本地图片。<br>缺点是图片都放在images文件夹下，文章多了会很乱。</p>
-<p><img src="/images/640.jpg" alt="云"></p>
-<h2 id="另一种方法"><a href="#另一种方法" class="headerlink" title="另一种方法"></a>另一种方法</h2><p>参考连接：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/606083588">https://zhuanlan.zhihu.com/p/606083588</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32767041/article/details/103283522">https://blog.csdn.net/qq_32767041/article/details/103283522</a></p>
-<p>1、安装插件<br>npm install hexo-asset-image –save</p>
-<p>2、在博客根目录打开_config.yml文件做如下修改：<br>yaml post_asset_folder: true<br>之后每次<code>hexo new &#39;postname&#39;</code>时，就会在同目录下生成一个和博客名一样的文件夹，这个文件夹就可以放我们的图片。<br>然后直接用<code>![直接引用](666.jpg)</code>就能引用图片</p>
-<p>根据上面两个参考连接，其实还是不能成功引用图片，需要再加一步。<br>根据<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/542101567">这篇教程</a>，<br>找到文件.&#x2F;node_modules&#x2F;hexo-asset-image&#x2F;index.js<br>将58行<br>$(this).attr(‘src’, config.root + link + src);<br>修改为：<br>$(this).attr(‘src’, src);  </p>
-<p><img src="666.jpg" alt="直接引用"></p>
-<h2 id="第三种引用方法"><a href="#第三种引用方法" class="headerlink" title="第三种引用方法"></a>第三种引用方法</h2><p>以上两种方法图片居左，大小无法控制。</p>
-<p>用markdown代码：</p>
-<pre class=" language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation">=</span>center</span><span class="token punctuation">></span></span>
-&lt;img src="666.jpg" width = 65% alt="图片名字">
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-</code></pre>
-<div align="center">
-<img src="666.jpg" width="65%" alt="图片名字">
-</div>
-
-
-<h1 id="查看当前已安装插件"><a href="#查看当前已安装插件" class="headerlink" title="查看当前已安装插件"></a>查看当前已安装插件</h1><p>在博客根目录下，使用 bash 命令 <code>npm ls -dept 0</code></p>
-<p>output:<br><a href="mailto:&#x68;&#101;&#x78;&#x6f;&#x2d;&#115;&#105;&#116;&#101;&#64;&#x30;&#x2e;&#48;&#46;&#x30;">&#x68;&#101;&#x78;&#x6f;&#x2d;&#115;&#105;&#116;&#101;&#64;&#x30;&#x2e;&#48;&#46;&#x30;</a> D:\gitrepository\Blog\hexoblog<br>├── <a href="mailto:&#104;&#x65;&#x78;&#111;&#x2d;&#97;&#98;&#x62;&#x72;&#x6c;&#x69;&#x6e;&#107;&#x40;&#50;&#x2e;&#50;&#x2e;&#49;">&#104;&#x65;&#x78;&#111;&#x2d;&#97;&#98;&#x62;&#x72;&#x6c;&#x69;&#x6e;&#107;&#x40;&#50;&#x2e;&#50;&#x2e;&#49;</a><br>├── <a href="mailto:&#104;&#101;&#120;&#111;&#45;&#97;&#x73;&#115;&#x65;&#116;&#45;&#x69;&#x6d;&#x61;&#x67;&#101;&#64;&#49;&#46;&#x30;&#x2e;&#x30;">&#104;&#101;&#120;&#111;&#45;&#97;&#x73;&#115;&#x65;&#116;&#45;&#x69;&#x6d;&#x61;&#x67;&#101;&#64;&#49;&#46;&#x30;&#x2e;&#x30;</a><br>├── <a href="mailto:&#104;&#101;&#120;&#x6f;&#45;&#x64;&#x65;&#112;&#x6c;&#x6f;&#x79;&#x65;&#114;&#x2d;&#103;&#x69;&#x74;&#64;&#x34;&#x2e;&#48;&#46;&#48;">&#104;&#101;&#120;&#x6f;&#45;&#x64;&#x65;&#112;&#x6c;&#x6f;&#x79;&#x65;&#114;&#x2d;&#103;&#x69;&#x74;&#64;&#x34;&#x2e;&#48;&#46;&#48;</a><br>├── <a href="mailto:&#x68;&#x65;&#120;&#111;&#x2d;&#x67;&#x65;&#x6e;&#101;&#x72;&#x61;&#116;&#x6f;&#114;&#x2d;&#97;&#114;&#99;&#104;&#x69;&#118;&#101;&#64;&#x32;&#46;&#48;&#46;&#48;">&#x68;&#x65;&#120;&#111;&#x2d;&#x67;&#x65;&#x6e;&#101;&#x72;&#x61;&#116;&#x6f;&#114;&#x2d;&#97;&#114;&#99;&#104;&#x69;&#118;&#101;&#64;&#x32;&#46;&#48;&#46;&#48;</a><br>├── <a href="mailto:&#104;&#101;&#120;&#111;&#x2d;&#x67;&#101;&#x6e;&#101;&#114;&#97;&#116;&#111;&#114;&#45;&#x63;&#x61;&#116;&#x65;&#103;&#111;&#x72;&#121;&#64;&#x32;&#46;&#48;&#46;&#48;">&#104;&#101;&#120;&#111;&#x2d;&#x67;&#101;&#x6e;&#101;&#114;&#97;&#116;&#111;&#114;&#45;&#x63;&#x61;&#116;&#x65;&#103;&#111;&#x72;&#121;&#64;&#x32;&#46;&#48;&#46;&#48;</a><br>├── <a href="mailto:&#x68;&#101;&#x78;&#111;&#x2d;&#x67;&#x65;&#110;&#101;&#x72;&#97;&#x74;&#x6f;&#114;&#x2d;&#x69;&#110;&#100;&#101;&#x78;&#64;&#x33;&#x2e;&#48;&#x2e;&#48;">&#x68;&#101;&#x78;&#111;&#x2d;&#x67;&#x65;&#110;&#101;&#x72;&#97;&#x74;&#x6f;&#114;&#x2d;&#x69;&#110;&#100;&#101;&#x78;&#64;&#x33;&#x2e;&#48;&#x2e;&#48;</a><br>├── <a href="mailto:&#104;&#101;&#120;&#111;&#45;&#103;&#101;&#x6e;&#x65;&#x72;&#97;&#x74;&#x6f;&#114;&#45;&#x74;&#97;&#x67;&#64;&#50;&#x2e;&#x30;&#x2e;&#x30;">&#104;&#101;&#120;&#111;&#45;&#103;&#101;&#x6e;&#x65;&#x72;&#97;&#x74;&#x6f;&#114;&#45;&#x74;&#97;&#x67;&#64;&#50;&#x2e;&#x30;&#x2e;&#x30;</a><br>├── <a href="mailto:&#x68;&#x65;&#120;&#111;&#x2d;&#x70;&#x65;&#114;&#109;&#97;&#x6c;&#105;&#x6e;&#107;&#x2d;&#x70;&#105;&#x6e;&#121;&#x69;&#x6e;&#x40;&#x31;&#x2e;&#x31;&#x2e;&#x30;">&#x68;&#x65;&#120;&#111;&#x2d;&#x70;&#x65;&#114;&#109;&#97;&#x6c;&#105;&#x6e;&#107;&#x2d;&#x70;&#105;&#x6e;&#121;&#x69;&#x6e;&#x40;&#x31;&#x2e;&#x31;&#x2e;&#x30;</a><br>├── <a href="mailto:&#104;&#101;&#120;&#x6f;&#x2d;&#x70;&#114;&#105;&#x73;&#x6d;&#45;&#112;&#108;&#x75;&#103;&#x69;&#x6e;&#64;&#50;&#x2e;&#x33;&#46;&#x30;">&#104;&#101;&#120;&#x6f;&#x2d;&#x70;&#114;&#105;&#x73;&#x6d;&#45;&#112;&#108;&#x75;&#103;&#x69;&#x6e;&#64;&#50;&#x2e;&#x33;&#46;&#x30;</a><br>├── <a href="mailto:&#x68;&#101;&#x78;&#x6f;&#45;&#x72;&#101;&#x6e;&#x64;&#101;&#x72;&#x65;&#x72;&#45;&#x65;&#x6a;&#x73;&#64;&#50;&#x2e;&#48;&#46;&#48;">&#x68;&#101;&#x78;&#x6f;&#45;&#x72;&#101;&#x6e;&#x64;&#101;&#x72;&#x65;&#x72;&#45;&#x65;&#x6a;&#x73;&#64;&#50;&#x2e;&#48;&#46;&#48;</a><br>├── <a href="mailto:&#x68;&#x65;&#120;&#x6f;&#x2d;&#114;&#101;&#x6e;&#x64;&#x65;&#114;&#x65;&#114;&#x2d;&#109;&#97;&#114;&#x6b;&#x65;&#100;&#64;&#x36;&#46;&#49;&#46;&#x31;">&#x68;&#x65;&#120;&#x6f;&#x2d;&#114;&#101;&#x6e;&#x64;&#x65;&#114;&#x65;&#114;&#x2d;&#109;&#97;&#114;&#x6b;&#x65;&#100;&#64;&#x36;&#46;&#49;&#46;&#x31;</a><br>├── <a href="mailto:&#x68;&#101;&#x78;&#111;&#x2d;&#114;&#x65;&#x6e;&#100;&#x65;&#114;&#x65;&#114;&#45;&#115;&#116;&#x79;&#x6c;&#117;&#115;&#64;&#50;&#x2e;&#49;&#46;&#48;">&#x68;&#101;&#x78;&#111;&#x2d;&#114;&#x65;&#x6e;&#100;&#x65;&#114;&#x65;&#114;&#45;&#115;&#116;&#x79;&#x6c;&#117;&#115;&#64;&#50;&#x2e;&#49;&#46;&#48;</a><br>├── <a href="mailto:&#x68;&#101;&#x78;&#x6f;&#x2d;&#115;&#x65;&#114;&#x76;&#101;&#114;&#x40;&#51;&#x2e;&#48;&#x2e;&#x30;">&#x68;&#101;&#x78;&#x6f;&#x2d;&#115;&#x65;&#114;&#x76;&#101;&#114;&#x40;&#51;&#x2e;&#48;&#x2e;&#x30;</a><br>├── <a href="mailto:&#104;&#101;&#x78;&#x6f;&#45;&#x74;&#x68;&#x65;&#109;&#101;&#45;&#108;&#97;&#x6e;&#100;&#115;&#99;&#97;&#112;&#x65;&#64;&#49;&#46;&#48;&#x2e;&#48;">&#104;&#101;&#x78;&#x6f;&#45;&#x74;&#x68;&#x65;&#109;&#101;&#45;&#108;&#97;&#x6e;&#100;&#115;&#99;&#97;&#112;&#x65;&#64;&#49;&#46;&#48;&#x2e;&#48;</a><br>├── <a href="mailto:&#104;&#101;&#x78;&#111;&#x2d;&#119;&#x6f;&#x72;&#100;&#99;&#x6f;&#117;&#110;&#116;&#x40;&#x36;&#46;&#x30;&#x2e;&#49;">&#104;&#101;&#x78;&#111;&#x2d;&#119;&#x6f;&#x72;&#100;&#99;&#x6f;&#117;&#110;&#116;&#x40;&#x36;&#46;&#x30;&#x2e;&#49;</a><br>└── <a href="mailto:&#104;&#x65;&#x78;&#x6f;&#64;&#54;&#46;&#51;&#46;&#48;">&#104;&#x65;&#x78;&#x6f;&#64;&#54;&#46;&#51;&#46;&#48;</a></p>
-<h1 id="一些hexo命令"><a href="#一些hexo命令" class="headerlink" title="一些hexo命令"></a>一些hexo命令</h1><pre class=" language-git"><code class="language-git"><span class="token comment" spellcheck="true"># 设置取消代理</span>
-<span class="token comment" spellcheck="true"># git config --global http.proxy &amp;&amp; git config --global git.proxy</span>
-
-cd /d/gitrepository/Blog/hexoblog &amp;&amp; 
-hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 
-
-<span class="token comment" spellcheck="true"># 新建文章</span>
-hexo new <span class="token string">"文章title"</span>
+<pre><code>
 </code></pre>
 
                 
@@ -550,7 +726,7 @@ hexo new <span class="token string">"文章title"</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://arroe99.github.io/posts/77f7/">http://arroe99.github.io/posts/77f7/</a>
+                    <a href="http://arroe99.github.io/posts/1b31/">http://arroe99.github.io/posts/1b31/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -588,12 +764,8 @@ hexo new <span class="token string">"文章title"</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/blog/">
-                                    <span class="chip bg-color">blog</span>
-                                </a>
-                            
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/R/">
+                                    <span class="chip bg-color">R</span>
                                 </a>
                             
                         </div>
@@ -637,17 +809,18 @@ hexo new <span class="token string">"文章title"</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/a3cc/">
+                <a href="/posts/1b31/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Python笔记">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="R语言常用代码">
                         
-                        <span class="card-title">Python笔记</span>
+                        <span class="card-title">R语言常用代码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -657,26 +830,27 @@ hexo new <span class="token string">"文章title"</span>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/R/" class="post-category">
+                                    R
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/R/">
+                        <span class="chip bg-color">R</span>
                     </a>
                     
                 </div>
@@ -690,13 +864,12 @@ hexo new <span class="token string">"文章title"</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/a4bb/">
+                <a href="/posts/7e21/">
                     <div class="card-image">
                         
+                        <img src="/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20231126015239.png" class="responsive-img" alt="日志20231126">
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="SQL笔记">
-                        
-                        <span class="card-title">SQL笔记</span>
+                        <span class="card-title">日志20231126</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -707,14 +880,14 @@ hexo new <span class="token string">"文章title"</span>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    生活记录
                                 </a>
                             
                             
@@ -724,8 +897,12 @@ hexo new <span class="token string">"文章title"</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
+                    <a href="/tags/%E6%97%A5%E5%BF%97/">
+                        <span class="chip bg-color">日志</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%94%B5%E5%BD%B1/">
+                        <span class="chip bg-color">电影</span>
                     </a>
                     
                 </div>
