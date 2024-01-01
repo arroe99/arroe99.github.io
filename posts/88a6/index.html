@@ -432,21 +432,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-11-25
+                    2023-12-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    341
+                    929
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -466,18 +466,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>安装vim</strong></p>
-<pre class=" language-linux"><code class="language-linux">rpm -qa | grep vim  # 看有没有安装vim，应该会出来四个
+                <h2 id="安装vim"><a href="#安装vim" class="headerlink" title="安装vim"></a><strong>安装vim</strong></h2><pre class=" language-linux"><code class="language-linux">rpm -qa | grep vim  # 看有没有安装vim，应该会出来四个
 
 yum -y install vim*
 </code></pre>
-<p>vim 命令</p>
-<p>1 vi的基本概念<br>　　基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：<br>    1) 命令行模式（command mode）<br>　　控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者到 last line mode。<br>    2) 插入模式（Insert mode）<br>　　只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。<br>    3) 底行模式（last line mode）<br>　　将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。 </p>
+<h2 id="vim-命令"><a href="#vim-命令" class="headerlink" title="vim 命令"></a>vim 命令</h2><p>1 vi的基本概念<br>　　基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：<br>    1) 命令行模式（command mode）<br>　　控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者到 last line mode。<br>    2) 插入模式（Insert mode）<br>　　只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。<br>    3) 底行模式（last line mode）<br>　　将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。 </p>
 <p>进入编辑模式： i （在当前位置插入，开始编辑）；</p>
 <p>保存编辑文本： :w (英文冒号，保存当前编辑的文件）；</p>
 <p>退出编辑文件： :q（英文冒号，退出当前编辑的文件）；</p>
 <p>保存并退出： :wq （英文冒号，保存并退出当前编辑的文件）；</p>
 <p>强制退出：    :q! （英文冒号，强制退出不保存）。</p>
+<p><strong>linux上基础知识、程序常见问题分析基础：</strong></p>
+<p>文件编辑、查找：vim，tail，head，less，more，grep，sed，awk<br>权限、压缩：chmod，tar，gzip，zip<br>磁盘、文件管理：df，du，stat，ls<br>不同主机间通信：ssh，scp，rsync，ftp<br>启动关闭进程：前台&#x2F;后台执行程序，nohup，kill，pkill，killall<br>查看进程状态：ps，top，htop，pidstat<br>查看进程资源占用状态：<br>cpu（进程cpu以及各个线程cpu）：top，pidstat，mpstat，vmstat<br>内存占用：top，free，dstat<br>磁盘IO：iostat，dstat<br>网络IO&#x2F;连接数：ss，netstat，tcpdumpm, dstat</p>
+<p>crash问题：gdb cordump调试程序 -&gt;  thread apply all bt，gdb application运行<br>性能问题：perf top -p pid，strace，pstack<br>死锁问题：pstack，valgrind， gcc -fsanitize<br>动态库静态库链接原理：链接顺序，符号决议，动态库版本控制，符号冲突</p>
 <br>
 
 <p>运行python代码</p>
@@ -493,6 +494,21 @@ yum -y install vim*
 <br>
 
 <p>文件readonly<br>sudo vim filename</p>
+<p><strong>关于kill -15</strong></p>
+<p>当使用kill -15时，系统会发送一个SIGTERM的信号给对应的程序。当程序接收到该信号后，具体要如何处理是自己可以决定的。</p>
+<p>这时候，应用程序可以选择：</p>
+<p>1、立即停止程序<br>2、释放响应资源后停止程序<br>3、忽略该信号，继续执行程序</p>
+<p>kill命令用于终止Linux进程，默认情况下，如果不指定信号，kill 等价于kill -15。kill -15执行时，系统向对应的程序发送SIGTERM（15）信号，该信号是可以被执行、阻塞和忽略的，所以应用程序接收到信号后，可以做一些准备工作，再进行程序终止。有的时候，kill -15无法终止程序，因为他可能被忽略，这时候可以使用kill -9，系统会发出SIGKILL（9）信号，该信号不允许忽略和阻塞，所以应用程序会立即终止。这也会带来很多副作用，如数据丢失等，所以，在非必要时，不要使用kill -9命令，尤其是那些web应用、提供RPC服务、执行定时任务、包含长事务等应用中，因为kill -9 没给spring容器、tomcat服务器、dubbo服务、流程引擎、状态机等足够的时间进行收尾。</p>
+<h1 id="linux-安装dolphin-DB"><a href="#linux-安装dolphin-DB" class="headerlink" title="linux 安装dolphin DB"></a>linux 安装dolphin DB</h1><pre class=" language-linux"><code class="language-linux">su root    ## 输密码vagrant后回车
+
+yum -y install wget && yum install -y unzip zip && yum -y install vim*
+
+wget https://www.dolphindb.cn/downLinux64-Current.php -O dolphindb.zip
+
+mkdir dolphin && unzip dolphindb.zip -d dolphin
+
+cd dolphin/ && chmod 777 server  # 手动上传license文件
+</code></pre>
 
                 
             </div>
@@ -842,7 +858,7 @@ yum -y install vim*
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2023</span>
+                <span id="year">2023-2024</span>
             
             <span id="year">2023</span>
             <a href="/about" target="_blank">罗成毅</a>
