@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="R语言常用代码, Luo&#39;s Blog">
+    <meta name="keywords" content="lazy歌词note, Luo&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>R语言常用代码 | Luo&#39;s Blog</title>
+    <title>lazy歌词note | Luo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -279,12 +279,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">R语言常用代码</h1>
+                    <h1 class="description center-align post-title">lazy歌词note</h1>
                 </div>
             </div>
         </div>
@@ -294,35 +294,116 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/R/">
-                                <span class="chip bg-color">R</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/R/" class="post-category">
-                                R
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -331,28 +412,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-12-17
+                    2024-04-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-17
+                    2024-04-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9
+                    897
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -372,237 +453,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="R-code"><a href="#R-code" class="headerlink" title="R code"></a>R code</h1><pre class=" language-R"><code class="language-R"># Install and load the requires packages
-install_if_not <- function( list.of.packages ) &#123;
-  new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-  if(length(new.packages)) &#123; install.packages(new.packages) &#125; 
-  else &#123; print(paste0("the package '", list.of.packages , "' is already installed")) &#125;
-&#125;
-install_if_not(c("rstudioapi","ggplot2", "ggpubr", "tidyverse", "broom"))
-
-# Install and load the requires packages
-packages = c('tidyverse', 'knitr', 'gridExtra', 'leaflet', 'OpenStreetMap')
-for (p in packages)&#123;
-  if(!require(p, character.only = T))&#123;
-    install.packages(p)
-  &#125;
-  library(p,character.only = T)
-&#125;
-
-library(tidyverse)
-library(openxlsx)
-
-# 设置工作路径
-rm(list = ls())  #删除所有变量
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))  #设置路径为当前R脚本所在路径
-getwd()          #查看R语言文件的保存和读取的路径
-
-#用openxlsx读写.xlsx文件(缺点是只能读xlsx):
-library(openxlsx)
-data = read.xlsx("highschool.xlsx", "Sheet1", colNames = T)
-
-write.xlsx(as.data.frame(news_content), file = "news.xlsx")
-
-# 用readxl读取.xlsx和.xls文件(这个包可以的，不管xls，xlsx直接用read_excel()):
-library(readxl)
-data = read_excel("文件名.xls", sheet = 1, na = "NA")
-data = read_excel("文件名.xlsx", sheet = 1)
-writexl::write_xlsx(df, "文件夹名/filename.xlsx")
-
-# 读取csv文件
-data = read.csv("文件名.csv", header = T)  #header=T选项用来指定第一行是标题行
-write.csv(data, file = "C:/Users/lenovo/Desktop/try.csv",fileEncoding = "UTF-8")
-
-formatR::tidy_app()
-
-options(warn=-1)    #不显示warnings
-options(digits = 2) # 有效数字为2位
-options(scipen = 10)
-
-
-# 读取spss数据
-library(haven)
-data <- read_sav("小学生数学学习经验.sav")
-data <- as.data.frame(data)
-
-# 读取.txt文件、.dat、.data文件
-read.table("文件名.txt")
-data = c(read.table("文件名.txt"))
-toy <- read.table("a8Toy.dat",header = TRUE)
-
-# 剪切板导入数据
-data = read.table("clipboard",header=F)
-
-# 画图
-opar <- par(no.readonly=TRUE)
-par(opar)
-par(mfrow=c(2,2))
-
-par(opar)
-
-#或者
-par(mfcol=c(1,2))         #two graphs per page
-hist(s, prob=TRUE)
-hist(x, prob=TRUE)
-par(mfcol=c(1,1))         #restore display
-
-#变成因子
-data[,i] <- as.factor(data[,i])
-
-Affairs$ynaffair <- factor(Affairs$ynaffair,
-                           levels = c(0,1),
-                           labels = c("No", "Yes"))
-
-for (i in 3:ncol(mydata)-1) &#123;
-  mydata[,i] <- as.factor(mydata[,i])
-&#125;
-
-# dplyr批量将分类变量转化为因子型
-data <- dplyr::mutate_if(data, is.character, as.factor) 
-
-
-#把第一列变成行名
-msa.X<-function(df)&#123; 
-  X=df[,-1];　　　　　　#去除第1列以外的所有数据 
-  rownames(X)=df[,1];　#将数据框第1列设置为行名 
-  X 
-&#125; 
-X=msa.X(X)
-X
-
-
-version  #查看R语言版本
-data()   #查看自带的数据集
-data(mtcars)
-(.packages()) #查看已加载的包
-remove.packages("包的名字")
-installed.packages() #查看已安装的包
-
-# 一些文件操作
-list.dirs()  #查看文件夹
-list.files() #查看所有文件
-list.files("./附件")
-list.files('./附件',pattern = ".csv")
-data <- read.csv("../input/insurance.csv")
-
-# 批量导入Excel数据 -------------------------------------------------------------
-list_name = dir("./",pattern = ".xlsx")
-list_name
-
-alldata = purrr:map(list_name, ~ read.xlsx(.,sheet=1, detectDates = TRUE))
-names(alldata) = str_remove(list_name,'.xlsx')
-alldata
-
-# 批量读取一个Excel中的所有sheet
-library(readxl)
-
-excel_file <- "filename.xlsx"
-
-# 获取Excel文件中所有的sheet名称
-sheet_names <- excel_sheets("热力图.xlsx")
-
-# 使用lapply函数来读取每个sheet，并将结果存储在一个列表中
-sheet_data <- lapply(sheet_names, function(sheet) &#123;
-  read_excel(excel_file, sheet = sheet)
-&#125;)
-
-# 对列表命名
-names(sheet_data) <- sheet_names
-
-
-# 字符串向量合并
-stringr::str_c(names(df),collapse=" + ")
-
-psych::describe(mtcars) #类似于summary
-
-# 按8:2的比例划分训练集和测试集
-set.seed(22)
-train.index <- sample(x=1:nrow(data), size=ceiling(0.8*nrow(data) ))
-train <- data[train.index, ]
-test <- data[-train.index, ]
-
-# 缺失值相关 ------------------------------------------------------------------
-# 查看 mydata 中每列的缺失值数量
-colSums(is.na(df4))
-
-library(tidyverse)
-data %>%
-  summarise_all(
-    ~ sum(is.na(.))
-  )
-
-data %>% map_df(~ sum(is.na(.)))  # 在Console会隐藏后面的
-Amelia::missmap(data,main = "Missing values vs observed") #缺失值可视化
-visdat::vis_dat(df4)
-visdat::vis_miss(data)
-
-# 缺失值的行索引
-na_indices <- which(is.na(data$发电量))
-
-
-library(magrittr)
-data4 %<>% drop_na(age, rich) #删除指定列名含缺失值的所有行
-# 删除缺失值
-newdata <- sleep[complete.cases(sleep),]
-data <- na.omit(data)
-
-for(i in 1:ncol(mydata)) &#123;  #均值插补
-  mydata[is.na(mydata[, i]), i] <- mean(mydata[[i]], na.rm = TRUE)
-&#125;
-</code></pre>
-<h1 id="RMD相关"><a href="#RMD相关" class="headerlink" title="RMD相关"></a>RMD相关</h1><pre class=" language-Rmarkdown"><code class="language-Rmarkdown">#图表展示
-DT::datatable(top250) # 交互式表格输出
-knitr::kable(head(data))
-# 在word里用不了
-library(tidyverse)
-library(kableExtra)
-kbl(head(data), booktabs = T) %>% # print first few records
-  kable_styling(latex_options = c("HOLD_position", "scale_down"))
-
-
-# Rmd中可以空行
-&nbsp;
-
-#换页
-\newpage 
-
-|  可以空格，好像不好用
-&emsp;&emsp;  也是空格。优先
-
-
----
-title: "**title**"
-date: '`r Sys.Date()`'
-output: 
-  pdf_document: 
-    latex_engine: xelatex
-    toc: yes
-    toc_depth: '3'
-editor_options: 
-  chunk_output_type: console
----
-
-
----
-title: "**判别分析**"
-date: "`r Sys.Date()`"
-output:
-  html_document:
-    theme: cerulean
-    highlight: tango
-    toc: yes
-    toc_depth: 3
----
-  
-```&#123;r setup, include=FALSE&#125;
-knitr::opts_chunk$set(
-  echo = TRUE,
-  message = FALSE,
-  warning = FALSE
-)
-</code></pre>
-<pre><code>
-</code></pre>
+                <h1 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a>第一节</h1><p>変わり果てた君を待つ間<br>滑り落ちた世界で見つけた<br>光に飲み込まれたままいる<br>僕を許さないでいて欲しいよ</p>
+<p>果てる（はてる） 终，尽，完  宴が果てる<br>間（あいだ）…期间</p>
+<p>滑り落ちる（すべりおちる）滑落，滑下<br>「すべりおちる」（滑り落ちる）：<br>这个词的意思是“滑落”或“掉落”，通常用来描述因为滑滑的表面或不稳定的支持而不小心掉落或滑下的情况。<br>比如，某人可能会从湿滑的楼梯上「すべりおちる」。<br>它强调的是由于滑动而导致的失去平衡或意外掉落。<br>「滑り降りる」：<br>这个词的意思是“滑下”，更多地用于描述有意识地、控制地从较高位置向下滑行的行为。<br>例如，在滑雪或滑板时，可以使用「滑り降りる」来描述从斜坡上滑下的动作。<br>它通常涉及某种主动和控制的动作，而不是意外。<br>見つける 找到</p>
+<p>飲み込む 吞下，咽下；理解，领会，熟悉<br>飲み込まれた（のみこまれた）：被吞没，被吞噬。动词「飲み込む」的过去被动形。<br>まま：状态，情况。表示保持某种状态或情况。<br>いる：存在，是。表示目前的状态或存在。</p>
+<p>ただ朽ちては腐っていくだけの<br>季節が僕を離さずにいるんだよ<br>無責任すぎる愛で酔わせて<br>手を離したのは僕の方だっけ？</p>
+<p>今深い海の底へ落ちていく<br>やけに生温い孤独で悟ってしまわぬよう</p>
+<h1 id="第二节"><a href="#第二节" class="headerlink" title="第二节"></a>第二节</h1><p>愛に飢えた男が<br>愛想振り撒いている<br>心ない愛なんて<br>同情するわ<br>理想論押し付けて<br>幸せにしたつもり?<br>人を愛せるなんて<br>笑わせないで</p>
+<p>飢え　名词 饥饿<br>飢える 自动词 饥饿，饥困；渴望，迫切希望得到没有的东西。<br>飢えた（うえた）　饥饿的、渴望的。</p>
+<p>男（おとこ）</p>
+<p>愛想（あいそう）<br>名词 亲切，和蔼；招待，款待</p>
+<p>振り撒いている（ふりまいている）<br>动词 “振り撒く” 的ている形，表示进行中。<br>振り撒く （ふりまく） 散布，撒，洒；给予，赠与，分发<br>撒く(まく) 撒，散发，散布;泼；洒（水）;摆脱，甩掉。</p>
+<p>同情する（どうじょうする） sympathize</p>
+<p>理想論（りそうろん） 理想论，理想主义</p>
+<p>押し付けて（おしつけて）<br>硬推、强加于人，动词「押し付ける」的连用形。</p>
+<p>「愛せる」：动词「愛する」的能动形，表示“能够爱”。<br>なんて 副词，用于表示感叹、惊讶、轻视等情感，相当于汉语的“怎么会”、“居然”。<br>“居然能够爱人” 或 “怎么会去爱人”</p>
+<p>「笑わせる」：动词，“逗笑”、“让人发笑”。<br>「ないで」：否定形，表示“不要”。<br>“别逗我笑” 或 “不要逗我笑”</p>
+<h1 id="第三节"><a href="#第三节" class="headerlink" title="第三节"></a>第三节</h1><p>誰も見ないで<br>私を愛さないで<br>期待しないで<br>縋り付いて来ないで<br>触れる事さえ 誰にも許さないわ<br>私はもう ヒビ割れている<br>今は治療など必要ないわ 無駄なだけよ<br>痛みにのたうつのを<br>楽しむだけ<br>Fed up</p>
+<p>縋る（すがる）　自動詞　 扶；拄；靠，凭，倚。<br>付く（つく）　自動詞　附上；附着，粘附，沾上。<br>「縋り付く」　“依附”、“寄托”、纠缠<br>扶住，扒住，揪住，抱住，缠住。将人或物作为靠山而死命抱紧。</p>
+<p>来る（くる）→こないで</p>
+<p>触れる（ふれる）<br>触摸，碰；涉及，谈到，提及；感触到；碰到；触犯</p>
+<p>罅（ひび）Noun crack<br>その茶碗にはひびがある</p>
+<p>割れる（われる） 自动词<br>破碎，破裂，分裂，裂开</p>
+<p>ひび割れる　出现裂痕</p>
+<p>「必要ない」：不需要、没有必要<br>「無駄な」：无谓的、无效的<br>「だけ」：只是<br>「よ」：语尾助词，用于强调或感叹</p>
+<p>のた打う（のたうつ）　to writhe (in pain)　扭动，翻滚</p>
+<p>楽しみ（たのしい）　娱乐，乐趣<br>楽しむ　他动词 快乐，享乐；期待，以愉快的心情盼望</p>
+<h1 id="第四节"><a href="#第四节" class="headerlink" title="第四节"></a>第四节</h1><p>愛に飢えた私を<br>せめて綺麗と言って<br>最後の夜くらいは<br>その気にさせて<br>全て消えてしまえば<br>楽になれるのでしょう<br>埃に塗れたまま<br>獲物を待つわ</p>
+<p>せめて　哪怕是…也好；至少<br>と　表示引用发言，思考或决定的内容？<br>「行く」といった</p>
+<p>“最後の夜くらいは その気にさせて”<br>“最后的夜晚就让我产生那种心情吧”<br>“至少在最后的夜晚让我有那种愿望吧”</p>
+<h1 id="第五节"><a href="#第五节" class="headerlink" title="第五节"></a>第五节</h1><p>そこまで来てる<br>ほらすぐに捕まる<br>振り向いては駄目よ<br>そう逃げて</p>
+<p>近付いてくる光りに<br>当たらない様に<br>失う物はもう無いわ<br>今だけは踊らせて<br>Fed up</p>
+<p>愛に飢えた私を<br>せめて綺麗と言って<br>最後の夜くらいは<br>その気にさせて<br>全て消えてしまえば<br>楽になれるのでしょう<br>埃に塗れたまま<br>獲物を待つわ<br>理想論押し付けて<br>幸せにしたつもり?<br>人を愛せるなんて<br>笑わせないで</p>
 
                 
             </div>
@@ -629,7 +511,7 @@ knitr::opts_chunk$set(
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://arroe99.github.io/posts/1b31/">http://arroe99.github.io/posts/1b31/</a>
+                    <a href="http://arroe99.github.io/posts/ce9/">http://arroe99.github.io/posts/ce9/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -666,11 +548,7 @@ knitr::opts_chunk$set(
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/R/">
-                                    <span class="chip bg-color">R</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -712,9 +590,10 @@ knitr::opts_chunk$set(
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/ce9/">
                     <div class="card-image">
@@ -732,9 +611,9 @@ knitr::opts_chunk$set(
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -743,6 +622,7 @@ knitr::opts_chunk$set(
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -753,13 +633,13 @@ knitr::opts_chunk$set(
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/82ae/">
+                <a href="/posts/1b31/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="学习笔记_1124">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="R语言常用代码">
                         
-                        <span class="card-title">学习笔记_1124</span>
+                        <span class="card-title">R语言常用代码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -770,14 +650,14 @@ knitr::opts_chunk$set(
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/R/" class="post-category">
+                                    R
                                 </a>
                             
                             
@@ -787,12 +667,8 @@ knitr::opts_chunk$set(
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">学习笔记</span>
-                    </a>
-                    
-                    <a href="/tags/DolphinDB/">
-                        <span class="chip bg-color">DolphinDB</span>
+                    <a href="/tags/R/">
+                        <span class="chip bg-color">R</span>
                     </a>
                     
                 </div>
@@ -824,6 +700,100 @@ knitr::opts_chunk$set(
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('4'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
