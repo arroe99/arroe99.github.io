@@ -419,7 +419,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-23
+                    2025-03-25
                 </div>
                 
 
@@ -453,12 +453,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="数据库相关"><a href="#数据库相关" class="headerlink" title="数据库相关"></a>数据库相关</h1><h2 id="主键和外键"><a href="#主键和外键" class="headerlink" title="主键和外键"></a>主键和外键</h2><p>主键是表中的唯一标识列，用于唯一标识每一行数据。主键的值必须唯一，且不能为空<br>唯一 非空 但可以是单列或组合列（复合主键）</p>
+                <p>有些问题自己准备个资料库，免得每次忘记又重新查！！！</p>
+<h1 id="数据库相关"><a href="#数据库相关" class="headerlink" title="数据库相关"></a>数据库相关</h1><h2 id="主键和外键"><a href="#主键和外键" class="headerlink" title="主键和外键"></a>主键和外键</h2><p>主键是表中的唯一标识列，用于唯一标识每一行数据。主键的值必须唯一，且不能为空<br>唯一 非空 但可以是单列或组合列（复合主键）</p>
 <p>外键是一个表中的列，引用了另一个表的主键，用于建立表之间的关联关系<br>一个主表可以有多个外键，可以为空<br>参照完整性：外键值必须在主表中存在，否则不允许插入数据。<br>FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE RESTRICT</p>
-<h2 id="Mysql的聚合索引知道吗"><a href="#Mysql的聚合索引知道吗" class="headerlink" title="Mysql的聚合索引知道吗"></a>Mysql的聚合索引知道吗</h2><p>MySQL的索引，B+树性质。<br>Linux的cpu 100怎么排查，top jstack，日志，gui工具<br>Redis内存数据库的内存指的是共享内存么<br>Redis的持久化方式</p>
-<ol start="10">
-<li></li>
-</ol>
+<h2 id="Mysql的聚合索引知道吗"><a href="#Mysql的聚合索引知道吗" class="headerlink" title="Mysql的聚合索引知道吗"></a>Mysql的聚合索引知道吗</h2><h2 id="MySQL的索引，B-树性质。"><a href="#MySQL的索引，B-树性质。" class="headerlink" title="MySQL的索引，B+树性质。"></a>MySQL的索引，B+树性质。</h2><p>Redis内存数据库的内存指的是共享内存么<br>Redis的持久化方式</p>
 <p>8.Mysql的索引存储结构</p>
 <p>6.Mysql的锁了解多少，知道偏向锁吗</p>
 <p>SQL优化 - Limit</p>
@@ -466,18 +464,29 @@
 <p>1.spark的shffle阶段</p>
 <p>2.linux查看进程的资源占用情况</p>
 <p>3.数据结构的哈希表</p>
-<p>数据库优化<br>亿级别表，有id、status、title，id自增且title为字符类型，要查询10个title开头为xiaomi的id和status，如何优化查询 select * from table where title like ‘%xiaomi%’<br>A、给title加索引 B、查询字段改为id, status C、like条件 改为 ‘xiaomi%’ D、limit 10（这个可能忘了不确定）</p>
-<p>编程题 典型背包问题 dp秒杀</p>
-<p>编程题 字符串分类问题<br>把每个字符串转为char数组，排序好数组后再转为字符串，存到set或者map中，然后返回集合size<br>题目大意如下：给出x个字符串，总共可以分成几类？<br>如abc、acb、cba、abcc、ab<br>acb和cba可以移动字符串变成abc，所以总共是3种类型</p>
-<p>有些问题自己准备个资料库，免得每次忘记又重新查！！！</p>
-<h1 id="机器学习相关"><a href="#机器学习相关" class="headerlink" title="机器学习相关"></a>机器学习相关</h1><h2 id="boost三巨头-区别"><a href="#boost三巨头-区别" class="headerlink" title="boost三巨头 区别"></a>boost三巨头 区别</h2><p>xgboost lightgbm catboost</p>
+<h1 id="linux操作系统"><a href="#linux操作系统" class="headerlink" title="linux操作系统"></a>linux操作系统</h1><p>Linux的cpu 100怎么排查 top </p>
+<h1 id="机器学习相关"><a href="#机器学习相关" class="headerlink" title="机器学习相关"></a>机器学习相关</h1><h2 id="逻辑回归原理-优缺点"><a href="#逻辑回归原理-优缺点" class="headerlink" title="逻辑回归原理  优缺点"></a>逻辑回归原理  优缺点</h2><p>逻辑回归虽然是回归，但是是一个二分类的统计模型<br>他的核心思想是通过sigmoid函数将数值映射到0-1的区间作为预测的概率</p>
+<p>最小化损失函数（凸函数），通过梯度下降的方法</p>
+<p>优缺点：<br>1可解释 2效率高，运行快 3稳定性<br>1模型假定线性，非线性效果难以捕捉 2变量之间可能存在多重共线性 3特征工程要求比较高</p>
+<h2 id="LR中缺失值的常见处理方式"><a href="#LR中缺失值的常见处理方式" class="headerlink" title="LR中缺失值的常见处理方式"></a>LR中缺失值的常见处理方式</h2><p>缺失值少 直接删除<br>均值 中位数 回归填补<br>机器学习算法填补 KNN填补 mice多重插补 missForest基于随机森林填补 </p>
+<h2 id="SVM原理"><a href="#SVM原理" class="headerlink" title="SVM原理"></a>SVM原理</h2><p>是一种二分类模型，核心思想是寻找最优超平面，将不同类别的样本分开，实现最大化间隔；<br>可以分类，也可以用于回归</p>
+<p>线性不可分的时候，引入松弛变量，最大化软间隔，允许部分样本被误分<br>或者使用核函数的方法，将数据投影到更高维度，在高维空间可分</p>
+<p>损失函数 hinge loss + 正则化项</p>
+<h2 id="K-means原理"><a href="#K-means原理" class="headerlink" title="K-means原理"></a>K-means原理</h2><p>核心思想是通过最小化簇内样本点与簇中心的距离，来优化聚类效果。</p>
+<p>初始化：随机选择 K 个样本点作为初始的簇中心<br>分配样本点：对于每一个样本，计算它与所有簇中心的距离，将其分配给最近的簇。<br>更新簇中心：对每个簇，重新计算所有属于该簇样本点的均值，作为新的簇中心。<br>迭代：重复“分配样本点”和“更新簇中心”两个步骤，直到簇中心不再发生明显变化，或达到最大迭代次数，算法收敛。</p>
+<h2 id="讲解决策树原理-还有优缺点"><a href="#讲解决策树原理-还有优缺点" class="headerlink" title="讲解决策树原理  还有优缺点"></a>讲解决策树原理  还有优缺点</h2><p>决策树是一种基于树结构的分类或者回归算法<br>通过不断选择最佳的特征不断分割<strong>数据集</strong>来建立一个树形的决策模型</p>
+<p>ID3 信息增益<br>C4.5 信息增益率 解决信息增益偏向高取值特征的问题<br>CART Gini系数</p>
+<p>优缺点：<br>1易于理解和解释 2对数据要求低<br>1容易过拟合 2对噪声敏感</p>
+<h2 id="什么是剪枝"><a href="#什么是剪枝" class="headerlink" title="什么是剪枝"></a>什么是剪枝</h2><p>决策树容易过拟合，对训练数据拟合的很好，但是泛化能力差（低偏差，高方差）。所以需要剪枝防止过拟合。<br>剪枝的方法有预剪枝和后剪枝：<br>预剪枝通过优先设定比如最大深度，最小样本量，防止决策树长的非常复杂；<br>后剪枝先生成完整的决策树，然后进行剪枝，若效果变好，就保留剪枝。</p>
+<h2 id="讲解随机森林原理-优缺点"><a href="#讲解随机森林原理-优缺点" class="headerlink" title="讲解随机森林原理  优缺点"></a>讲解随机森林原理  优缺点</h2><p>决策树容易过拟合<br>随机森林通过构建很多决策树，对树的结果进行投票或者平均，提高稳定性和泛化能力</p>
+<p>随机体现在：1通过bootstrap自助抽样，建模的数据子集随机；2随机选取特征子集建立决策树<br>优缺点：<br>1泛化能力强，不容易过拟合 2适用于高维数据，可以处理大量特征 3可以计算特征重要性<br>1计算成本高，运行时间长 2可解释性差</p>
+<h2 id="boost三巨头-区别"><a href="#boost三巨头-区别" class="headerlink" title="boost三巨头 区别"></a>boost三巨头 区别</h2><p>xgboost lightgbm catboost</p>
 <p>特征分裂方式不同 按层按叶 直方图加速 梯度单边采样<br>XGboost超参数多，稳定性好<br>lightgbm训练快 内存占用低 适用于大规模数据<br>分类变量、数据不平衡 cat 自适应 自动处理</p>
+<h2 id="xgboost参数含义-调参优先级"><a href="#xgboost参数含义-调参优先级" class="headerlink" title="xgboost参数含义 调参优先级"></a>xgboost参数含义 调参优先级</h2><p>XGBoost 参数可以分为 四大类：</p>
+<p>学习率 &amp; 迭代控制参数（learning_rate、n_estimators） 学习率 树的数量<br>树的结构参数（max_depth、min_child_weight） 数的深度 叶子数量<br>采样参数 subsample &#x2F; colsample_bytree<br>正则化参数（lambda、alpha）</p>
 <h2 id="bagging-boosting-stacking区别"><a href="#bagging-boosting-stacking区别" class="headerlink" title="bagging boosting stacking区别"></a>bagging boosting stacking区别</h2><p>bagging 核心就是对数据进行自助法抽样<br>多个模型并行训练，来达到降低模型方差，提高稳定性的目的</p>
 <p>boosting目的是减少偏差<br>顺序训练多个弱学习器，通过新模型不断降低前一个模型的训练误差</p>
 <p>stacking 融合多个模型，更关注模型的融合</p>
-<h2 id="LR中缺失值的常见处理方式"><a href="#LR中缺失值的常见处理方式" class="headerlink" title="LR中缺失值的常见处理方式"></a>LR中缺失值的常见处理方式</h2><p>缺失值少 直接删除<br>均值 中位数 回归填补<br>机器学习算法填补 KNN填补 mice多重插补 missForest基于随机森林填补 </p>
-<h2 id="参数含义-调参优先级"><a href="#参数含义-调参优先级" class="headerlink" title="参数含义 调参优先级"></a>参数含义 调参优先级</h2><p>XGBoost 参数可以分为 四大类：</p>
-<p>学习率 &amp; 迭代控制参数（learning_rate、n_estimators） 学习率 树的数量<br>树的结构参数（max_depth、min_child_weight） 数的深度 叶子数量<br>采样参数 subsample &#x2F; colsample_bytree<br>正则化参数（lambda、alpha）</p>
 <h2 id="算法适用范围"><a href="#算法适用范围" class="headerlink" title="算法适用范围"></a>算法适用范围</h2><p>主要熟练掌握LR的基本公式、SVM的基本原理、逻辑回归、随机森林和XGboost<br>各个算法的优缺点、适用范围以及可能失效的场景需要了熟于胸</p>
 <p>LR 线性可分<br>SVM 小样本 高维<br>随机森林 抗噪声 数据量大 解释特征重要性<br><em>XGboost 数据复杂 非线性关系强  （支持并行和GPU加速） 基于树模型和一捕捉复杂的非线性关系  按叶生长</em></p>
 <h2 id="如何选择合适的评价指标"><a href="#如何选择合适的评价指标" class="headerlink" title="如何选择合适的评价指标"></a>如何选择合适的评价指标</h2><p>对于分类模型<br>数据均衡 准确率  不平衡 F1 score<br>模型总体区分能力AUC曲线 ROC值	</p>
@@ -485,21 +494,10 @@
 <p>敏感度Sensitivity 真正率 就是recall<br>特异度specificity 真负率</p>
 <h2 id="解释一下ROC曲线和AUC指标的意义"><a href="#解释一下ROC曲线和AUC指标的意义" class="headerlink" title="解释一下ROC曲线和AUC指标的意义"></a>解释一下ROC曲线和AUC指标的意义</h2><p>真正率-假正率<br>纵轴是真正率，横轴是1-Specificity </p>
 <p>ROC曲线反映不同阈值下模型的分类能力，曲线越向左上角靠近，模型越好</p>
-<h2 id="讲解决策树原理-还有优缺点"><a href="#讲解决策树原理-还有优缺点" class="headerlink" title="讲解决策树原理  还有优缺点"></a>讲解决策树原理  还有优缺点</h2><p>决策树是一种基于树结构的分类或者回归算法<br>通过不断选择最佳的特征不断分割<strong>数据集</strong>来建立一个树形的决策模型</p>
-<p>ID3 信息增益<br>C4.5 信息增益率 解决信息增益偏向高取值特征的问题<br>CART Gini系数</p>
-<p>优缺点：<br>1易于理解和解释 2对数据要求低<br>1容易过拟合 2对噪声敏感</p>
-<h2 id="什么是剪枝"><a href="#什么是剪枝" class="headerlink" title="什么是剪枝"></a>什么是剪枝</h2><p>决策树容易过拟合，对训练数据拟合的很好，但是泛化能力差（低偏差，高方差）。所以需要剪枝防止过拟合。<br>剪枝的方法有预剪枝和后剪枝：<br>预剪枝通过优先设定比如最大深度，最小样本量，防止决策树长的非常复杂；<br>后剪枝先生成完整的决策树，然后进行剪枝，若效果变好，就保留剪枝。</p>
-<h2 id="讲解随机森林原理-优缺点"><a href="#讲解随机森林原理-优缺点" class="headerlink" title="讲解随机森林原理  优缺点"></a>讲解随机森林原理  优缺点</h2><p>决策树容易过拟合<br>随机森林通过构建很多决策树，对树的结果进行投票或者平均，提高稳定性和泛化能力</p>
-<p>随机体现在：1通过bootstrap自助抽样，建模的数据子集随机；2随机选取特征子集建立决策树<br>优缺点：<br>1泛化能力强，不容易过拟合 2适用于高维数据，可以处理大量特征 3可以计算特征重要性<br>1计算成本高，运行时间长 2可解释性差</p>
-<h2 id="SVM原理"><a href="#SVM原理" class="headerlink" title="SVM原理"></a>SVM原理</h2><p>是一种二分类模型，核心思想是寻找最优超平面，将不同类别的样本分开，实现最大化间隔；<br>可以分类，也可以用于回归</p>
-<p>线性不可分的时候，引入松弛变量，，最大化软间隔，允许部分样本被误分<br>或者使用核函数的方法，将数据投影到更高维度，在高维空间可分</p>
-<h2 id="逻辑回归原理-优缺点"><a href="#逻辑回归原理-优缺点" class="headerlink" title="逻辑回归原理  优缺点"></a>逻辑回归原理  优缺点</h2><p>逻辑回归虽然是回归，但是是一个二分类的统计模型<br>他的核心思想是通过sigmoid函数将数值映射到0-1的区间作为预测的概率</p>
-<p>最小化损失函数（凸函数），通过梯度下降的方法</p>
-<p>优缺点：<br>1可解释 2效率高，运行快 3稳定性<br>1模型假定线性，非线性效果难以捕捉 2变量之间可能存在多重共线性 3特征工程要求比较高</p>
 <h2 id="什么是一范数-二范数"><a href="#什么是一范数-二范数" class="headerlink" title="什么是一范数 二范数"></a>什么是一范数 二范数</h2><p>L1范数是所有元素的绝对值之和，几何解释是曼哈顿距离，正则化的时候用上一范数则是lasso回归，用于特征选择，可以让一些不显著的变量权重为0<br>L2范数是欧氏距离，平方和开根号，L2正则化是岭回归</p>
 <p>特征筛选的方法有哪些？有哪些指标？计算逻辑是怎样的？</p>
-<h2 id="python深复制和浅复制"><a href="#python深复制和浅复制" class="headerlink" title="python深复制和浅复制"></a>python深复制和浅复制</h2><p>浅复制只复制对象本身 更深层的嵌套对象没有复制，嵌套对象仍然是对原对象的引用<br>深复制复制对象本身和所有嵌套的对象，新对象和原对象是完全独立的</p>
-<h1 id="风控相关"><a href="#风控相关" class="headerlink" title="风控相关"></a>风控相关</h1><p>风控建模工程师</p>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="python深复制和浅复制"><a href="#python深复制和浅复制" class="headerlink" title="python深复制和浅复制"></a>python深复制和浅复制</h2><p>浅复制只复制对象本身 更深层的嵌套对象没有复制，嵌套对象仍然是对原对象的引用<br>深复制复制对象本身和所有嵌套的对象，新对象和原对象是完全独立的</p>
+<h2 id="什么是装饰器和生成器"><a href="#什么是装饰器和生成器" class="headerlink" title="什么是装饰器和生成器"></a>什么是装饰器和生成器</h2><h1 id="风控相关"><a href="#风控相关" class="headerlink" title="风控相关"></a>风控相关</h1><p>风控建模工程师</p>
 <p>岗位职责：<br>1.梳理客户需求，应用数据挖掘技术搭建线上信贷金融产品风险模型，并推动落地应用，包括不限于A卡，B卡，C卡，反欺诈模型等<br>2.对策略效果进行跟踪，分析和优化<br>3.搭建风控监控体系，对资产质量，风险指标进行监控<br>任职要求：<br>1.硕士及以上学历，统计学，计算机，数学，信息，运筹学，计量经济学，软件工程等相关专业优先；大学英语六级及以上<br>2.数据分析能力熟悉sql、python开发语言，具备分析思维，或愿意为这个领域方向持续学习提升，成就感强烈<br>3.有在银行、互联网、等金融机构领域实习经历优先考虑<br>4.综合能力要求：主动性强、协作能力佳、喜欢专研<br>5.学习过数据挖掘相关课程或自学过，具备相关算法的理论基础<br>6.参加过大学生数学建模比赛，天池，Kaggle等比赛的可优先考虑</p>
 <h2 id="了解贷款业务吗？以及贷前贷中贷后的具体业务是做什么？"><a href="#了解贷款业务吗？以及贷前贷中贷后的具体业务是做什么？" class="headerlink" title="了解贷款业务吗？以及贷前贷中贷后的具体业务是做什么？"></a>了解贷款业务吗？以及贷前贷中贷后的具体业务是做什么？</h2><p>贷前：信用评分卡、额度评估模型    是否发放贷款、多少额度<br>贷中：贷中信用评分、风险预警      检测信用变化、是否有违约风险<br>贷后：逾期预约模型、催收策略优化   预测还款概率、指定催收策略</p>
 <p>贷后主要工作是分析客户贷款后是否出现逾期，这是贷后核心。<br>开发用户贷后逾期风险预警模型和策略规则是贷后重点。<br>每日查看和分析客户或产品报表也是日常工作。<br>客户流失预警模型，交叉销售模型，沉默客户挖掘模型，VIP客户挖掘模型等等。</p>
@@ -507,12 +505,13 @@
 <p>遵循原则：<br>1单调性<br>2样本数量足够<br>3缺失值单独分享 可能有实际业务意义<br>4分箱不宜过多或者过少</p>
 <h2 id="评分卡的刻度和实施"><a href="#评分卡的刻度和实施" class="headerlink" title="评分卡的刻度和实施"></a>评分卡的刻度和实施</h2><p>将用户的信用风险转换为一个易于理解的评分值<br>直接使用逻辑回归的 log(odds) 计算分数不直观，需要转换成标准评分区间（如 300-850）。<br>直接用逻辑回归的对数几率计算分数不直观</p>
 <h2 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h2><p>IV信息价值衡量变量对目标变量的预测能力 用于变量筛选<br>KS变量或模型的区分能力<br>稳定性 PSI   变量在不同时间段的分布状态  越小越稳定<br>相关系数  变量之间的线性相关关系 当存在高度线性相关时，需要考虑LR是否适用<br>逻辑回归显著性 系数的p值 VIF有无共线性 伪R方  McFadden’s Pseudo R²</p>
+<p>两个变量相关系数高的话，应该删掉哪个？<br>LR中可以根据VIF<br>其他模型的话，</p>
 <h2 id="KS和IV，解释一下？"><a href="#KS和IV，解释一下？" class="headerlink" title="KS和IV，解释一下？"></a>KS和IV，解释一下？</h2><p>KS 基于累计分布函数的，用来衡量模型对不同类别的区分能力，数值越大，区分能力越强<br>IV 衡量变量的信息贡献，需要用于变量筛选</p>
 <h2 id="A卡，B卡，C卡"><a href="#A卡，B卡，C卡" class="headerlink" title="A卡，B卡，C卡"></a>A卡，B卡，C卡</h2><p>A卡（Application Scorecard）—— 申请评分卡  适用于： 新用户（首次申请信用&#x2F;贷款的用户）<br>评估新用户的违约风险，决定是否批准申请<br>给用户分配初始信用额度</p>
 <p>B卡（Behavior Scorecard）—— 行为评分卡<br>适用于： 已有账户用户（已有贷款、信用卡的用户）<br>主要用于存量客户的风险管理（是否调整额度、动态信用评分）。<br>可以调整信用额度、优化贷款产品，提高用户粘性。<br>评估用户未来 6~12 个月的违约概率。<br>调整信用额度（降低高风险用户额度，提高低风险用户额度）。</p>
 <p>C卡（Collection Scorecard）—— 催收评分卡<br>适用于： 逾期用户（已经发生逾期的用户）<br>主要用于催收策略优化（是人工催收还是自动提醒）。<br>预测用户是否能够自行还款（主动还款 vs 需要催收）。<br>帮助银行&#x2F;金融机构优化催收资源（减少催收成本，提高回收率）。</p>
 <p>A卡 → 贷款审批<br>B卡 → 额度管理 &amp; 风险监控<br>C卡 → 催收策略优化</p>
-<h2 id="一个标准的风控模型全生命周期是这样的："><a href="#一个标准的风控模型全生命周期是这样的：" class="headerlink" title="一个标准的风控模型全生命周期是这样的："></a>一个标准的风控模型全生命周期是这样的：</h2><p>1.明确业务需求-2.模型设计-3.样本提取-4.数据匹配-5.数据清洗-6.特征工程-7.模型训练-8.模型验证-10.模型应用方案设计-11.模型上线-12.模型监控-13.模型迭代</p>
+<h2 id="一个标准的风控模型全生命周期"><a href="#一个标准的风控模型全生命周期" class="headerlink" title="一个标准的风控模型全生命周期"></a>一个标准的风控模型全生命周期</h2><p>1.明确业务需求-<br>2.模型设计-<br>3.样本提取-<br>4.数据匹配-<br>5.数据清洗-<br>6.特征工程-<br>7.模型训练-<br>8.模型验证-<br>10.模型应用方案设计-<br>11.模型上线-<br>12.模型监控-<br>13.模型迭代</p>
 <h1 id="HR"><a href="#HR" class="headerlink" title="HR"></a>HR</h1><h1 id><a href="#" class="headerlink" title></a></h1><p>HR</p>
 <p>你觉得你的职业方向会涉及到哪些方面？</p>
 <p>对薪资方面有什么期待？个人期望薪资是多少？</p>
