@@ -342,14 +342,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-30
+                    2025-04-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    988
+                    1k
                 </div>
                 
 
@@ -377,14 +377,24 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>IDEA快捷键:<br>main方法快捷键  psvm+回车<br>控制台原样输出   sout<br>复制 ctrl D<br>删除 ctrl y</p>
+<br>
+
 <p>vscode中如果装了 Java Extension Pack 插件，它会自动检查语法并高亮错误。<br>红色是代码有问题<br>黄色是警告  （比如定义了变量，但没有用到也会有</p>
+<br>
+
 <p>Java 是一种强类型语言，每个变量都必须声明其数据类型。<br>一、基本数据类型（primitive data type）<br>数值型<br>整数类型：byte, short, int, long<br>浮点类型：float, double<br>字符型：char<br>布尔型：boolean</p>
 <p>计算机内存的最小存储单元是字节（byte），一个字节就是一个8位二进制数，即8个bit。它的二进制表示范围从00000000<del>11111111，换算成十进制是0</del>255</p>
 <p>对于整型类型，Java只定义了带符号的整型，因此，最高位的bit表示符号位（0表示正数，1表示负数）。各种整型能表示的最大范围如下：</p>
 <p>byte：-128 ~ 127<br>short: -32768 ~ 32767<br>int: -2147483648 ~ 2147483647<br>long: -9223372036854775808 ~ 9223372036854775807</p>
+<br>
+
 <p>二、引用数据类型（reference data type）<br>引用类型就是：变量保存的是对象在内存中的地址（引用），而不是对象本身的值。<br>类（class）<br>接口（interface）<br>数组（array）</p>
 <p>引用类型最常用的就是String字符串：<br>String s &#x3D; “hello”;<br>引用类型的变量类似于C语言的指针，它内部存储一个“地址”，指向某个对象在内存的位置</p>
+<br>
+
 <p>常量：<br>定义变量的时候，如果加上final修饰符，这个变量就变成了常量：<br>final double PI &#x3D; 3.14; &#x2F;&#x2F; PI是一个常量</p>
+<br>
+
 <p>自增和自减<br>++  –<br>++n表示先加1再引用n，n++表示先引用n再加1</p>
 <p>例子：</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">test</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -397,6 +407,8 @@
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
+<br>
+
 <p>整数运算在除数为0时会报错，而浮点数运算在除数为0时，不会报错，但会返回几个特殊值：</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -410,6 +422,8 @@
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
+<br>
+
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 四舍五入</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -423,6 +437,9 @@
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>可以实现正小数的四舍五入，但不适用于负数</p>
+<br>
+
+
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 三元运算</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -433,6 +450,8 @@
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>python和SQL实现:<br>n if n &gt;&#x3D; 0 else -n	<br>CASE WHEN n &gt;&#x3D; 0 THEN n ELSE -n END	</p>
+<br>
+
 <p>终端命令运行java文件<br>使用javac可以将.java源码编译成.class字节码；<br>使用java可以运行一个已编译的Java程序，参数是类名。</p>
 <pre class=" language-shell"><code class="language-shell">cd E:\JAVA_learning\java_learning\test1module\src
 
@@ -442,6 +461,8 @@ PS E:\JAVA_learning\java_learning\test1module\src> java Main
 >>
 hello World
 </code></pre>
+<br>
+
 <p>判断变量是否相等      equals()<br>判断引用类型是否相等  &#x3D;&#x3D;</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 条件判断</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -468,6 +489,8 @@ hello World
 <span class="token comment" spellcheck="true">// s1 != s2</span>
 <span class="token comment" spellcheck="true">// s1 equals s2</span>
 </code></pre>
+<br>
+
 <p>switch表达式<br>Java 14+ 的 新式 switch 表达式写法<br>-&gt; 箭头语法<br>防止 case 穿透	每个 case 自动结束，不会掉进下一个 case</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// switch</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -485,7 +508,18 @@ hello World
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
+<br>
 
+ 
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//一般的JavaDoc 注释</span>
+<span class="token comment" spellcheck="true">/**
+ * @author xiaomifeng1010
+ * @version 1.0
+ * @date: 2024-09-21 20:50
+ * @Description
+ */</span>
+</code></pre>
+<br>
                 
             </div>
             <hr/>
