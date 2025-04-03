@@ -373,21 +373,21 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="R-code"><a href="#R-code" class="headerlink" title="R code"></a>R code</h1><pre class=" language-R"><code class="language-R"># Install and load the requires packages
-install_if_not <- function( list.of.packages ) &#123;
+install_if_not <- function( list.of.packages ) {
   new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-  if(length(new.packages)) &#123; install.packages(new.packages) &#125; 
-  else &#123; print(paste0("the package '", list.of.packages , "' is already installed")) &#125;
-&#125;
+  if(length(new.packages)) { install.packages(new.packages) } 
+  else { print(paste0("the package '", list.of.packages , "' is already installed")) }
+}
 install_if_not(c("rstudioapi","ggplot2", "ggpubr", "tidyverse", "broom"))
 
 # Install and load the requires packages
 packages = c('tidyverse', 'knitr', 'gridExtra', 'leaflet', 'OpenStreetMap')
-for (p in packages)&#123;
-  if(!require(p, character.only = T))&#123;
+for (p in packages){
+  if(!require(p, character.only = T)){
     install.packages(p)
-  &#125;
+  }
   library(p,character.only = T)
-&#125;
+}
 
 library(tidyverse)
 library(openxlsx)
@@ -453,20 +453,20 @@ Affairs$ynaffair <- factor(Affairs$ynaffair,
                            levels = c(0,1),
                            labels = c("No", "Yes"))
 
-for (i in 3:ncol(mydata)-1) &#123;
+for (i in 3:ncol(mydata)-1) {
   mydata[,i] <- as.factor(mydata[,i])
-&#125;
+}
 
 # dplyr批量将分类变量转化为因子型
 data <- dplyr::mutate_if(data, is.character, as.factor) 
 
 
 #把第一列变成行名
-msa.X<-function(df)&#123; 
+msa.X<-function(df){ 
   X=df[,-1];　　　　　　#去除第1列以外的所有数据 
   rownames(X)=df[,1];　#将数据框第1列设置为行名 
   X 
-&#125; 
+} 
 X=msa.X(X)
 X
 
@@ -502,9 +502,9 @@ excel_file <- "filename.xlsx"
 sheet_names <- excel_sheets("热力图.xlsx")
 
 # 使用lapply函数来读取每个sheet，并将结果存储在一个列表中
-sheet_data <- lapply(sheet_names, function(sheet) &#123;
+sheet_data <- lapply(sheet_names, function(sheet) {
   read_excel(excel_file, sheet = sheet)
-&#125;)
+})
 
 # 对列表命名
 names(sheet_data) <- sheet_names
@@ -546,9 +546,9 @@ data4 %<>% drop_na(age, rich) #删除指定列名含缺失值的所有行
 newdata <- sleep[complete.cases(sleep),]
 data <- na.omit(data)
 
-for(i in 1:ncol(mydata)) &#123;  #均值插补
+for(i in 1:ncol(mydata)) {  #均值插补
   mydata[is.na(mydata[, i]), i] <- mean(mydata[[i]], na.rm = TRUE)
-&#125;
+}
 </code></pre>
 <h1 id="RMD相关"><a href="#RMD相关" class="headerlink" title="RMD相关"></a>RMD相关</h1><pre class=" language-Rmarkdown"><code class="language-Rmarkdown">#图表展示
 DT::datatable(top250) # 交互式表格输出
@@ -594,7 +594,7 @@ output:
     toc_depth: 3
 ---
   
-```&#123;r setup, include=FALSE&#125;
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   echo = TRUE,
   message = FALSE,

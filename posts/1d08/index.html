@@ -443,7 +443,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    681
+                    679
                 </div>
                 
 
@@ -511,7 +511,7 @@ select * from dt
 // ex2  先有表dt 再append
 db = database("dfs://demodb", VALUE, 1..10)
 t=table(take(1, 86400) as id, 2020.01.01T00:00:00 + 0..86399 as timestamp, rand(1..100, 86400) as val)
-dt = db.createTable(t, "dt", &#123;timestamp:"delta", val:"delta"&#125;)
+dt = db.createTable(t, "dt", {timestamp:"delta", val:"delta"})
 dt.append!(t)
 
 // compressMethods 一个字典，指定某些列使用 lz4 或者 delta 压缩算法存储。key 为字段名，value 为压缩算法（”lz4”或”delta”）。若未指定，默认采用 lz4 压缩算法。
