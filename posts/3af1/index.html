@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数分数开笔记, Luo&#39;s Blog">
+    <meta name="keywords" content="数分数开面试笔记, Luo&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数分数开笔记 | Luo&#39;s Blog</title>
+    <title>数分数开面试笔记 | Luo&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -279,12 +279,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/41.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/40.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数分数开笔记</h1>
+                    <h1 class="description center-align post-title">数分数开面试笔记</h1>
                 </div>
             </div>
         </div>
@@ -428,21 +428,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-04-04
+                    2025-04-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    5.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    18 分
                 </div>
                 
 
@@ -469,6 +469,31 @@
 <p>2.linux查看进程的资源占用情况</p>
 <p>3.数据结构的哈希表</p>
 <h1 id="linux操作系统"><a href="#linux操作系统" class="headerlink" title="linux操作系统"></a>linux操作系统</h1><p>Linux的cpu 100怎么排查 top </p>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="python深复制和浅复制"><a href="#python深复制和浅复制" class="headerlink" title="python深复制和浅复制"></a>python深复制和浅复制</h2><p>浅复制只复制对象本身 更深层的嵌套对象没有复制，嵌套对象仍然是对原对象的引用<br>深复制复制对象本身和所有嵌套的对象，新对象和原对象是完全独立的</p>
+<h2 id="什么是装饰器和生成器"><a href="#什么是装饰器和生成器" class="headerlink" title="什么是装饰器和生成器"></a>什么是装饰器和生成器</h2><p>装饰器是一个函数，用来增强或修改另一个函数或类的功能，而不直接修改被装饰的函数的源代码。<br>常用于日志记录、权限验证、性能计时、缓存</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">my_decorator</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"调用前"</span><span class="token punctuation">)</span>
+        func<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"调用后"</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> wrapper
+
+@my_decorator
+<span class="token keyword">def</span> <span class="token function">say_hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello!"</span><span class="token punctuation">)</span>
+
+say_hello<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>生成器是一种用于创建迭代器的方式，它在函数中使用 yield 关键字，每次生成一个值，暂停函数执行，等待下一次调用。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">my_generator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">yield</span> <span class="token number">1</span>
+    <span class="token keyword">yield</span> <span class="token number">2</span>
+    <span class="token keyword">yield</span> <span class="token number">3</span>
+
+gen <span class="token operator">=</span> my_generator<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> value <span class="token keyword">in</span> gen<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+</code></pre>
 <h1 id="机器学习相关"><a href="#机器学习相关" class="headerlink" title="机器学习相关"></a>机器学习相关</h1><h2 id="逻辑回归原理-优缺点"><a href="#逻辑回归原理-优缺点" class="headerlink" title="逻辑回归原理  优缺点"></a>逻辑回归原理  优缺点</h2><p>逻辑回归虽然是回归，但是是一个二分类的统计模型<br>他的核心思想是通过sigmoid函数将数值映射到0-1的区间作为预测的概率</p>
 <p>最小化损失函数（凸函数），通过梯度下降的方法</p>
 <p>优缺点：<br>1可解释 2效率高，运行快 3稳定性<br>1模型假定线性，非线性效果难以捕捉 2变量之间可能存在多重共线性 3特征工程要求比较高</p>
@@ -500,27 +525,43 @@
 <p>ROC曲线反映不同阈值下模型的分类能力，曲线越向左上角靠近，模型越好</p>
 <h2 id="什么是一范数-二范数"><a href="#什么是一范数-二范数" class="headerlink" title="什么是一范数 二范数"></a>什么是一范数 二范数</h2><p>L1范数是所有元素的绝对值之和，几何解释是曼哈顿距离，正则化的时候用上一范数则是lasso回归，用于特征选择，可以让一些不显著的变量权重为0<br>L2范数是欧氏距离，平方和开根号，L2正则化是岭回归</p>
 <p>特征筛选的方法有哪些？有哪些指标？计算逻辑是怎样的？</p>
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="python深复制和浅复制"><a href="#python深复制和浅复制" class="headerlink" title="python深复制和浅复制"></a>python深复制和浅复制</h2><p>浅复制只复制对象本身 更深层的嵌套对象没有复制，嵌套对象仍然是对原对象的引用<br>深复制复制对象本身和所有嵌套的对象，新对象和原对象是完全独立的</p>
-<h2 id="什么是装饰器和生成器"><a href="#什么是装饰器和生成器" class="headerlink" title="什么是装饰器和生成器"></a>什么是装饰器和生成器</h2><h1 id="风控相关"><a href="#风控相关" class="headerlink" title="风控相关"></a>风控相关</h1><p>风控建模工程师</p>
+<h1 id="风控相关"><a href="#风控相关" class="headerlink" title="风控相关"></a>风控相关</h1><p>同盾科技-风控建模工程师jd</p>
 <p>岗位职责：<br>1.梳理客户需求，应用数据挖掘技术搭建线上信贷金融产品风险模型，并推动落地应用，包括不限于A卡，B卡，C卡，反欺诈模型等<br>2.对策略效果进行跟踪，分析和优化<br>3.搭建风控监控体系，对资产质量，风险指标进行监控<br>任职要求：<br>1.硕士及以上学历，统计学，计算机，数学，信息，运筹学，计量经济学，软件工程等相关专业优先；大学英语六级及以上<br>2.数据分析能力熟悉sql、python开发语言，具备分析思维，或愿意为这个领域方向持续学习提升，成就感强烈<br>3.有在银行、互联网、等金融机构领域实习经历优先考虑<br>4.综合能力要求：主动性强、协作能力佳、喜欢专研<br>5.学习过数据挖掘相关课程或自学过，具备相关算法的理论基础<br>6.参加过大学生数学建模比赛，天池，Kaggle等比赛的可优先考虑</p>
+<p>哈杜科技-风控模型jd</p>
+<p>职位描述:<br>1.参与各类评分模型的设计、开发、验证、监控以及优化工作，包括贷前、贷中、贷后、营销等模型;<br>2.拓展新的内外部数据源，以有效扩充模型的输入;<br>3.基于对业务的理解，持续进行特征工程的优化，丰富模型的特征池;<br>4.与技术团队以及策略团队进行对接，确保模型在生产环境的稳定、准确;<br>任职要求:<br>1.经济、数学、统计、计算机等相关专业全日制本科(含)及以上学历，研究生优先;<br>2.3-5年及以上在零售信贷行业风险分析实践经验银行卡中心及互联网金融公司优先;<br>3.精通python、SQL、excel等数据分析常用工具，能独立开发风控模型，有风控策略分析经验者优先;<br>4.良好的分析思维和项目管理能力，优秀的团队合作意识，具有创业精神</p>
 <h2 id="了解贷款业务吗？以及贷前贷中贷后的具体业务是做什么？"><a href="#了解贷款业务吗？以及贷前贷中贷后的具体业务是做什么？" class="headerlink" title="了解贷款业务吗？以及贷前贷中贷后的具体业务是做什么？"></a>了解贷款业务吗？以及贷前贷中贷后的具体业务是做什么？</h2><p>贷前：信用评分卡、额度评估模型    是否发放贷款、多少额度<br>贷中：贷中信用评分、风险预警      检测信用变化、是否有违约风险<br>贷后：逾期预约模型、催收策略优化   预测还款概率、指定催收策略</p>
 <p>贷后主要工作是分析客户贷款后是否出现逾期，这是贷后核心。<br>开发用户贷后逾期风险预警模型和策略规则是贷后重点。<br>每日查看和分析客户或产品报表也是日常工作。<br>客户流失预警模型，交叉销售模型，沉默客户挖掘模型，VIP客户挖掘模型等等。</p>
-<h2 id="WOE分箱的目的和遵循原则"><a href="#WOE分箱的目的和遵循原则" class="headerlink" title="WOE分箱的目的和遵循原则"></a>WOE分箱的目的和遵循原则</h2><p>Weight of Evidence<br>常用于LR  通过对变量进行分箱 计算每个箱的WOE值，使变量和目标变量之间的关系更符合线性假定<br>减少异常值影响 减少变量取值数量、提升计算效率</p>
-<p>遵循原则：<br>1单调性<br>2样本数量足够<br>3缺失值单独分享 可能有实际业务意义<br>4分箱不宜过多或者过少</p>
-<h2 id="评分卡的刻度和实施"><a href="#评分卡的刻度和实施" class="headerlink" title="评分卡的刻度和实施"></a>评分卡的刻度和实施</h2><p>将用户的信用风险转换为一个易于理解的评分值<br>直接使用逻辑回归的 log(odds) 计算分数不直观，需要转换成标准评分区间（如 300-850）。<br>直接用逻辑回归的对数几率计算分数不直观</p>
-<h2 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h2><p>IV信息价值衡量变量对目标变量的预测能力 用于变量筛选<br>KS变量或模型的区分能力<br>稳定性 PSI   变量在不同时间段的分布状态  越小越稳定<br>相关系数  变量之间的线性相关关系 当存在高度线性相关时，需要考虑LR是否适用<br>逻辑回归显著性 系数的p值 VIF有无共线性 伪R方  McFadden’s Pseudo R²</p>
-<p>两个变量相关系数高的话，应该删掉哪个？<br>LR中可以根据VIF<br>其他模型的话，</p>
-<h2 id="KS和IV，解释一下？"><a href="#KS和IV，解释一下？" class="headerlink" title="KS和IV，解释一下？"></a>KS和IV，解释一下？</h2><p>KS 基于累计分布函数的，用来衡量模型对不同类别的区分能力，数值越大，区分能力越强<br>IV 衡量变量的信息贡献，需要用于变量筛选</p>
 <h2 id="A卡，B卡，C卡"><a href="#A卡，B卡，C卡" class="headerlink" title="A卡，B卡，C卡"></a>A卡，B卡，C卡</h2><p>A卡（Application Scorecard）—— 申请评分卡  适用于： 新用户（首次申请信用&#x2F;贷款的用户）<br>评估新用户的违约风险，决定是否批准申请<br>给用户分配初始信用额度</p>
 <p>B卡（Behavior Scorecard）—— 行为评分卡<br>适用于： 已有账户用户（已有贷款、信用卡的用户）<br>主要用于存量客户的风险管理（是否调整额度、动态信用评分）。<br>可以调整信用额度、优化贷款产品，提高用户粘性。<br>评估用户未来 6~12 个月的违约概率。<br>调整信用额度（降低高风险用户额度，提高低风险用户额度）。</p>
 <p>C卡（Collection Scorecard）—— 催收评分卡<br>适用于： 逾期用户（已经发生逾期的用户）<br>主要用于催收策略优化（是人工催收还是自动提醒）。<br>预测用户是否能够自行还款（主动还款 vs 需要催收）。<br>帮助银行&#x2F;金融机构优化催收资源（减少催收成本，提高回收率）。</p>
 <p>A卡 → 贷款审批<br>B卡 → 额度管理 &amp; 风险监控<br>C卡 → 催收策略优化</p>
+<h2 id="WOE分箱的目的和遵循原则"><a href="#WOE分箱的目的和遵循原则" class="headerlink" title="WOE分箱的目的和遵循原则"></a>WOE分箱的目的和遵循原则</h2><p>Weight of Evidence</p>
+<p><img src="WOE.jpg" alt="alt text"></p>
+<div align="center">
+<img src="WOE.jpg" width="65%" alt="WOE计算公式">
+</div>
+
+<p>常用于LR<br>通过对变量进行分箱 计算每个箱的WOE值，使变量和目标变量之间的关系更符合线性假定<br>减少异常值影响 减少变量取值数量、提升计算效率</p>
+<p>遵循原则：<br>1单调性<br>2每个分箱样本数量足够<br>3分箱不宜过多或者过少<br>4缺失值单独分箱 可能有实际业务意义</p>
+<h2 id="KS和IV，解释一下？"><a href="#KS和IV，解释一下？" class="headerlink" title="KS和IV，解释一下？"></a>KS和IV，解释一下？</h2><p>KS 基于累计分布函数的，用来衡量模型对不同类别的区分能力，数值越大，区分能力越强<br>IV 衡量变量的信息贡献，需要用于变量筛选</p>
+<p>WOE 衡量每一箱对“好坏”的区分度；<br>IV 衡量整个变量的“预测能力”，越大越说明该变量越有用。</p>
+<h2 id="评分卡的刻度和实施"><a href="#评分卡的刻度和实施" class="headerlink" title="评分卡的刻度和实施"></a>评分卡的刻度和实施</h2><p>将用户的信用风险转换为一个易于理解的评分值<br>直接使用逻辑回归的 log(odds) 计算分数不直观，需要转换成标准评分区间（如 300-850）。</p>
+<h2 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h2><p>IV信息价值衡量变量对目标变量的预测能力 用于变量筛选<br>KS变量或模型的区分能力<br>稳定性 PSI   变量在不同时间段的分布状态  越小越稳定<br>相关系数  变量之间的线性相关关系 当存在高度线性相关时，需要考虑LR是否适用<br>逻辑回归显著性 系数的p值 VIF有无共线性 伪R方  McFadden’s Pseudo R²</p>
+<p>两个变量相关系数高的话，应该删掉哪个？<br>LR中可以根据VIF删除更高的，还可以结合IV值判断变量的重要性<br>其他模型的话，</p>
+<h2 id="评分卡，集成模型在线上如何部署？"><a href="#评分卡，集成模型在线上如何部署？" class="headerlink" title="评分卡，集成模型在线上如何部署？"></a>评分卡，集成模型在线上如何部署？</h2><p>评分卡的部署较为简单，因为评分卡将变量映射到了一个个区间及得分，所以在普通的风控决策引擎上就可以配置。</p>
+<p>像一些比较复杂的模型，比如Xgboost和lightgbm，一般是将模型文件转换成pmml格式，并封装成pmml，在风控后台上传pmml和变量参数文件，并配置好模型的阈值。Python和R开发的模型都可以用这种方式来部署。</p>
 <h2 id="一个标准的风控模型全生命周期"><a href="#一个标准的风控模型全生命周期" class="headerlink" title="一个标准的风控模型全生命周期"></a>一个标准的风控模型全生命周期</h2><p>1.明确业务需求-<br>2.模型设计-<br>3.样本提取-<br>4.数据匹配-<br>5.数据清洗-<br>6.特征工程-<br>7.模型训练-<br>8.模型验证-<br>10.模型应用方案设计-<br>11.模型上线-<br>12.模型监控-<br>13.模型迭代</p>
-<h1 id="HR"><a href="#HR" class="headerlink" title="HR"></a>HR</h1><h1 id><a href="#" class="headerlink" title></a></h1><p>HR</p>
-<p>你觉得你的职业方向会涉及到哪些方面？</p>
+<h1 id="HR-总监-业务负责人-大boss问题准备"><a href="#HR-总监-业务负责人-大boss问题准备" class="headerlink" title="HR&#x2F;总监&#x2F;业务负责人&#x2F;大boss问题准备"></a>HR&#x2F;总监&#x2F;业务负责人&#x2F;大boss问题准备</h1><p>做过的最有成就感的事：想知道能力和抗压能力</p>
+<h2 id="职业规划"><a href="#职业规划" class="headerlink" title="职业规划"></a>职业规划</h2><p>关于我的职业规划，我之前也是比较迷茫的。银行和国企都有考虑过，但是综合考虑下来还是想在互联网行业发展。</p>
+<p>风控行业的潜力还是很大的，</p>
+<p>不断地提升专业技能、深化对业务的理解</p>
+<p>提前了解公司文化：面试官往往会通过询问你对公司的了解和看法来判断你是否匹配公司的文化和价值观<br>“为什么选择我们？”、“你对我们公司有什么了解？”<br>回答时不要只围绕公司已有的背景和声量<br>结合自己的经验以及可以给公司&#x2F;团队带来什么回答 更能展现价值</p>
+<p>抓住反向提问环节：这是最后一个问题 一个好问题会大大加深面试官对你的印象 可以结合入职期待 晋升路线 团队氛围 公司发展这些角度去提问<br>总之唯一目的就是表达出你对收获这份工作 加入这个团队的期待</p>
 <p>对薪资方面有什么期待？个人期望薪资是多少？</p>
-<p>过往经历中有没有遇到比较坎坷的事情？</p>
-<p>反问</p>
+<p>第一点，是职业定位。很多HRBP 喜欢问你的职业规划是什么。<br>不要以为这个问题很虚，他实际上想了解的，是你的稳定性、上进心、目标感等自我驱动力。对自我定位不清晰的人，很可能遇到问题就会退缩。<br>对这个问题，应届或者实习生一般资历很浅，你只需要回答两点，避开一个坑就行。<br>（1）你对这个行业以及职位有哪些理解。你要知道行业未来的发展趋势是什么，你现在处于什么位置，你做的这份工作，它的意义是什么？<br>（2）你希望未来 3-5 年，能给公司贡献什么。比方说自己希望学到更多的知识，得到稳定的提升；在这个岗位希望做出什么成果；能够在行业中独挡一面，独立负责什么事情，解决什么问题。这个问题的回答，忌讳的是「假大空」。不要给自己挖坑！比方说，很多人会笼统的讲，「从技术做到管理」。遇到这么回答的，即使不直接挂掉，也会减不少分。先不要说 3<del>5 年晋升到管理层是不是现实，你具体做会哪些技术，做到什么样的程度，以后会管理哪些方面，在公司承担什么角色，你能用三五句话说清楚么？关于职业定位的问题，最大的一个坑是，职业定位不清晰。假如你踩到了，几乎必挂。很多应届生都会有很多的选择，比方说考研、出国、考公务员、当老师、自己创业、去企业工作…… HRBP 经常会貌似无心的，像拉家常似的跟你聊这些问题，听听你的想法。这时候一定要非常清晰的，说明你未来 3</del>5 年，为什么一定要选择去这家公司工作。</p>
+<p>HRBP 关心的第二点，是企业文化。<br>也就是说，你跟这家公司是不是匹配。比方说，很多公司会问你愿不愿意加班，愿不愿意出差。你内心可能是抗拒的。但现实情况是，这家公司就是加班不要命，就是一年出差两次，一次出门半年。这个现实已经形成了文化，不是你的主管或者面试官他能够改变的。HR 这么去问你，不是去询问你的态度或者看法，征求你的意见的。他就是在明明白白告诉你，他们的企业文化是什么。他就是在筛选合适的人，愿者上钩，测试你是不是能够接受。这样的问题怎么回答呢？假如你确实不能接受的话，可以明确拒绝。毕竟强扭的瓜不甜，假如你入职了不合适的公司，那你痛苦的日子才刚刚开始呢…… 但假如你能接受呢？假如我就是愿意为了多拿些钱，宁愿选择多加些班、多出些差呢？不要浪费掉这个问题，这是你跟 HR 讨价还价的好时机。很多公司是没有「加班费」这个说法的，但是你损失的东西，可以从其他方面要回来。比如你可以说，<strong>「我了解咱们公司的情况。业务确实繁忙，加班可以理解。我年轻，可以住的离公司近一点，省掉来回通勤的时间。但这样房租会很贵，我的薪水总包是不是可以再加一些？」</strong>很多时候，利益是需要自己争取的。有没有提升这百分之几的薪水，其实就差你这么一句话。另外，有些公司和团队的文化（价值观），需要提前预习一下。比方说字节是倡导创新的，他们的 HRBP 就可能会问你这样的问题：「你以前做的工作中，有哪些是具有创新性的？」其实这样的问题只要稍做准备，都不难回答。重点是你要知道，HR 面试是可能冒出这样的问题的，不要冷不丁被问到，就懵了。</p>
+<h2 id="有没有想问的-反问环节"><a href="#有没有想问的-反问环节" class="headerlink" title="有没有想问的&#x2F;反问环节"></a>有没有想问的&#x2F;反问环节</h2><p>关于<br>试用期多久，转正的考核标准是什么<br>什么的<br>我可以去和HR老师详细沟通，就不耽误您的时间了</p>
+<p>这里我主要问一两个问题：</p>
 
                 
             </div>
